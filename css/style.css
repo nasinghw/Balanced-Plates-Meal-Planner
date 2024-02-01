@@ -1,12 +1,11 @@
 
-
-
 /* Navbar */
 
-nav{
-    background-color: #1E3F03;
+nav {
+  background-color: #1e3f03;
 }
-nav .nav-link{
-    color: white;
-    text-decoration: none;
+nav .nav-link {
+  color: white;
+  text-decoration: none;
+
 }
