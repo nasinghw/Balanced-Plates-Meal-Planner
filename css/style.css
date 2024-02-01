@@ -11,7 +11,7 @@ nav .nav-link {
 /* Hero */
 
 #hero {
-  background-image: url("/img/hero-bg.jpg") !important;
+  background-image: url("../img/hero-bg.jpg") !important;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -43,4 +43,10 @@ nav .nav-link {
 
 .cta p {
   font-size: 1.3em;
+}
+
+#footer {
+  background-color: #1e3f03;
+  color: white;
+  text-align: center;
 }
