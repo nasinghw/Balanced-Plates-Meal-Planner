@@ -1,4 +1,5 @@
 
+
 /* Navbar */
 
 nav {
@@ -18,14 +19,15 @@ nav .nav-link {
     background-repeat: no-repeat;
     background-size: cover;
     height: 100vh !important;
+    color:white;
 }
 
 .hero-bg-overlay{
-    width: 100%;
+    width: 100vw;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.541);
 }
 
-.cta{
-    
+.welcome-title{
+    font-size: 3em;
 }
