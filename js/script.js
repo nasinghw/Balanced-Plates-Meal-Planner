@@ -31,6 +31,8 @@ function dailyRecommendedCalorieFetch(){
     $.ajax(settings).done(function (response) {
         console.log(response);
         console.log(response.data.calorie)
+        var recommendedCalories = Math.round(response.data.calorie)
+        $("#daily-result").append($("<p>").text(`${recommendedCalories} calories.`))
     });
 }
 
