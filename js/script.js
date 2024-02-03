@@ -77,7 +77,15 @@ $.ajax({
             
         }
         console.log(TotalCalories);
-        $('#total-result').append('<p>').text(`${TotalCalories} calories`);
+        
+        $('p').remove();
+        
+        $('.total-calorie-container').css(
+                        { display: "flex",
+                          fontSize: "18px",
+                          fontWeight: "600" }).append(
+                    `<p>&nbsp; ${TotalCalories} calories </p>`);
+        
     },
     error: function ajaxError(jqXHR) {
         console.error('Error: ', jqXHR.responseText);
