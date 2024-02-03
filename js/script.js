@@ -1,11 +1,17 @@
-//Blank global variables to store input from about you form.
+//Blank global variables.
 var age;
 var gender;
 var height;
 var weight;
 var activity;
+var meal1item1= "";
+var meal2item2= "";
+var meal3item3= "";
+var meal1weight1= "";
+var meal2weight2= "";
+var meal2weight3= "";
 
-
+//About form submit function to capture values of the form, and run them through the dailyRecommendedCalorieFetch function
 $("#about-form").on("submit", function(event){
     event.preventDefault();
     age = $("#age-input").val();
@@ -13,9 +19,47 @@ $("#about-form").on("submit", function(event){
     height = $("#height-input").val();
     weight = $("#weight-input").val();
     activity = $("#activity-input").val();
+    aboutFormStorageSet()
     dailyRecommendedCalorieFetch();
 })
 
+//Meal form submit function to capture values of the form and construct the query string. totalMealCalories fetch function is called and query string is passed through as a parameter.
+$("#meal-form").on("submit", function(event){
+    event.preventDefault();
+    meal1item1 = $("#meal1item1").val();
+    meal2item2 = $("#meal2item2").val();
+    meal3item3 = $("#meal3item3").val();
+    meal1weight1 = $("#meal1weight1").val();
+    meal2weight2 = $("#meal2weight2").val();
+    meal3weight3 = $("#meal3weight3").val();
+    
+    var query = meal1weight1+"g "+meal1item1+" "+meal2weight2+"g "+meal2item2+" "+meal3weight3+"g "+meal3item3
+    console.log(query);
+    totalMealCalories(query);
+})
+
+//Function to store inputs on the about form into localStorage.
+function aboutFormStorageSet() {
+    localStorage.setItem("ageStorage", age)
+    localStorage.setItem("genderStorage", gender)
+    localStorage.setItem("heightStorage", height)
+    localStorage.setItem("weightStorage", weight)
+    localStorage.setItem("activityStorage", activity)
+}
+
+//Function to set text inputs on the about form to previous inputs saved to localStorage.
+function aboutFormStorageGet() {
+    $("#age-input").val(localStorage.getItem("ageStorage"))
+    $("#gender-input").val(localStorage.getItem("genderStorage"))
+    $("#height-input").val(localStorage.getItem("heightStorage"))
+    $("#weight-input").val(localStorage.getItem("weightStorage"))
+    $("#activity-input").val(localStorage.getItem("activityStorage"))
+}
+
+//Function call to set text inputs on page load.
+aboutFormStorageGet();
+
+//Function to fetch API data for daily recommended calories and to then append it to the page.
 function dailyRecommendedCalorieFetch(){
     const settings = {
         async: true,
@@ -36,31 +80,8 @@ function dailyRecommendedCalorieFetch(){
     });
 }
 
-var meal1item1= "";
-var meal2item2= "";
-var meal3item3= "";
-var meal1weight1= "";
-var meal2weight2= "";
-var meal2weight3= "";
-
-$("#meal-form").on("submit", function(event){
-    event.preventDefault();
-    meal1item1 = $("#meal1item1").val();
-    meal2item2 = $("#meal2item2").val();
-    meal3item3 = $("#meal3item3").val();
-    meal1weight1 = $("#meal1weight1").val();
-    meal2weight2 = $("#meal2weight2").val();
-    meal3weight3 = $("#meal3weight3").val();
-    
-    var query = meal1weight1+"g "+meal1item1+" "+meal2weight2+"g "+meal2item2+" "+meal3weight3+"g "+meal3item3
-    console.log(query);
-    totalMealCalories(query);
-})
-
+//Function to fetch API data for meal form input total calories. For loop used to sum the total calories.
 function totalMealCalories(query){
-
-
-// var query = "200g chicken 200g rice 200g eggs"
 $.ajax({
     method: 'GET',
     url: 'https://api.calorieninjas.com/v1/nutrition?query=' + query,
@@ -81,7 +102,5 @@ $.ajax({
     error: function ajaxError(jqXHR) {
         console.error('Error: ', jqXHR.responseText);
     }
-
-
 })
 }
