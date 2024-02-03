@@ -94,10 +94,11 @@ $.ajax({
         for (let i = 0; i < result.items.length; i++) {
             
             TotalCalories += parseFloat(result.items[i].calories);
-                        
+            TotalCalories = Math.round(TotalCalories);
+            
         }
         console.log(TotalCalories);
-
+        $('#total-result').append('<p>').text(`${TotalCalories} calories`);
     },
     error: function ajaxError(jqXHR) {
         console.error('Error: ', jqXHR.responseText);
