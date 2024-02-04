@@ -11,7 +11,7 @@
   --main-color: #1F4002;
   --light-accent: rgba(192, 207, 182, 0.2);
   --mid-accent: #A8C0A3;
-  --light-text: #E0E0E0;
+  --light-text: #e0e0e0;
   
   
 }
@@ -39,18 +39,19 @@ nav .nav-link {
   font-weight:100;
 }
 
+.navbar-light .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(224, 224, 224, 1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
 
 /* Hero */
 
 #hero {
-  /* position:relative; */
   
   min-height: 100vh !important;
   color: rgb(25, 25, 25);
 }
 
 .hero-bg-overlay {
-  /* position:absolute; */
   background-image: url("../img/jonathan-kemper-1HHrdIoLFpU-unsplash\ 1.png") !important;
   background-position: center;
   background-repeat: no-repeat;
@@ -61,7 +62,6 @@ nav .nav-link {
 }
 
 #hero-card {
-  /* position:relative; */
   margin-top: 10%;
   background-color: rgba(0, 0, 0, 0.421);
   -webkit-box-shadow: 0px 0px 17px 0px rgba(0, 0, 0, 0.5);
