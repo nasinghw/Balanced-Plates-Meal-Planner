@@ -74,9 +74,10 @@ function dailyRecommendedCalorieFetch(){
 
     $.ajax(settings).done(function (response) {
         console.log(response);
-        console.log(response.data.calorie)
-        var recommendedCalories = Math.round(response.data.calorie)
-        $("#daily-result").append($("<p>").text(`${recommendedCalories} calories.`))
+        console.log(response.data.calorie);
+        var recommendedCalories = Math.round(response.data.calorie);
+        
+        displayCaloriesResult('.daily-recommend-container', 'p', recommendedCalories);
     });
 }
 
@@ -99,17 +100,32 @@ $.ajax({
         }
         console.log(TotalCalories);
         
-        $('p').remove();
-        
-        $('.total-calorie-container').css(
-                        { display: "flex",
-                          fontSize: "18px",
-                          fontWeight: "600" }).append(
-                    `<p>&nbsp; ${TotalCalories} calories </p>`);
+        displayCaloriesResult('.total-calorie-container', 'p', TotalCalories);
         
     },
     error: function ajaxError(jqXHR) {
         console.error('Error: ', jqXHR.responseText);
     }
 })
+}
+
+/*
+ * function displayCaloriesResult(container, elem, calories);
+ *
+ * @param {Object} container Parent Element containing children
+ * Element tags for displaying colories results from API calls.
+ * 
+ * @param {string} Element tag to be created and added to
+ * container parameter.
+ * 
+ * @param {Number} calories API call returned result.
+*/
+function displayCaloriesResult(container, elem, calories) {
+    $(container).find(elem).remove();
+        
+    $(container).css({
+                      display: "flex",
+                      fontSize: "18px",
+                      fontWeight: "600" })
+            .append(`<`+elem+`>&nbsp; ${calories} calories </`+elem+`>`);
 }
