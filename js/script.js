@@ -90,6 +90,17 @@ $.ajax({
 })
 }
 
+/*
+ * function displayCaloriesResult(container, elem, calories);
+ *
+ * @param {Object} container Parent Element containing children
+ * Element tags for displaying colories results from API calls.
+ * 
+ * @param {string} Element tag to be created and added to
+ * container parameter.
+ * 
+ * @param {Number} calories API call returned result.
+*/
 function displayCaloriesResult(container, elem, calories) {
     $(container).find(elem).remove();
         
@@ -97,5 +108,5 @@ function displayCaloriesResult(container, elem, calories) {
                       display: "flex",
                       fontSize: "18px",
                       fontWeight: "600" })
-            .append(`<p>&nbsp; ${calories} calories </p>`);
+            .append(`<`+elem+`>&nbsp; ${calories} calories </`+elem+`>`);
 }
