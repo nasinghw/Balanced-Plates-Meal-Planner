@@ -32,6 +32,9 @@ nav {
   max-width: 100%;
   margin: 0 auto;
 }
+.navbar-nav{
+    gap:10px;
+}
 nav .nav-link {
   color: white;
   text-decoration: none;
@@ -51,6 +54,15 @@ nav .nav-link:hover{
     color:#1e3f03;
     border-radius: 10px;
 }
+
+
+.navbar-toggler-icon{
+    color:white;
+}
+.navbar-toggler:focus {
+    border: 2px solid #ff0000 !important; /* Set your desired outline color */
+  }
+
 
 .navbar-brand{
     color:white;
