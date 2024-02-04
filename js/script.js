@@ -25,6 +25,7 @@ $("#about-form").on("submit", function(event){
     dailyRecommendedCalorieFetch();
 
     $("#dyn-name").text(username);
+    location.href = "#meal-form";
 })
 
 //Meal form submit function to capture values of the form and construct the query string. totalMealCalories fetch function is called and query string is passed through as a parameter.
@@ -40,6 +41,8 @@ $("#meal-form").on("submit", function(event){
     var query = meal1weight1+"g "+meal1item1+" "+meal2weight2+"g "+meal2item2+" "+meal3weight3+"g "+meal3item3
     console.log(query);
     totalMealCalories(query);
+
+  
 })
 
 //Function to store inputs on the about form into localStorage.
