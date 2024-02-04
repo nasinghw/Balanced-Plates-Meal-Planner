@@ -25,6 +25,8 @@
   background-color: var(--main-color);
 }
 
+/* To capitalize words */
+.ucwords { text-transform: capitalize; }
 
 
 /* Global form settings */
@@ -219,6 +221,7 @@ nav .nav-link:hover{
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  height:70vh;
   background-color: var(--mid-accent);
 }
 .form-container{
@@ -226,6 +229,10 @@ nav .nav-link:hover{
   margin: 0 auto;
   display: flex;
   flex-direction: column;
+}
+
+#meal-form p input{
+  border: 1px solid var(--main-color);
 }
 
 

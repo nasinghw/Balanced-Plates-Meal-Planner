@@ -1,4 +1,5 @@
 //Blank global variables.
+var username;
 var age;
 var gender;
 var height;
@@ -14,6 +15,7 @@ var meal2weight3= "";
 //About form submit function to capture values of the form, and run them through the dailyRecommendedCalorieFetch function
 $("#about-form").on("submit", function(event){
     event.preventDefault();
+    username = $("#name-input").val();
     age = $("#age-input").val();
     gender = $("#gender-input").val();
     height = $("#height-input").val();
@@ -21,6 +23,9 @@ $("#about-form").on("submit", function(event){
     activity = $("#activity-input").val();
     aboutFormStorageSet()
     dailyRecommendedCalorieFetch();
+
+
+    $("#dyn-name").text(username);
 })
 
 //Meal form submit function to capture values of the form and construct the query string. totalMealCalories fetch function is called and query string is passed through as a parameter.
