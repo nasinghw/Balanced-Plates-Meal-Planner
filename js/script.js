@@ -94,10 +94,19 @@ $.ajax({
         for (let i = 0; i < result.items.length; i++) {
             
             TotalCalories += parseFloat(result.items[i].calories);
-                        
+            TotalCalories = Math.round(TotalCalories);
+            
         }
         console.log(TotalCalories);
-
+        
+        $('p').remove();
+        
+        $('.total-calorie-container').css(
+                        { display: "flex",
+                          fontSize: "18px",
+                          fontWeight: "600" }).append(
+                    `<p>&nbsp; ${TotalCalories} calories </p>`);
+        
     },
     error: function ajaxError(jqXHR) {
         console.error('Error: ', jqXHR.responseText);
