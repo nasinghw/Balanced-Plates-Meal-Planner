@@ -1,6 +1,14 @@
+/* Page settings and variables */
 :root{
+  scroll-behavior: smooth;
 
-  --main-color: #1e3f03;
+
+  font-family: 'Be Vietnam Pro', sans-serif;
+  font-family: 'Inter', sans-serif;
+  font-family: 'Newsreader', serif;
+
+
+  --main-color: #1F4002;
   --light-accent: rgba(192, 207, 182, 0.2);
   --mid-accent: #A8C0A3;
   --light-text: #E0E0E0;
@@ -8,55 +16,85 @@
   
 }
 
+.page-button{
+  display: flex;
+  width:max-content;
+  margin:0 auto;
+  padding-inline: 150px;
+  padding-block: 20px;
+  background-color: var(--main-color);
+}
+
 /* Navbar */
 
 nav {
   background-color: var(--main-color);
+  max-width: 100%;
+  margin: 0 auto;
 }
 nav .nav-link {
   color: white;
   text-decoration: none;
+  font-family: 'Be Vietnam Pro', sans-serif;
+  font-weight:100;
 }
+
 
 /* Hero */
 
 #hero {
-  position:relative;
-  background-image: url("../img/hero-bg.jpg") !important;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  height: 100vh !important;
+  /* position:relative; */
+  
+  min-height: 100vh !important;
   color: rgb(25, 25, 25);
 }
 
 .hero-bg-overlay {
+  /* position:absolute; */
+  background-image: url("../img/jonathan-kemper-1HHrdIoLFpU-unsplash\ 1.png") !important;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
   margin: 0 auto;
-  width: 100vw;
-  height: 100%;
-  background-color: rgba(255, 255, 255, 0.781);
+  min-height: 100vh;
+  min-width: fit-content;
+}
+
+#hero-card {
+  /* position:relative; */
+  margin-top: 10%;
+  background-color: rgba(0, 0, 0, 0.421);
+  -webkit-box-shadow: 0px 0px 17px 0px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 0px 0px 17px 0px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 0px 17px 0px rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(3px);
+  border-radius: 50px;
 }
 
 .welcome-title {
   text-align: center;
-  font-size: 3em;
-  color: var(--main-color);
+  font-size: 4rem;
+  font-weight: 400;
+  color: var(--light-text);
+  padding-bottom: 50px;
+  
 }
 
-.rounded-borders {
-  border-radius: 10px;
+#hero-card p {
+  margin: 0 25px;
+  font-size: 1.5rem;
+  text-align: center;
+  color: var(--light-text);
+  font-family: Newsreader, serif;
+  font-weight: 300;
+  padding-bottom: 75px;
 }
 
-.cta {
-  background-color: rgba(255, 255, 255, 0.567);
-  -webkit-box-shadow: 0px 0px 17px 0px rgba(0, 0, 0, 1);
-  -moz-box-shadow: 0px 0px 17px 0px rgba(0, 0, 0, 1);
-  box-shadow: 0px 0px 17px 0px rgba(0, 0, 0, 1);
-}
 
-.cta p {
-  font-size: 1.3em;
-}
+
+
+
+
 
 #footer {
   background-color: var(--main-color);
