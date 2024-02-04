@@ -1,4 +1,5 @@
 //Blank global variables.
+var username;
 var age;
 var gender;
 var height;
@@ -14,6 +15,7 @@ var meal2weight3= "";
 //About form submit function to capture values of the form, and run them through the dailyRecommendedCalorieFetch function
 $("#about-form").on("submit", function(event){
     event.preventDefault();
+    username = $("#name-input").val();
     age = $("#age-input").val();
     gender = $("#gender-input").val();
     height = $("#height-input").val();
@@ -21,6 +23,9 @@ $("#about-form").on("submit", function(event){
     activity = $("#activity-input").val();
     aboutFormStorageSet()
     dailyRecommendedCalorieFetch();
+
+    $("#dyn-name").text(username);
+    location.href = "#meal-form";
 })
 
 //Meal form submit function to capture values of the form and construct the query string. totalMealCalories fetch function is called and query string is passed through as a parameter.
@@ -36,10 +41,13 @@ $("#meal-form").on("submit", function(event){
     var query = meal1weight1+"g "+meal1item1+" "+meal2weight2+"g "+meal2item2+" "+meal3weight3+"g "+meal3item3
     console.log(query);
     totalMealCalories(query);
+
+  
 })
 
 //Function to store inputs on the about form into localStorage.
 function aboutFormStorageSet() {
+    localStorage.setItem("nameStorage", username)
     localStorage.setItem("ageStorage", age)
     localStorage.setItem("genderStorage", gender)
     localStorage.setItem("heightStorage", height)
@@ -49,11 +57,15 @@ function aboutFormStorageSet() {
 
 //Function to set text inputs on the about form to previous inputs saved to localStorage.
 function aboutFormStorageGet() {
+    $("#name-input").val(localStorage.getItem("nameStorage"))
     $("#age-input").val(localStorage.getItem("ageStorage"))
     $("#gender-input").val(localStorage.getItem("genderStorage"))
     $("#height-input").val(localStorage.getItem("heightStorage"))
     $("#weight-input").val(localStorage.getItem("weightStorage"))
     $("#activity-input").val(localStorage.getItem("activityStorage"))
+
+    // append name to meal form header
+    $("#dyn-name").text(localStorage.getItem("nameStorage"));
 }
 
 //Function call to set text inputs on page load.
