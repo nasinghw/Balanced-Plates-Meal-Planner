@@ -26,7 +26,7 @@
                 <div class="navbar-nav">
                     <a class="nav-link" aria-current="page" href="#">Home</a>
                     <a class="nav-link" href="#about-yourself">Tell Us About Yourself</a>
-                    <a class="nav-link" href="#meal-plan">Meal Plan</a>
+                    <!-- <a class="nav-link" href="#meal-plan">Meal Plan</a> -->
                     <a class="nav-link" href="#who-we-are">Who We Are</a>
                     <a class="nav-link" href="#contact">Contact</a>
                 </div>
@@ -138,46 +138,7 @@
 
     </section>
 
-    <!-- Meals-->
-<!-- Modals -->
-<!--     <section id="meal-plan" class="modal-dialog modal-dialog-centered">
-
-    <h1 class="meals-title mb-3" id="meal-section-title">Hi <span id="dyn-name" class="ucwords"></span>! What's on the menu today?</h1>
-
-        <div class="form-container d-flex justify-content-center row">
-            <div class="col-lg form-inner">
-              
-        <form class="form" id="meal-form">
-            <p>
-                <label class="meal-form form-label" name="Meal-1">Meal 1 </label>
-                <input type="text" class="form-control meal-input" id="meal1item1" required>
-                <label class="meal-form form-label" name="Weight-1">Weight 1 </label> 
-                <input type="text" class="form-control meal-input" id="meal1weight1" required> <span> (g)</span>
-            </p>
-            <p>
-                <label class="meal-form form-label" name="Meal-2">Meal 2 </label>
-                <input type="text" class="form-control meal-input" id="meal2item2" required>
-                <label class="meal-form form-label" name="Weight-2">Weight 2 </label> 
-                <input type="text" class="form-control meal-input" id="meal2weight2" required> <span> (g)</span>
-            </p>
-            <p>
-                <label class="meal-form form-label" name="Meal-3">Meal 3 </label>
-                <input type="text" class="form-control meal-input" id="meal3item3" required>
-                <label class="meal-form form-label" name="Weight-3">Weight 3 </label> 
-                <input type="text" class="form-control meal-input" id="meal3weight3" required> <span> (g)</span>
-            </p>
-             </div>
-            <button type="submit" class="btn btn-md btn-success page-button form-button">Submit</button>
-        </form>
-       
-        </div>
-    </section>
- -->
-<!--/ Modals -->
-
-
-
-<!-- ----------------------------------Modal -------------------------------->
+<!-- ----------------------------------Modal Calories-------------------------------->
   
   <!-- Modal -->
   <div class="modal fade" id="modal-calories" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modal-caloriesLabel" aria-hidden="true">
@@ -190,11 +151,9 @@
         <section id="display-result" class="pb-4">
             <div class="form-container d-flex justify-content-center row">
                 <div class="daily-recommend-container mb-3">
-                    <!-- <h5 id="daily-result">Your daily recommended calorie intake is: </h4> -->
+
                 </div>
-   <!--              <div class="total-calorie-container mb-3">
-                    <h5 id="total-result">Your total meal calorie intake is: </h4>
-                </div> -->
+
                 <button type="button" class="btn btn-success " data-bs-toggle="modal" data-bs-target="#modal-prepare-meal" data-bs-dismiss="modal" aria-label="Close">Prepare Your Meal</button>
             </div>
 
@@ -205,12 +164,12 @@
 
 <!-- ----------------------------------Modal Meal ---------------------------------->
   
-  <!-- Modal -->
+
   <div class="modal fade" id="modal-prepare-meal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modal-prepare-mealLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-xl">
       <div class="modal-content">
         <div class="modal-header">
-            <h1 class="modal-title fs-4 text-centre" id="modal-prepare-mealLabel">Your daily recommended calorie intake is:</h1>
+            <h1 class="modal-title fs-4 text-centre" id="modal-prepare-mealLabel">Prepare your Meal:</h1>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
@@ -255,10 +214,8 @@
   </div>
 
 
-
-<!-- ----------------------------------Modal -------------------------------->
+<!-- ----------------------------------Modal Total Calories -------------------------------->
   
-  <!-- Modal -->
   <div class="modal fade" id="modal-total-calories" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modal-total-caloriesLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
@@ -269,11 +226,9 @@
         <section id="display-result" class="pb-4">
             <div class="form-container d-flex justify-content-center row">
                 <div class="total-calorie-container mb-3">
-                    <!-- <h5 id="total-result">Your total meal calorie intake is: </h4> -->
+
                 </div>
-   <!--              <div class="total-calorie-container mb-3">
-                    <h5 id="total-result">Your total meal calorie intake is: </h4>
-                </div> -->
+
                 <div class="d-flex gap-4">
                     <button type="button" class="btn btn-success " data-bs-toggle="modal" data-bs-target="#modal-prepare-meal" data-bs-dismiss="modal" aria-label="Close" style="width:40%;">Go Back</button>
                     <button type="button" class="btn btn-danger "  data-bs-dismiss="modal" aria-label="Close" style="width:40%;">Exit</button>
@@ -286,35 +241,10 @@
     </div>
   </div>
 
-
-
-
-
-
-
-
-
-    <!-- Display-->
-
-
-   <!--  <section id="display-result" class="">
-        <div class="form-container d-flex justify-content-center row">
-            <div class="daily-recommend-container mb-3">
-                <h5 id="daily-result">Your daily recommended calorie intake is: </h4>
-            </div>
-            <div class="total-calorie-container mb-3">
-                <h5 id="total-result">Your total meal calorie intake is: </h4>
-            </div>
-        </div>
-        
-    </section> -->
-
     <footer id="footer" class="text-centre py-4">
         <p class="mb-0">© 2024 Diet Planner. All rights reserved.</p>
 
     </footer>
-
-
 
     <script src="https://code.jquery.com/jquery-3.7.1.js"
         integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
