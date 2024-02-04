@@ -50,7 +50,6 @@ form {
 .form p{
   display: table-row;
   align-items: center;
-
 }
 
 .form p label{
@@ -63,7 +62,7 @@ form {
 
 .form p input{
   display: table-cell;
-  margin:10px 0;
+  margin: 10px 0;
   min-width: fit-content;
   border: 1px solid var(--mid-accent);
 }
@@ -147,6 +146,7 @@ nav .nav-link:hover{
 
 .hero-bg-overlay {
   background-image: url("../img/jonathan-kemper-1HHrdIoLFpU-unsplash\ 1.png") !important;
+  background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -190,6 +190,7 @@ nav .nav-link:hover{
 
 #about-you-title{
   color:var(--main-color);
+  text-align: center;
 }
 
 #about-yourself{
