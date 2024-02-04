@@ -59,8 +59,7 @@
 
         <h1 class="about-yourself-title mb-3" id="about-you-title">Tell us about yourself...</h1>
             <div class="form-container d-flex justify-content-center row" style="border: 1px solid red;">
-
-                
+              <div class="col-md-11" style="border: 1px solid red;">
                 <form class="form input-group-lg" id="about-form">
         
                     <p class="input-field mb-3">
@@ -105,11 +104,11 @@
                         </select>
                     </p>
 
-                    <button type="submit" class="btn btn-success">Submit</button>
+                    </div>
+                    <button type="submit" class="btn btn-md btn-success page-button form-button">Find My Recommended Calories!</button>
 
                 </form>
-
-
+            
             </div>
 
     </section>
@@ -119,31 +118,31 @@
 
     <section id="meal-plan" class="">
         <div class="form-container d-flex justify-content-center row" style="border: 1px solid red;">
-            <div class="col-md-6" style="border: 1px solid red;">
+            <div class="col-lg meal-form-inner" style="border: 1px solid red;">
               
         <form class="form" id="meal-form">
             <p>
-                <label class="meal-form" name="Meal-1">Meal 1 </label>
-                <input type="text form-control" id="meal1item1" required>
-                <label class="meal-form" name="Weight-1">Weight 1 </label> 
-                <input type="text form-control" id="meal1weight1" required> <span> (g)</span>
+                <label class="meal-form form-label" name="Meal-1">Meal 1 </label>
+                <input type="text" class="form-control" id="meal1item1" required>
+                <label class="meal-form form-label" name="Weight-1">Weight 1 </label> 
+                <input type="text" class="form-control" id="meal1weight1" required> <span> (g)</span>
             </p>
             <p>
-                <label class="meal-form" name="Meal-2">Meal 2 </label>
-                <input type="text form-control" id="meal2item2" required>
-                <label class="meal-form" name="Weight-2">Weight 2 </label> 
-                <input type="text form-control" id="meal2weight2" required> <span> (g)</span>
+                <label class="meal-form form-label" name="Meal-2">Meal 2 </label>
+                <input type="text" class="form-control" id="meal2item2" required>
+                <label class="meal-form form-label" name="Weight-2">Weight 2 </label> 
+                <input type="text" class="form-control" id="meal2weight2" required> <span> (g)</span>
             </p>
             <p>
-                <label class="meal-form" name="Meal-3">Meal 3 </label>
-                <input type="text form-control" id="meal3item3" required>
-                <label class="meal-form" name="Weight-3">Weight 3 </label> 
-                <input type="text form-control" id="meal3weight3" required> <span> (g)</span>
+                <label class="meal-form form-label" name="Meal-3">Meal 3 </label>
+                <input type="text" class="form-control" id="meal3item3" required>
+                <label class="meal-form form-label" name="Weight-3">Weight 3 </label> 
+                <input type="text" class="form-control" id="meal3weight3" required> <span> (g)</span>
             </p>
-            
-            <button type="submit" class="btn btn-success">Submit</button>
+             </div>
+            <button type="submit" class="btn btn-md btn-success page-button form-button">Submit</button>
         </form>
-        </div>
+       
         </div>
     </section>
 

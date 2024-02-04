@@ -34,7 +34,7 @@
 }
 
 .form-control, .form-select{
-  width:70%;
+  width:90%;
 }
 
 form {
@@ -44,23 +44,38 @@ form {
 .form p{
   display: table-row;
   align-items: center;
+  border: 1px solid var(--mid-accent);
 }
 
 .form p label{
   display: table-cell;
   padding: 10px 0;
-  padding-right: 50px;
+  padding-right: 25px;
   text-align: center;
+  border: 1px solid var(--mid-accent);
 }
 
 .form p input{
   display: table-cell;
   margin:10px 0;
+  min-width: fit-content;
+  border: 1px solid var(--mid-accent);
 }
 
 .form p span{
   display: table-cell;
-  margin: 10px 0;
+  left:0;
+  width:10px;
+  text-align: left;
+  border: 1px solid red;
+}
+
+.form-button{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  column-count: 2;
+  margin-top:20px;
 }
 
 
@@ -175,6 +190,11 @@ nav .nav-link:hover{
 
 
 /* Meal form */
+
+.form-container{
+  width: 80%;
+margin: 0 auto;
+}
 
 
 
