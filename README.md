@@ -7,8 +7,11 @@ This project serves to showcase our work in creating a Diet Planner application 
 ...
 
 User Story:
+
 AS A health conscious person
+
 I WANT to know nutritional information, tailored to my specific needs
+
 SO THAT I can plan my meals accordingly
 
 ## Resources
