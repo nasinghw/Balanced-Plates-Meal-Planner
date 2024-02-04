@@ -25,6 +25,8 @@
   background-color: var(--main-color);
 }
 
+
+
 /* Global form settings */
 
 .input-field{
@@ -78,6 +80,11 @@ form {
   margin-top:20px;
 }
 
+.form-inner{
+  width: 70%;
+  margin: 0 auto;
+}
+
 
 /* Navbar */
 
@@ -109,14 +116,12 @@ nav .nav-link:hover{
     border-radius: 10px;
 }
 
-
 .navbar-toggler-icon{
     color:white;
 }
 .navbar-toggler:focus {
     border: 2px solid var(--mid-accent) !important; /* Set your desired outline color */
-  }
-
+}
 
 .navbar-brand{
     color:white;
@@ -125,6 +130,8 @@ nav .nav-link:hover{
 .navbar-brand:hover{
     color:white;
 }
+
+
 
 /* Hero */
 
@@ -174,6 +181,7 @@ nav .nav-link:hover{
 }
 
 
+
 /* About Yourself section */
 
 #about-you-title{
@@ -185,19 +193,40 @@ nav .nav-link:hover{
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height:100vh;
+  height:70vh;
+  margin: 0 auto;
+  background-color: var(--light-accent);
 }
+
+#about-you-title{
+  padding-bottom: 20px;
+  font-size: 4rem;
+}
+
 
 
 /* Meal form */
 
-.form-container{
-  width: 80%;
-margin: 0 auto;
+#meal-section-title{
+  padding-bottom: 20px;
+  font-size: 3rem;
+  text-align: center;
 }
 
 
-
+#meal-plan{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--mid-accent);
+}
+.form-container{
+  width: 80%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
 
 
 
