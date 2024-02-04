@@ -57,41 +57,43 @@
 
     <section id="about-yourself" class="">
 
-            <div class="form-container d-flex justify-content-center row" style="border: 1px solid red;">
-              <div class="col-md-6" style="border: 1px solid red;">
-                
-                <form class="form" id="about-form">
+        <h1 class="about-yourself-title mb-3" id="about-you-title">Tell us about yourself...</h1>
+
+
+            <div class="form-container d-flex justify-content-center row">
+              <div class="col-lg form-inner">
+                <form class="form input-group-lg" id="about-form">
         
-                    <div class="mb-3">
+                    <p class="input-field mb-3">
                     <label class="form-label" name="Name">Name: </label>
-                    <input type="text" id="name-input" required>
-                    </div>
+                    <input class="form-control" type="text" id="name-input" required>
+                    </p>
         
         
-                    <div class="mb-3">
+                    <p class="input-field mb-3">
                     <label class="form-label" name="Age">Age: </label>
-                    <input type="number" id="age-input" required>
-                    </div>
+                    <input class="form-control" type="number" id="age-input" required>
+                    </p>
         
-                    <div class="mb-3">
+                    <p class="input-field mb-3">
                     <label class="form-label" name="Gender">Gender: </label>
                     <select class="form-select" id="gender-input" required>
                     <option value="male">male</option>
                     <option value="female">female</option>
                     </select>
-                    </div>
+                    </p>
                     
-                    <div class="mb-3">
+                    <p class="input-field mb-3">
                         <label class="form-label" name="Height">Height: </label>
-                        <input type="number" id="height-input" required>  <span> (cm)</span>
-                    </div>
+                        <input class="form-control" type="number" id="height-input" required>  <span> (cm)</span>
+                    </p>
 
-                    <div class="mb-3">
+                    <p class="input-field mb-3">
                         <label class="form-label" name="Weight">Weight: </label>
-                        <input type="number" id="weight-input" required>  <span> (kg)</span>
-                    </div>
+                        <input class="form-control" type="number" id="weight-input" required>  <span> (kg)</span>
+                    </p>
                     
-                    <div class="mb-3">
+                    <p class="input-field mb-3">
                         <label class="form-label" name="Activity Level">Activity Level: </label>
                         <select class="form-select" id="activity-input" required>
                         <option value="1">Basal Metabolic Rate</option>
@@ -102,47 +104,49 @@
                         <option value="6">Intense exercise 6-7 times/week</option>
                         <option value="7">Very intense exercise daily, or physical job</option>
                         </select>
-                    </div>
+                    </p>
 
-                    <button type="submit" class="btn btn-success">Submit</button>
+                    </div>
+                    <button type="submit" class="btn btn-md btn-success page-button form-button">Find My Recommended Calories!</button>
 
                 </form>
-
-              </div>
+            
             </div>
 
     </section>
 
     <!-- Meals-->
 
-
     <section id="meal-plan" class="">
-        <div class="form-container d-flex justify-content-center row" style="border: 1px solid red;">
-            <div class="col-md-6" style="border: 1px solid red;">
+
+    <h1 class="meals-title mb-3" id="meal-section-title">Hi <span id="dyn-name" class="ucwords"></span>! What's on the menu today?</h1>
+
+        <div class="form-container d-flex justify-content-center row">
+            <div class="col-lg form-inner">
               
         <form class="form" id="meal-form">
-            <div>
-                <label class="meal-form" name="Meal-1">Meal 1 </label>
-                <input type="text" id="meal1item1" required>
-                <label class="meal-form" name="Weight-1">Weight 1 </label> 
-                <input type="text" id="meal1weight1" required> <span> (g)</span>
-            </div>
-            <div>
-                <label class="meal-form" name="Meal-2">Meal 2 </label>
-                <input type="text" id="meal2item2" required>
-                <label class="meal-form" name="Weight-2">Weight 2 </label> 
-                <input type="text" id="meal2weight2" required> <span> (g)</span>
-            </div>
-            <div>
-                <label class="meal-form" name="Meal-3">Meal 3 </label>
-                <input type="text" id="meal3item3" required>
-                <label class="meal-form" name="Weight-3">Weight 3 </label> 
-                <input type="text" id="meal3weight3" required> <span> (g)</span>
-            </div>
-            
-            <button type="submit" class="btn btn-success">Submit</button>
+            <p>
+                <label class="meal-form form-label" name="Meal-1">Meal 1 </label>
+                <input type="text" class="form-control meal-input" id="meal1item1" required>
+                <label class="meal-form form-label" name="Weight-1">Weight 1 </label> 
+                <input type="text" class="form-control meal-input" id="meal1weight1" required> <span> (g)</span>
+            </p>
+            <p>
+                <label class="meal-form form-label" name="Meal-2">Meal 2 </label>
+                <input type="text" class="form-control meal-input" id="meal2item2" required>
+                <label class="meal-form form-label" name="Weight-2">Weight 2 </label> 
+                <input type="text" class="form-control meal-input" id="meal2weight2" required> <span> (g)</span>
+            </p>
+            <p>
+                <label class="meal-form form-label" name="Meal-3">Meal 3 </label>
+                <input type="text" class="form-control meal-input" id="meal3item3" required>
+                <label class="meal-form form-label" name="Weight-3">Weight 3 </label> 
+                <input type="text" class="form-control meal-input" id="meal3weight3" required> <span> (g)</span>
+            </p>
+             </div>
+            <button type="submit" class="btn btn-md btn-success page-button form-button">Submit</button>
         </form>
-        </div>
+       
         </div>
     </section>
 
