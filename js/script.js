@@ -24,7 +24,6 @@ $("#about-form").on("submit", function(event){
     aboutFormStorageSet()
     dailyRecommendedCalorieFetch();
 
-
     $("#dyn-name").text(username);
 })
 
@@ -45,6 +44,7 @@ $("#meal-form").on("submit", function(event){
 
 //Function to store inputs on the about form into localStorage.
 function aboutFormStorageSet() {
+    localStorage.setItem("nameStorage", username)
     localStorage.setItem("ageStorage", age)
     localStorage.setItem("genderStorage", gender)
     localStorage.setItem("heightStorage", height)
@@ -54,11 +54,15 @@ function aboutFormStorageSet() {
 
 //Function to set text inputs on the about form to previous inputs saved to localStorage.
 function aboutFormStorageGet() {
+    $("#name-input").val(localStorage.getItem("nameStorage"))
     $("#age-input").val(localStorage.getItem("ageStorage"))
     $("#gender-input").val(localStorage.getItem("genderStorage"))
     $("#height-input").val(localStorage.getItem("heightStorage"))
     $("#weight-input").val(localStorage.getItem("weightStorage"))
     $("#activity-input").val(localStorage.getItem("activityStorage"))
+
+    // append name to meal form header
+    $("#dyn-name").text(localStorage.getItem("nameStorage"));
 }
 
 //Function call to set text inputs on page load.
