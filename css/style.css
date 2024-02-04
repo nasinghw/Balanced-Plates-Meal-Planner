@@ -44,12 +44,13 @@
 
 form {
   display: table;
+  margin:0 auto;
 }
 
 .form p{
   display: table-row;
   align-items: center;
-  border: 1px solid var(--mid-accent);
+
 }
 
 .form p label{
@@ -57,7 +58,7 @@ form {
   padding: 10px 0;
   padding-right: 25px;
   text-align: center;
-  border: 1px solid var(--mid-accent);
+
 }
 
 .form p input{
@@ -72,7 +73,7 @@ form {
   left:0;
   width:10px;
   text-align: left;
-  border: 1px solid red;
+
 }
 
 .form-button{
@@ -240,6 +241,7 @@ nav .nav-link:hover{
 
 #meal-form p input{
   border: 1px solid var(--main-color);
+  margin-right: 20px;
 }
 
 
