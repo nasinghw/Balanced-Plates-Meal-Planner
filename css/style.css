@@ -60,7 +60,7 @@ nav .nav-link:hover{
     color:white;
 }
 .navbar-toggler:focus {
-    border: 2px solid #ff0000 !important; /* Set your desired outline color */
+    border: 2px solid var(--mid-accent) !important; /* Set your desired outline color */
   }
 
 
@@ -125,7 +125,8 @@ nav .nav-link:hover{
 
 
 
-/* Hero */
+/* Footer */
+
 #footer {
   background-color: var(--main-color);
   color: white;
