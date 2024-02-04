@@ -60,7 +60,7 @@ nav .nav-link:hover{
     color:white;
 }
 .navbar-toggler:focus {
-    border: 2px solid var(--mid-accent) !important; /* Set your desired outline color */
+    border: 2px solid var(--mid-accent) !important; 
   }
 
 
@@ -230,14 +230,5 @@ nav .nav-link:hover{
     }
   }
   
-  /* Large Devices (desktops) */
-  @media only screen and (min-width: 992px) and (max-width: 1199px) {
-    
-  }
-  
-  /* Extra Large Devices (large desktops) */
-  @media only screen and (min-width: 1200px) {
-   
-  }
 
 }
