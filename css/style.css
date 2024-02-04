@@ -3,6 +3,9 @@
 nav {
   background-color: #1e3f03;
 }
+.navbar-nav{
+    gap:10px;
+}
 nav .nav-link {
   color: white;
   text-decoration: none;
@@ -19,6 +22,9 @@ nav .nav-link:hover{
 .navbar-toggler-icon{
     color:white;
 }
+.navbar-toggler:focus {
+    border: 2px solid #ff0000 !important; /* Set your desired outline color */
+  }
 
 .navbar-brand{
     color:white;
