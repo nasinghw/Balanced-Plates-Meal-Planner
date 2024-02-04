@@ -37,10 +37,14 @@ $("#meal-form").on("submit", function(event){
     meal1weight1 = $("#meal1weight1").val();
     meal2weight2 = $("#meal2weight2").val();
     meal3weight3 = $("#meal3weight3").val();
-    
+  
     var query = meal1weight1+"g "+meal1item1+" "+meal2weight2+"g "+meal2item2+" "+meal3weight3+"g "+meal3item3
     console.log(query);
     totalMealCalories(query);
+    
+    //If the prepare meals form fields are not empty, the #modal-prepare-meal hides and #modal-total-calories come up
+    console.log($('#modal-prepare-meal').modal('hide'));
+    console.log($('#modal-total-calories').modal('show'));
 
   
 })
