@@ -1,16 +1,17 @@
 /* Page settings and variables */
 :root{
   scroll-behavior: smooth;
-
-
+  
+  
   font-family: 'Be Vietnam Pro', sans-serif;
   font-family: 'Inter', sans-serif;
   font-family: 'Newsreader', serif;
-
-
+  
+  
   --main-color: #1F4002;
   --light-accent: rgba(192, 207, 182, 0.2);
   --mid-accent: #A8C0A3;
+  --dark-accent:rgb(26, 79, 17);
   --light-text: #e0e0e0;
   
   
@@ -24,6 +25,70 @@
   padding-block: 20px;
   background-color: var(--main-color);
 }
+
+/* To capitalize words */
+.ucwords { text-transform: capitalize; }
+
+
+/* Global form settings */
+
+.input-field{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.form-control, .form-select{
+  width:90%;
+}
+
+form {
+  display: table;
+  margin:0 auto;
+}
+
+.form p{
+  display: table-row;
+  align-items: center;
+
+}
+
+.form p label{
+  display: table-cell;
+  padding: 10px 0;
+  padding-right: 25px;
+  text-align: center;
+
+}
+
+.form p input{
+  display: table-cell;
+  margin:10px 0;
+  min-width: fit-content;
+  border: 1px solid var(--mid-accent);
+}
+
+.form p span{
+  display: table-cell;
+  left:0;
+  width:10px;
+  text-align: left;
+
+}
+
+.form-button{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  column-count: 2;
+  margin-top:20px;
+}
+
+.form-inner{
+  width: 70%;
+  margin: 0 auto;
+}
+
 
 /* Navbar */
 
@@ -55,14 +120,12 @@ nav .nav-link:hover{
     border-radius: 10px;
 }
 
-
 .navbar-toggler-icon{
     color:white;
 }
 .navbar-toggler:focus {
     border: 2px solid var(--mid-accent) !important; /* Set your desired outline color */
-  }
-
+}
 
 .navbar-brand{
     color:white;
@@ -71,6 +134,8 @@ nav .nav-link:hover{
 .navbar-brand:hover{
     color:white;
 }
+
+
 
 /* Hero */
 
@@ -119,11 +184,100 @@ nav .nav-link:hover{
   padding-bottom: 75px;
 }
 
+/* Who We Are */
+
+#who-we-are{
+    height: 98vh;
+}
+#who-we-are >div{
+    height: 100%;
+}
+#who-we-are >div > *{
+    height: 100%;
+  
+}
+#whowheare-bg-image{
+    background-image: url('https://images.pexels.com/photos/8108006/pexels-photo-8108006.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding:0 0 0 0 !important;
+}
+.section-title{
+    font-size:2.8em;
+    text-align: center;
+}
+
+.section-text-content{
+    font-size:1.8em;
+}
+.bg-overlay{
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.499);
+}
+
+.who-we-are-btn{
+    width:30%; padding:15px;
+}
+
+
+/* About Yourself section */
+
+#about-you-title{
+  color:var(--main-color);
+}
+
+#about-yourself{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height:70vh;
+  margin: 0 auto;
+  background-color: var(--light-accent);
+}
+
+#about-you-title{
+  padding-bottom: 20px;
+  font-size: 4rem;
+}
 
 
 
+/* Meal form */
+
+#meal-section-title{
+  padding-bottom: 20px;
+  font-size: 3rem;
+  text-align: center;
+}
+
+#dyn-name{
+  color: var(--dark-accent);
+  font-weight: 400;
+  font-family: Be Vietnam Pro, sans-serif;;
+}
 
 
+#meal-plan{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height:70vh;
+  background-color: var(--mid-accent);
+}
+.form-container{
+  width: 80%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+#meal-form p input{
+  border: 1px solid var(--main-color);
+  margin-right: 20px;
+
+}
 
 /* Footer */
 
@@ -133,3 +287,81 @@ nav .nav-link:hover{
   text-align: center;
 }
 
+/* Media Queries */
+
+/* Extra Small Devices (phones) */
+@media only screen and (max-width: 576px) {
+    #who-we-are {
+        height: auto; 
+    }
+    #who-we-are >div{
+        width: 100%;
+        height: 100%;
+    }
+
+    #whowheare-bg-image {
+        visibility: hidden;
+    }
+
+    .section-title {
+        font-size: 2rem; 
+    }
+
+    .section-text-content {
+        font-size: 1.2rem; 
+    }
+
+    .who-we-are-btn{
+    width:100%;
+     padding:10px 5px;
+    }
+  }
+  
+  /* Small Devices (tablets) */
+  @media only screen and (min-width: 577px) and (max-width: 767px) {
+
+    #who-we-are {
+        width:100vw;
+        height: auto; 
+    }
+
+    #whowheare-bg-image {
+        display: none;
+    }
+
+    .section-title {
+        font-size: 2rem; 
+    }
+
+    .section-text-content {
+        font-size: 1.2rem; 
+    }
+
+    .who-we-are-btn{
+    width:80%;
+     padding:10px 5px;
+    }
+  }
+
+  /* Medium Devices (desktops) */
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+    #who-we-are {
+        width: 100vw;
+        height: auto; 
+
+    #whowheare-bg-image {
+        display: none;
+    }
+  }
+  
+  /* Large Devices (desktops) */
+  @media only screen and (min-width: 992px) and (max-width: 1199px) {
+    
+  }
+  
+  /* Extra Large Devices (large desktops) */
+  @media only screen and (min-width: 1200px) {
+   
+  }
+
+}
