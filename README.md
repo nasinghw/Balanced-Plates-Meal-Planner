@@ -17,6 +17,7 @@ SO THAT I can plan my meals accordingly
 ## Resources
 
 [Fitness Calculator API](https://rapidapi.com/malaaddincelik/api/fitness-calculator)
+
 [CalorieNinjas API](https://calorieninjas.com/api)
 
 ## Instructions

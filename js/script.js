@@ -138,6 +138,8 @@ function displayCaloriesResult(container, elem, calories) {
     $(container).css({
                       display: "flex",
                       fontSize: "18px",
+                      justifyContent: "center",
+                      fontSize: "2em",
                       fontWeight: "600" })
             .append(`<`+elem+`>&nbsp; ${calories} calories </`+elem+`>`);
 }
