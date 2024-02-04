@@ -6,6 +6,26 @@ nav {
 nav .nav-link {
   color: white;
   text-decoration: none;
+  border-radius: 10px;
+  transition: .4s linear;
+}
+
+nav .nav-link:hover{
+    background-color: white;
+    color:#1e3f03;
+    border-radius: 10px;
+}
+
+.navbar-toggler-icon{
+    color:white;
+}
+
+.navbar-brand{
+    color:white;
+}
+
+.navbar-brand:hover{
+    color:white;
 }
 
 /* Hero */
@@ -45,8 +65,10 @@ nav .nav-link {
   font-size: 1.3em;
 }
 
+/* Hero */
 #footer {
   background-color: #1e3f03;
   color: white;
   text-align: center;
 }
+
