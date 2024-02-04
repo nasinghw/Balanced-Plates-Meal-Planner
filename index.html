@@ -4,8 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Newsreader:opsz,wght@6..72,200;6..72,300;6..72,400&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/style.css">
     <title>Document</title>
@@ -13,7 +15,7 @@
 
 <body>
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg p-3 fixed-top" id="theNavbar">
+    <nav class="navbar navbar-light navbar-expand-lg p-3 fixed-top" id="theNavbar">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">Diet Planner</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
@@ -27,24 +29,25 @@
                     <a class="nav-link" href="#meal-plan">Meal Plan</a>
                     <a class="nav-link" href="#who-we-are">Who We Are</a>
                     <a class="nav-link" href="#contact">Contact</a>
-
                 </div>
             </div>
         </div>
     </nav>
 
+
     <!-- Hero -->
 
     <header id="hero">
         <div class="row justify-content-center align-items-center hero-bg-overlay ">
-            <div class="col-md-6 p-5 rounded-borders cta gap py-5" >
+            <div class="col-md-10 rounded-borders cta gap py-5" id="hero-card" >
                 <h1 class="welcome-title mb-3">Welcome to your Meal Planner</h1>
                 <p class="mb-3">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                    Etiam in risus maximus, iaculis eros at, fermentum nisl. 
-                    Aliquam quam enim, malesuada et scelerisque in, placerat non magna.
+                    Welcome to the only meal planner you will ever need! We will help you discover your daily recommended calorie
+                     amount so you can make the best descisions about your diet and lifestyle. Not sure if your current diet matches
+                      up to what it should be? Simple. Use our meal planner to input what you have/are planning to eat today and it will calculate
+                      the total number of calories for you. Join the thousands of people who are eating their way to a better future!  
                 </p>
-                <a href="#aboutYourselfInput" class="btn btn-success">Start Your Plan!</a>
+                <a href="#about-yourself" class="btn btn-lg btn-success page-button" id="hero-button">Start Your Plan!</a>
             </div>
         </div>
 

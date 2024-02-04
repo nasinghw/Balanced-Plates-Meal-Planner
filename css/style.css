@@ -1,13 +1,52 @@
+/* Page settings and variables */
+:root{
+  scroll-behavior: smooth;
+
+
+  font-family: 'Be Vietnam Pro', sans-serif;
+  font-family: 'Inter', sans-serif;
+  font-family: 'Newsreader', serif;
+
+
+  --main-color: #1F4002;
+  --light-accent: rgba(192, 207, 182, 0.2);
+  --mid-accent: #A8C0A3;
+  --light-text: #e0e0e0;
+  
+  
+}
+
+.page-button{
+  display: flex;
+  width:max-content;
+  margin:0 auto;
+  padding-inline: 150px;
+  padding-block: 20px;
+  background-color: var(--main-color);
+}
+
 /* Navbar */
 
 nav {
-  background-color: #1e3f03;
+  background-color: var(--main-color);
+  max-width: 100%;
+  margin: 0 auto;
+}
+.navbar-nav{
+    gap:10px;
 }
 nav .nav-link {
   color: white;
   text-decoration: none;
+
+  font-family: 'Be Vietnam Pro', sans-serif;
+  font-weight:100; 
   border-radius: 10px;
   transition: .4s linear;
+}
+
+.navbar-light .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(224, 224, 224, 1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
 }
 
 nav .nav-link:hover{
@@ -16,9 +55,14 @@ nav .nav-link:hover{
     border-radius: 10px;
 }
 
+
 .navbar-toggler-icon{
     color:white;
 }
+.navbar-toggler:focus {
+    border: 2px solid var(--mid-accent) !important; /* Set your desired outline color */
+  }
+
 
 .navbar-brand{
     color:white;
@@ -31,43 +75,60 @@ nav .nav-link:hover{
 /* Hero */
 
 #hero {
-  background-image: url("../img/hero-bg.jpg") !important;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  height: 100vh !important;
+  
+  min-height: 100vh !important;
   color: rgb(25, 25, 25);
 }
 
 .hero-bg-overlay {
-  width: 100vw;
-  height: 100%;
-  background-color: rgba(255, 255, 255, 0.781);
+  background-image: url("../img/jonathan-kemper-1HHrdIoLFpU-unsplash\ 1.png") !important;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin: 0 auto;
+  min-height: 100vh;
+  min-width: fit-content;
+}
+
+#hero-card {
+  margin-top: 10%;
+  background-color: rgba(0, 0, 0, 0.421);
+  -webkit-box-shadow: 0px 0px 17px 0px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 0px 0px 17px 0px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 0px 17px 0px rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(3px);
+  border-radius: 50px;
 }
 
 .welcome-title {
-  font-size: 3em;
-  color:#1e3f03;
+  text-align: center;
+  font-size: 4rem;
+  font-weight: 400;
+  color: var(--light-text);
+  padding-bottom: 50px;
+  
 }
 
-.rounded-borders {
-  border-radius: 10px;
+#hero-card p {
+  margin: 0 25px;
+  font-size: 1.5rem;
+  text-align: center;
+  color: var(--light-text);
+  font-family: Newsreader, serif;
+  font-weight: 300;
+  padding-bottom: 75px;
 }
 
-.cta {
-  background-color: rgba(255, 255, 255, 0.567);
-  -webkit-box-shadow: 0px 0px 17px 0px rgba(0, 0, 0, 1);
-  -moz-box-shadow: 0px 0px 17px 0px rgba(0, 0, 0, 1);
-  box-shadow: 0px 0px 17px 0px rgba(0, 0, 0, 1);
-}
 
-.cta p {
-  font-size: 1.3em;
-}
 
-/* Hero */
+
+
+
+
+/* Footer */
+
 #footer {
-  background-color: #1e3f03;
+  background-color: var(--main-color);
   color: white;
   text-align: center;
 }
