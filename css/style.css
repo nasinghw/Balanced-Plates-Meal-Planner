@@ -14,6 +14,7 @@
   --dark-accent:rgb(26, 79, 17);
   --light-text: #e0e0e0;
   
+  background-color: black;
   
 }
 
@@ -157,7 +158,7 @@ nav .nav-link:hover{
 
 #hero-card {
   margin-top: 10%;
-  background-color: rgba(0, 0, 0, 0.421);
+  background-color: rgba(0, 0, 0, 0.7);
   -webkit-box-shadow: 0px 0px 17px 0px rgba(0, 0, 0, 0.5);
   -moz-box-shadow: 0px 0px 17px 0px rgba(0, 0, 0, 0.2);
   box-shadow: 0px 0px 17px 0px rgba(0, 0, 0, 0.5);
@@ -187,7 +188,7 @@ nav .nav-link:hover{
 /* Who We Are */
 
 #who-we-are{
-    height: 98vh;
+    height: 100vh;
 }
 #who-we-are >div{
     height: 100%;
@@ -200,6 +201,7 @@ nav .nav-link:hover{
     background-image: url('https://images.pexels.com/photos/8108006/pexels-photo-8108006.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
     background-repeat: no-repeat;
     background-size: cover;
+    height: 100%;
     padding:0 0 0 0 !important;
 }
 .section-title{
@@ -232,7 +234,7 @@ nav .nav-link:hover{
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height:70vh;
+  height:100vh;
   margin: 0 auto;
   background-color: var(--light-accent);
 }
