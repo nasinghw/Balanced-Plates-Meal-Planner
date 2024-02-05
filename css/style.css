@@ -184,6 +184,40 @@ nav .nav-link:hover{
   padding-bottom: 75px;
 }
 
+/* Who We Are */
+
+#who-we-are{
+    height: 98vh;
+}
+#who-we-are >div{
+    height: 100%;
+}
+#who-we-are >div > *{
+    height: 100%;
+  
+}
+#whowheare-bg-image{
+    background-image: url('https://images.pexels.com/photos/8108006/pexels-photo-8108006.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding:0 0 0 0 !important;
+}
+.section-title{
+    font-size:2.8em;
+    text-align: center;
+}
+
+.section-text-content{
+    font-size:1.8em;
+}
+.bg-overlay{
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.499);
+}
+
+.who-we-are-btn{
+    width:30%; padding:15px;
+}
 
 
 /* About Yourself section */
@@ -243,10 +277,8 @@ nav .nav-link:hover{
 #meal-form p input{
   border: 1px solid var(--main-color);
   margin-right: 20px;
+
 }
-
-
-
 
 /* Footer */
 
@@ -256,3 +288,81 @@ nav .nav-link:hover{
   text-align: center;
 }
 
+/* Media Queries */
+
+/* Extra Small Devices (phones) */
+@media only screen and (max-width: 576px) {
+    #who-we-are {
+        height: auto; 
+    }
+    #who-we-are >div{
+        width: 100%;
+        height: 100%;
+    }
+
+    #whowheare-bg-image {
+        visibility: hidden;
+    }
+
+    .section-title {
+        font-size: 2rem; 
+    }
+
+    .section-text-content {
+        font-size: 1.2rem; 
+    }
+
+    .who-we-are-btn{
+    width:100%;
+     padding:10px 5px;
+    }
+  }
+  
+  /* Small Devices (tablets) */
+  @media only screen and (min-width: 577px) and (max-width: 767px) {
+
+    #who-we-are {
+        width:100vw;
+        height: auto; 
+    }
+
+    #whowheare-bg-image {
+        display: none;
+    }
+
+    .section-title {
+        font-size: 2rem; 
+    }
+
+    .section-text-content {
+        font-size: 1.2rem; 
+    }
+
+    .who-we-are-btn{
+    width:80%;
+     padding:10px 5px;
+    }
+  }
+
+  /* Medium Devices (desktops) */
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+    #who-we-are {
+        width: 100vw;
+        height: auto; 
+
+    #whowheare-bg-image {
+        display: none;
+    }
+  }
+  
+  /* Large Devices (desktops) */
+  @media only screen and (min-width: 992px) and (max-width: 1199px) {
+    
+  }
+  
+  /* Extra Large Devices (large desktops) */
+  @media only screen and (min-width: 1200px) {
+   
+  }
+
+}
