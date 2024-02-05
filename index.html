@@ -282,35 +282,26 @@
                 <div class="form-container d-flex justify-content-center row">
                     <div class="col-lg form-inner">
                       
-                <form class="form" id="meal-form">
-                    <p>
-                        <label class="meal-form form-label" name="Meal-1">Meal 1 </label>
-                        <input type="text" class="form-control meal-input" id="meal1item1" required>
-                        <label class="meal-form form-label" name="Weight-1">Weight 1 </label> 
-                        <input type="text" class="form-control meal-input" id="meal1weight1" required> <span> (g)</span>
-                    </p>
-                    <p>
-                        <label class="meal-form form-label" name="Meal-2">Meal 2 </label>
-                        <input type="text" class="form-control meal-input" id="meal2item2" required>
-                        <label class="meal-form form-label" name="Weight-2">Weight 2 </label> 
-                        <input type="text" class="form-control meal-input" id="meal2weight2" required> <span> (g)</span>
-                    </p>
-                    <p>
-                        <label class="meal-form form-label" name="Meal-3">Meal 3 </label>
-                        <input type="text" class="form-control meal-input" id="meal3item3" required>
-                        <label class="meal-form form-label" name="Weight-3">Weight 3 </label> 
-                        <input type="text" class="form-control meal-input" id="meal3weight3" required> <span> (g)</span>
-                    </p>
-                     </div>
-                    <button type="submit"  id="meal-submit" class="btn btn-md btn-success page-button form-button" >Submit</button><!-- data-bs-toggle="modal" data-bs-target="#modal-total-calories" data-bs-dismiss="modal" aria-label="Close" -->
-                </form>
-               
+                      <form class="form" id="meal-form">
+                        <p>
+                            <label class="meal-form form-label" name="Meal-1">Item:</label>
+                            <input type="text" class="form-control meal-input" id="meal-item">
+                            <label class="meal-form form-label" name="Weight-1">Weight:</label> 
+                            <input type="text" class="form-control meal-input" id="meal-weight"> <span> (g)</span>
+                            <button type="button" id="meal-add" class="btn btn-md btn-success add-button">Add</button>
+                        </p>
+                      </div>
+                      <button type="submit"  id="meal-submit" class="btn btn-md btn-success page-button form-button" >Submit</button><!-- data-bs-toggle="modal" data-bs-target="#modal-total-calories" data-bs-dismiss="modal" aria-label="Close" -->
+                      </form>
+                </div>
+                <div class="d-flex justify-content-center row m-3">
+                  <div class="col-lg">
+                    <h4>Your meal items:</h4>
+                    <ul id="meal-list"></ul>
+                  </div>
                 </div>
             </section>
-
-
           </div>
-        
       </div>
     </div>
   </div>
