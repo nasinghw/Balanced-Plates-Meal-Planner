@@ -35,47 +35,22 @@
 /* Global form settings */
 
 .input-field{
+
+  flex-direction: column;
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  align-items:flex-start;
+  justify-content: start;
+  gap: 10px;
+  margin-left: 20px;
 }
 
-.form-control, .form-select{
-  width:90%;
+.form-control,
+.form-select{
+  width:100%;
 }
 
-form {
-  display: table;
-  margin:0 auto;
-}
-
-.form p{
-  display: table-row;
-  align-items: center;
-}
-
-.form p label{
-  display: table-cell;
-  padding: 10px 0;
-  padding-right: 25px;
-  text-align: center;
-
-}
-
-.form p input{
-  display: table-cell;
-  margin: 10px 0;
-  min-width: fit-content;
-  border: 1px solid var(--mid-accent);
-}
-
-.form p span{
-  display: table-cell;
-  left:0;
-  width:10px;
-  text-align: center;
-  margin-right:10px;
-
+.form-label{
+  margin:0;
 }
 
 .form-button{
@@ -88,14 +63,19 @@ form {
   width: 300px;
 }
 
-.form-inner{
-  
-  margin: 0 auto;
-}
+.form p input,
+.form-select{
+  margin-bottom: 10px;
+  max-width: 500p;
+  border: 1px solid var(--mid-accent);
 
-.form-select {
-  border-color: var(--mid-accent);
 }
+.form-inner{
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+} 
+
 .form-control:focus,
 .form-select:focus {
   border-color: var(--main-color);
@@ -293,14 +273,45 @@ nav .nav-link:hover{
 
 #reset-user-form{
   background-color: #510202;
-  margin-left:44%
+  margin: 0 auto;
 }
 
 #about-submit{
-  margin-left:44%
+  margin:0 auto;
+  margin-block: 10px;
 }
 
 
+#diet-type{
+display: flex;
+justify-content: center;
+}
+
+#diet-radio{
+  justify-content: center;
+}
+
+.range-subheadings span{
+  font-family: Be Vietnam Pro, sans-serif;
+  font-size: 0.8rem;
+  color: var(--main-color);
+}
+
+.form-check-label{
+  font-family: Be Vietnam Pro, sans-serif;
+  font-size: 0.9rem;
+  color: var(--main-color);
+}
+
+#activity-label,
+#diet-label{
+  font-family: Be Vietnam Pro, sans-serif;
+  font-size: 1rem;
+}
+
+.input-group{
+  padding-block: 5px;
+}
 
 /* Meal form */
 

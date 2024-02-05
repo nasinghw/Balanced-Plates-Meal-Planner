@@ -84,18 +84,111 @@
     </section>
 
     <!-- About Yourself-->
-
+    
     <section id="about-yourself" class="">
-
+        
         <h1 class="about-yourself-title mb-3" id="about-you-title">Tell us about yourself...</h1>
+        
+        
+        <div class="form-container d-flex justify-content-center row">
+            
+            <form class="form-floating needs-validation" id="about-form" novalidate>
+
+                <div class="input-group has-validation">
+                    <div class="form-floating">
+                      <input type="text" class="form-control" id="name-input" placeholder="Name" required>
+                      <label for="name-input">Name</label>
+                    </div>
+                    <div class="invalid-feedback">
+                      Please choose a username.
+                    </div>
+                  </div>
 
 
-            <div class="form-container d-flex justify-content-center row">
-              <div class="col-lg form-inner">
-                <form class="form input-group-lg" id="about-form">
+                <div class="input-group has-validation">
+                    <div class="form-floating">
+                      <input type="number" class="form-control" id="age-input" placeholder="Age" required>
+                      <label for="age-input">Age</label>
+                    </div>
+                    <div class="invalid-feedback">
+                      Please enter your age.
+                    </div>
+                  </div>
+                  
+                  <div class="input-group has-validation"></div>
+                  <div class="form-floating">
+                      <select class="form-select" id="gender-input">
+                          <option value="male">Male</option>
+                          <option value="female">Female</option>
+                        </select>
+                        <label for="floatingSelectGrid">Gender</label>
+                    </div>
+                    <div class="invalid-feedback">
+                        Please select a gender.
+                    </div>
+            
+
+                <div class="input-group has-validation">
+                    <div class="form-floating">
+                      <input type="number" class="form-control" id="height-input" placeholder="Height" required>
+                      <label for="height-input">Height</label>
+                    </div>
+                    <div class="invalid-feedback">
+                      Please enter your height.
+                    </div>
+                  </div>
+                
+                <div class="input-group has-validation">
+                    <div class="form-floating">
+                      <input type="number" class="form-control" id="weight-input" placeholder="Weight" required>
+                      <label for="weight-input">Weight</label>
+                    </div>
+                    <div class="invalid-feedback">
+                      Please enter your weight.
+                    </div>
+                  </div>
+
+                  
+                  <div class="input-group mt-2">
+                  <label for="activity-input" class="form-label pt-3" id="activity-label">Daily Activity/Exercise Level: </label>
+                  <input type="range" class="form-range" min="1" max="7" id="activity-input" oninput="this.nextElementSibling.value = this.value">
+                  <div class="range-subheadings col d-flex justify-content-between">
+                    <span class="low-activity">Not Active</span>
+                    <span class="very-active">Very Active</span>
+                  </div>
+                </div>
+   
+                <div class="mb-3 mt-3 has-validation" id="diet-radio">
+                    <label for="diet-radio" class="form-label pt3" id="diet-label">Desired Diet Type:</label>
+                    <div class="container pt-3 d-flex justify-content-between align-items-center">
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="balanced" required>
+                            <label class="form-check-label " for="inlineRadio1">Balanced</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="highprotein" required>
+                            <label class="form-check-label" for="inlineRadio2">High Protein</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="lowcarbs" required>
+                            <label class="form-check-label" for="inlineRadio3">Low Carbs</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="lowfat" required>
+                            <label class="form-check-label" for="inlineRadio3">Low Fat</label>
+                        </div>
+                    </div>
+                </div>
+
+            <button type="submit" id="about-submit" class="btn btn-md btn-success page-button form-button mt-5" data-bs-toggle="modal" data-bs-target="#modal-calories">Find My Recommended Calories!</button>
+            <button type="reset" id="reset-user-form" class="btn btn-md btn-danger form-button" >Reset</button>
+                
+                
+            </form>
+              <!-- <div class="col-lg-8 form-inner">
         
                     <p class="input-field mb-3">
-                    <label class="form-label" name="Name">Name: </label>
+                    <label for="floating-input-value" name="Name">Name: </label>
                     <input class="form-control" type="text" id="name-input" required>
                     </p>
         
@@ -114,13 +207,13 @@
                     </p>
                     
                     <p class="input-field mb-3">
-                        <label class="form-label" name="Height">Height: </label>
-                        <input class="form-control" type="number" id="height-input" required>  <span> (cm)</span>
+                        <label class="form-label" name="Height">Height: <span> (cm)</span></label>
+                        <input class="form-control" type="number" id="height-input" required>  
                     </p>
 
                     <p class="input-field mb-3">
-                        <label class="form-label" name="Weight">Weight: </label>
-                        <input class="form-control" type="number" id="weight-input" required>  <span> (kg)</span>
+                        <label class="form-label" name="Weight">Weight: <span> (kg)</span></label>
+                        <input class="form-control" type="number" id="weight-input" required>  
                     </p>
                     
                     <p class="input-field mb-3">
@@ -136,12 +229,13 @@
                         </select>
                     </p>
 
-                </div>
-                    <button type="submit" id="about-submit" class="btn btn-md btn-success page-button form-button" data-bs-toggle="modal" data-bs-target="#modal-calories">Find My Recommended Calories!</button>
-                    <button type="reset" id="reset-user-form" class="btn btn-md btn-danger form-button" >Reset</button>
 
-                </form>
-            
+                    
+                    
+
+
+                </form> 
+            </div>-->
             </div>
 
     </section>

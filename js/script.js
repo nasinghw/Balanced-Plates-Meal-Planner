@@ -12,9 +12,14 @@ var meal1weight1= "";
 var meal2weight2= "";
 var meal2weight3= "";
 
+// Load google charts
+// google.charts.load('current', {'packages':['corechart']});
+// google.charts.setOnLoadCallback(drawChart);
+
 //About form submit function to capture values of the form, and run them through the dailyRecommendedCalorieFetch function
 $("#about-form").on("submit", function(event){
     event.preventDefault();
+
     username = $("#name-input").val();
     age = $("#age-input").val();
     gender = $("#gender-input").val();
@@ -26,6 +31,8 @@ $("#about-form").on("submit", function(event){
 
     $("#dyn-name").text(username);
     location.href = "#meal-form";
+    
+
 })
 
 // Reset button functionality for About form
@@ -116,6 +123,8 @@ function dailyRecommendedCalorieFetch(){
         
         displayCaloriesResult('.daily-recommend-container', 'p', recommendedCalories);
     });
+
+
 }
 
 //Function to fetch API data for meal form input total calories. For loop used to sum the total calories.
@@ -144,6 +153,7 @@ $.ajax({
         console.error('Error: ', jqXHR.responseText);
     }
 })
+
 }
 
 /*
@@ -157,6 +167,8 @@ $.ajax({
  * 
  * @param {Number} calories API call returned result.
 */
+
+
 function displayCaloriesResult(container, elem, calories) {
     $(container).find(elem).remove();
         
@@ -170,3 +182,27 @@ function displayCaloriesResult(container, elem, calories) {
 }
 
 
+
+
+
+
+// JavaScript for disabling form submissions if there are invalid fields
+(function () {
+    'use strict'
+  
+    // Fetch all the forms we want to apply custom Bootstrap validation styles to
+    var forms = document.querySelectorAll('.needs-validation')
+  
+    // Loop over them and prevent submission
+    Array.prototype.slice.call(forms)
+      .forEach(function (form) {
+        form.addEventListener('submit', function (event) {
+          if (!form.checkValidity()) {
+            event.preventDefault()
+            event.stopPropagation()
+          }
+  
+          form.classList.add('was-validated')
+        }, false)
+      })
+  })()
