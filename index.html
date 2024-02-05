@@ -185,57 +185,6 @@
                 
                 
             </form>
-              <!-- <div class="col-lg-8 form-inner">
-        
-                    <p class="input-field mb-3">
-                    <label for="floating-input-value" name="Name">Name: </label>
-                    <input class="form-control" type="text" id="name-input" required>
-                    </p>
-        
-        
-                    <p class="input-field mb-3">
-                    <label class="form-label" name="Age">Age: </label>
-                    <input class="form-control" type="number" id="age-input" required>
-                    </p>
-        
-                    <p class="input-field mb-3">
-                    <label class="form-label" name="Gender">Gender: </label>
-                    <select class="form-select" id="gender-input" required>
-                    <option value="male">male</option>
-                    <option value="female">female</option>
-                    </select>
-                    </p>
-                    
-                    <p class="input-field mb-3">
-                        <label class="form-label" name="Height">Height: <span> (cm)</span></label>
-                        <input class="form-control" type="number" id="height-input" required>  
-                    </p>
-
-                    <p class="input-field mb-3">
-                        <label class="form-label" name="Weight">Weight: <span> (kg)</span></label>
-                        <input class="form-control" type="number" id="weight-input" required>  
-                    </p>
-                    
-                    <p class="input-field mb-3">
-                        <label class="form-label" name="Activity Level">Activity Level: </label>
-                        <select class="form-select" id="activity-input" required>
-                        <option value="1">Basal Metabolic Rate</option>
-                        <option value="2">Sedentary: little or no exercise</option>
-                        <option value="3">Exercise 1-3 times/week</option>
-                        <option value="4">Exercise 4-5 times/week</option>
-                        <option value="5">Daily exercise or intense exercise 3-4 times/week</option>
-                        <option value="6">Intense exercise 6-7 times/week</option>
-                        <option value="7">Very intense exercise daily, or physical job</option>
-                        </select>
-                    </p>
-
-
-                    
-                    
-
-
-                </form> 
-            </div>-->
             </div>
 
     </section>
@@ -279,23 +228,39 @@
 
             <h1 class="meals-title mb-3" id="meal-section-title">Hi <span id="dyn-name" class="ucwords"></span>! What's on the menu today?</h1>
         
-                <div class="form-container d-flex justify-content-center row">
-                    <div class="col-lg form-inner">
-                      
-                      <form class="form" id="meal-form">
-                        <p>
-                            <label class="meal-form form-label" name="Meal-1">Item:</label>
-                            <input type="text" class="form-control meal-input" id="meal-item">
-                            <label class="meal-form form-label" name="Weight-1">Weight:</label> 
-                            <input type="text" class="form-control meal-input" id="meal-weight"> <span> (g)</span>
-                            <button type="button" id="meal-add" class="btn btn-md btn-success add-button">Add</button>
-                        </p>
+            
+            
+            <div class="meal-form-container d-flex justify-content-center row">
+            
+                <form class="form-floating needs-validation" id="meal-form" novalidate>
+    
+                    <div class="input-group has-validation">
+                        <div class="form-floating">
+                          <input type="text" class="form-control" id="meal-item" placeholder="Name" required>
+                          <label class="meal-form form-label" name="Meal-1" for="meal-item">Item:</label>
+                        </div>
+                        <div class="invalid-feedback">
+                          Please enter an item.
+                        </div>
                       </div>
-                      <button type="submit"  id="meal-submit" class="btn btn-md btn-success page-button form-button" >Submit</button><!-- data-bs-toggle="modal" data-bs-target="#modal-total-calories" data-bs-dismiss="modal" aria-label="Close" -->
+    
+    
+                    <div class="input-group has-validation">
+                        <div class="form-floating">
+                          <input type="number" class="form-control" id="meal-weight" placeholder="Age" required>
+                          <label class="meal-form form-label" name="Weight-1" for="meal-weight">Weight: (g)</label>
+                        </div>
+                        <div class="invalid-feedback">
+                          Please enter an item weight.
+                        </div>
+                      </div>
+                      
+                      <button type="button" id="meal-add" class="btn btn-md btn-success add-button page-button form-button">Add</button>
+                      <button type="submit"  id="meal-submit" class="btn btn-md btn-success  page-button form-button" >Submit</button><!-- data-bs-toggle="modal" data-bs-target="#modal-total-calories" data-bs-dismiss="modal" aria-label="Close" -->
                       </form>
                 </div>
                 <div class="d-flex justify-content-center row m-3">
-                  <div class="col-lg">
+                  <div class="col-lg list-container">
                     <h4>Your meal items:</h4>
                     <ul id="meal-list"></ul>
                   </div>

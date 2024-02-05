@@ -55,6 +55,7 @@ $("#reset-user-form").on("click", function(event){
     $("#height-input").val("");
     $("#weight-input").val("");
     $("#activity-input").val("");
+    $(".form-check-input").prop('checked', false); 
 
     // resets local storage
     localStorage.setItem("nameStorage", "")
@@ -63,6 +64,7 @@ $("#reset-user-form").on("click", function(event){
     localStorage.setItem("heightStorage","" )
     localStorage.setItem("weightStorage", "")
     localStorage.setItem("activityStorage", "")
+    localStorage.setItem("dietStorage", "")
 
 })
 
@@ -109,6 +111,7 @@ function aboutFormStorageSet() {
     localStorage.setItem("heightStorage", height)
     localStorage.setItem("weightStorage", weight)
     localStorage.setItem("activityStorage", activity)
+    localStorage.setItem("dietStorage", diet)
 }
 
 //Function to set text inputs on the about form to previous inputs saved to localStorage.
