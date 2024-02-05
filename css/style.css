@@ -408,6 +408,15 @@ margin-bottom: 20px;
   margin-top: 20px;
 }
 
+.meal-form-disclaimer{
+  font-family: Be Vietnam Pro, sans-serif;
+  font-size: 0.75rem;
+  text-align: center;
+}
+.bold-text{
+  font-weight: bold;
+}
+
 /* Footer */
 
 #footer {
