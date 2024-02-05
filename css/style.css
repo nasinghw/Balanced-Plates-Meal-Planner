@@ -27,6 +27,7 @@
   background-color: var(--main-color);
 }
 
+
 /* To capitalize words */
 .ucwords { text-transform: capitalize; }
 
@@ -97,6 +98,24 @@ nav {
   max-width: 100%;
   margin: 0 auto;
 }
+
+.navbar-brand{
+  display: flex;
+  align-items: center;
+  text-decoration: none !important;
+  margin-left: 0.5%;
+}
+
+#nav-logo{
+  height:60px;
+}
+
+.logo-text{
+  height: 40px;
+  padding-left:5px;
+}
+
+
 .navbar-nav{
     gap:10px;
 }
@@ -140,7 +159,6 @@ nav .nav-link:hover{
 /* Hero */
 
 #hero {
-  
   min-height: 100vh !important;
   color: rgb(25, 25, 25);
 }
@@ -157,7 +175,7 @@ nav .nav-link:hover{
 }
 
 #hero-card {
-  margin-top: 10%;
+  margin-top: 70px;
   background-color: rgba(0, 0, 0, 0.7);
   -webkit-box-shadow: 0px 0px 17px 0px rgba(0, 0, 0, 0.5);
   -moz-box-shadow: 0px 0px 17px 0px rgba(0, 0, 0, 0.2);
@@ -173,6 +191,10 @@ nav .nav-link:hover{
   color: var(--light-text);
   padding-bottom: 50px;
   
+}
+
+.welcome-title span{
+  color: var(--mid-accent);
 }
 
 #hero-card p {
@@ -205,12 +227,14 @@ nav .nav-link:hover{
     padding:0 0 0 0 !important;
 }
 .section-title{
-    font-size:2.8em;
+    font-size:4rem;
     text-align: center;
 }
 
 .section-text-content{
     font-size:1.8em;
+    font-family: Be Vietnam, sans-serif;
+    text-align: center;
 }
 .bg-overlay{
     height: 100%;
