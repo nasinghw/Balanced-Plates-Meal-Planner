@@ -28,6 +28,19 @@ $("#about-form").on("submit", function(event){
     location.href = "#meal-form";
 })
 
+// Reset button functionality for About form
+$("#reset-user-form").on("click", function(event){
+    event.preventDefault();
+    
+    $("#name-input").val("");
+    $("#age-input").val("");
+    $("#gender-input").val("");
+    $("#height-input").val("");
+    $("#weight-input").val("");
+    $("#activity-input").val("");
+
+})
+
 //Meal form submit function to capture values of the form and construct the query string. totalMealCalories fetch function is called and query string is passed through as a parameter.
 $("#meal-form").on("submit", function(event){
     event.preventDefault();
@@ -37,10 +50,14 @@ $("#meal-form").on("submit", function(event){
     meal1weight1 = $("#meal1weight1").val();
     meal2weight2 = $("#meal2weight2").val();
     meal3weight3 = $("#meal3weight3").val();
-    
+  
     var query = meal1weight1+"g "+meal1item1+" "+meal2weight2+"g "+meal2item2+" "+meal3weight3+"g "+meal3item3
     console.log(query);
     totalMealCalories(query);
+
+    //If the prepare meals form fields are not empty, the #modal-prepare-meal hides and #modal-total-calories come up
+    $('#modal-prepare-meal').modal('hide');
+    $('#modal-total-calories').modal('show');
 
   
 })
@@ -138,6 +155,8 @@ function displayCaloriesResult(container, elem, calories) {
     $(container).css({
                       display: "flex",
                       fontSize: "18px",
+                      justifyContent: "center",
+                      fontSize: "2em",
                       fontWeight: "600" })
             .append(`<`+elem+`>&nbsp; ${calories} calories </`+elem+`>`);
 }
