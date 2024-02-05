@@ -39,6 +39,14 @@ $("#reset-user-form").on("click", function(event){
     $("#weight-input").val("");
     $("#activity-input").val("");
 
+    // resets local storage
+    localStorage.setItem("nameStorage", "")
+    localStorage.setItem("ageStorage", "")
+    localStorage.setItem("genderStorage","" )
+    localStorage.setItem("heightStorage","" )
+    localStorage.setItem("weightStorage", "")
+    localStorage.setItem("activityStorage", "")
+
 })
 
 //Meal form submit function to capture values of the form and construct the query string. totalMealCalories fetch function is called and query string is passed through as a parameter.
@@ -160,3 +168,5 @@ function displayCaloriesResult(container, elem, calories) {
                       fontWeight: "600" })
             .append(`<`+elem+`>&nbsp; ${calories} calories </`+elem+`>`);
 }
+
+
