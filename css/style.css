@@ -8,7 +8,7 @@
   font-family: 'Newsreader', serif;
   
   
-  --main-color: #1F4002;
+  --main-color: #1f4002;
   --light-accent: rgba(192, 207, 182, 0.2);
   --mid-accent: #A8C0A3;
   --dark-accent:rgb(26, 79, 17);
@@ -83,6 +83,8 @@ form {
   justify-content: center;
   column-count: 2;
   margin-top:20px;
+  padding-inline:0px;
+  width: 300px;
 }
 
 .form-inner{
@@ -90,6 +92,22 @@ form {
   margin: 0 auto;
 }
 
+.form-select {
+  border-color: var(--mid-accent);
+}
+.form-control:focus,
+.form-select:focus {
+  border-color: var(--main-color);
+  box-shadow: 0 0 0 0.25rem #1f40026b;
+}
+
+select option:checked{
+  background-color: var(--light-accent) !important;
+}
+
+select option:target{
+  background-color: var(--mid-accent) !important;
+}
 
 /* Navbar */
 
@@ -172,7 +190,6 @@ nav .nav-link:hover{
   background-size: cover;
   margin: 0 auto;
   min-height: 100vh;
-  min-width: fit-content;
 }
 
 #hero-card {
