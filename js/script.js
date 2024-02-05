@@ -22,9 +22,7 @@ var mealObject = {
 var mealItem  =mealObject.mealOne.oneItems;
 var mealWeight = mealObject.mealOne.oneWeights;
 
-// Load google charts
-// google.charts.load('current', {'packages':['corechart']});
-// google.charts.setOnLoadCallback(drawChart);
+
 
 //About form submit function to capture values of the form, and run them through the dailyRecommendedCalorieFetch function
 $("#about-form").on("submit", function(event){
@@ -157,21 +155,42 @@ function dailyRecommendedCalorieFetch(){
         console.log(response);
         console.log(response.data.calorie);
         var recommendedCalories = Math.round(response.data.calorie);
-        
-        var dietCarbs = response.data[diet].carbs;
-        var dietFat = response.data[diet].fat;
-        var dietProtein = response.data[diet].protein;
-
-        console.log(dietCarbs);
-        console.log(dietFat);
-        console.log(dietProtein);
-
 
         displayCaloriesResult('.daily-recommend-container', 'p', recommendedCalories);
+    var dietCarbs = response.data[diet].carbs;
+    var dietFat = response.data[diet].fat;
+    var dietProtein = response.data[diet].protein;
+
+    console.log(dietFat);
+    console.log(dietProtein);
+    console.log(dietCarbs);
+
+    var data = [{
+        values: [dietCarbs, dietFat, dietProtein],
+        labels: ['Carbohydrates', 'Fats', 'Protein'],
+        type: 'pie',
+        textinfo: "label+percent",
+        textposition: "outside",
+        automargin: true
+      }];
+      
+      var layout = {
+        height: 400,
+        width: 400,
+        margin: {"t": 0, "b": 0, "l": 0, "r": 0},
+        showlegend: false
+      };
+      
+      Plotly.newPlot('myDiv', data, layout);
+      
     });
 
 
-}
+};
+
+
+
+
 
 //Function to fetch API data for meal form input total calories. For loop used to sum the total calories.
 function totalMealCalories(query){
