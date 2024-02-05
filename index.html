@@ -71,7 +71,7 @@
                     With 20 years of expertise, we've simplified meal planning for you. 
                     Try our user-friendly meal planner today and take the first step towards a nourished lifestyle.
                 </p>
-                <a href="#about-yourself" class="btn btn-success who-we-are-btn" >Improve Your Health</a>
+                <a href="#about-yourself" class="btn btn-success who-we-are-btn page-button form-button" >Improve Your Health</a>
             </div>
             <div id="whowheare-bg-image" class="col-md-6 col-12 rounded-borders" >
                 <div class="bg-overlay">
@@ -136,8 +136,9 @@
                         </select>
                     </p>
 
-                    </div>
-                    <button type="submit" class="btn btn-md btn-success page-button form-button" data-bs-toggle="modal" data-bs-target="#modal-calories">Find My Recommended Calories!</button>
+                </div>
+                    <button type="submit" id="about-submit" class="btn btn-md btn-success page-button form-button" data-bs-toggle="modal" data-bs-target="#modal-calories">Find My Recommended Calories!</button>
+                    <button type="reset" id="reset-user-form" class="btn btn-md btn-danger form-button" >Reset</button>
 
                 </form>
             
@@ -207,7 +208,7 @@
                         <input type="text" class="form-control meal-input" id="meal3weight3" required> <span> (g)</span>
                     </p>
                      </div>
-                    <button type="submit" class="btn btn-md btn-success page-button form-button" >Submit</button><!-- data-bs-toggle="modal" data-bs-target="#modal-total-calories" data-bs-dismiss="modal" aria-label="Close" -->
+                    <button type="submit"  id="meal-submit" class="btn btn-md btn-success page-button form-button" >Submit</button><!-- data-bs-toggle="modal" data-bs-target="#modal-total-calories" data-bs-dismiss="modal" aria-label="Close" -->
                 </form>
                
                 </div>
@@ -254,9 +255,14 @@
     </div>
   </div>
 
+  <!-- Footer -->
+  
     <footer id="footer" class="text-centre py-4">
-        <p class="mb-0">© 2024 Diet Planner. All rights reserved.</p>
-
+      <div class="footer-container">
+        <img id="logo-footer" src="./img/logo/logo-light.png" alt="Logo">
+        <img id="brand-footer" src="./img/logo/text-light.png" alt="Balanced Plates Brand">
+      </div>
+    <p class="mb-0">© 2024 Balanced Plates | Meal & Calorie Planner. All rights reserved.</p>
     </footer>
 
     <script src="https://code.jquery.com/jquery-3.7.1.js"

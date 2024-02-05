@@ -73,7 +73,8 @@ form {
   display: table-cell;
   left:0;
   width:10px;
-  text-align: left;
+  text-align: center;
+  margin-right:10px;
 
 }
 
@@ -88,7 +89,7 @@ form {
 }
 
 .form-inner{
-  width: 70%;
+  
   margin: 0 auto;
 }
 
@@ -271,6 +272,10 @@ nav .nav-link:hover{
   text-align: center;
 }
 
+#about-form{
+  margin: 0 auto;
+}
+
 #about-yourself{
   display: flex;
   flex-direction: column;
@@ -284,6 +289,15 @@ nav .nav-link:hover{
 #about-you-title{
   padding-bottom: 20px;
   font-size: 4rem;
+}
+
+#reset-user-form{
+  background-color: #510202;
+  margin-left:44%
+}
+
+#about-submit{
+  margin-left:44%
 }
 
 
@@ -324,15 +338,38 @@ nav .nav-link:hover{
 
 }
 
+#meal-submit{
+  padding-inline: 30px;
+}
+
 /* Footer */
 
 #footer {
   background-color: var(--main-color);
   color: white;
   text-align: center;
+
 }
 
-/* Media Queries */
+.footer-container{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  margin: 0 30%;
+  margin-bottom: 30px;
+}
+
+#logo-footer{
+  height:100px;
+  opacity: 30%;
+}
+
+#brand-footer{
+  height: 75px;
+  opacity: 30%;
+}
+/* Media Queries
 
 /* Extra Small Devices (phones) */
 @media only screen and (max-width: 576px) {
