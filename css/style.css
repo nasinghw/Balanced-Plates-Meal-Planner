@@ -342,6 +342,12 @@ nav .nav-link:hover{
   padding-inline: 30px;
 }
 
+.add-button {
+  padding: 5px 10px;
+  margin: 5px;
+  font-size: 12px;
+}
+
 /* Footer */
 
 #footer {
