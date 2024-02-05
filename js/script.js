@@ -5,12 +5,18 @@ var gender;
 var height;
 var weight;
 var activity;
-var meal1item1= "";
-var meal2item2= "";
-var meal3item3= "";
-var meal1weight1= "";
-var meal2weight2= "";
-var meal2weight3= "";
+// var meal1item1= "";
+// var meal2item2= "";
+// var meal3item3= "";
+// var meal1weight1= "";
+// var meal2weight2= "";
+// var meal2weight3= "";
+var mealObject = {
+    mealOne: {
+        oneItems: [],
+        oneWeights: [],
+    },
+}
 
 //About form submit function to capture values of the form, and run them through the dailyRecommendedCalorieFetch function
 $("#about-form").on("submit", function(event){
@@ -41,17 +47,31 @@ $("#reset-user-form").on("click", function(event){
 
 })
 
+//Button to push meal inputs into object array, and append list item to page.
+$("#meal-add").on("click", function(event){
+    event.preventDefault();
+    var mealItem  =mealObject.mealOne.oneItems
+    var mealWeight = mealObject.mealOne.oneWeights
+    var mealItemVal = $("#meal-item").val()
+    var mealWeightVal = $("#meal-weight").val()
+
+    if(mealItemVal !== "" && mealWeightVal !== ""){
+    mealItem.push(mealItemVal)
+    mealWeight.push(mealWeightVal)
+    $("#meal-list").empty();
+    for (i = 0; i < mealItem.length; i++) {
+            $("#meal-list").prepend($("<li>").text(`${mealWeight[i]}g of ${mealItem[i]}`))
+        }}
+    console.log(mealObject)
+})
+
 //Meal form submit function to capture values of the form and construct the query string. totalMealCalories fetch function is called and query string is passed through as a parameter.
 $("#meal-form").on("submit", function(event){
     event.preventDefault();
-    meal1item1 = $("#meal1item1").val();
-    meal2item2 = $("#meal2item2").val();
-    meal3item3 = $("#meal3item3").val();
-    meal1weight1 = $("#meal1weight1").val();
-    meal2weight2 = $("#meal2weight2").val();
-    meal3weight3 = $("#meal3weight3").val();
-  
-    var query = meal1weight1+"g "+meal1item1+" "+meal2weight2+"g "+meal2item2+" "+meal3weight3+"g "+meal3item3
+    var query = ""
+    for (let i = 0; i < mealObject.mealOne.oneItems.length; i++) {
+        query += `${mealObject.mealOne.oneWeights[i]}g ${mealObject.mealOne.oneItems[i]} `  
+    }
     console.log(query);
     totalMealCalories(query);
 
