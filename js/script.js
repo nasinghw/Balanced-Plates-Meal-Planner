@@ -19,6 +19,9 @@ var mealObject = {
     },
 }
 
+var mealItem  =mealObject.mealOne.oneItems;
+var mealWeight = mealObject.mealOne.oneWeights;
+
 // Load google charts
 // google.charts.load('current', {'packages':['corechart']});
 // google.charts.setOnLoadCallback(drawChart);
@@ -71,19 +74,26 @@ $("#reset-user-form").on("click", function(event){
 //Button to push meal inputs into object array, and append list item to page.
 $("#meal-add").on("click", function(event){
     event.preventDefault();
-    var mealItem  =mealObject.mealOne.oneItems
-    var mealWeight = mealObject.mealOne.oneWeights
     var mealItemVal = $("#meal-item").val()
     var mealWeightVal = $("#meal-weight").val()
 
     if(mealItemVal !== "" && mealWeightVal !== ""){
+    var mealItem  =mealObject.mealOne.oneItems;
+    var mealWeight = mealObject.mealOne.oneWeights;
     mealItem.push(mealItemVal)
     mealWeight.push(mealWeightVal)
-    $("#meal-list").empty();
-    for (i = 0; i < mealItem.length; i++) {
-            $("#meal-list").prepend($("<li>").text(`${mealWeight[i]}g of ${mealItem[i]}`))
-        }}
+            $("#meal-list").append($("<li>").text(`${mealWeight[mealWeight.length-1]}g of ${mealItem[mealItem.length-1]}`))
+    }
     console.log(mealObject)
+})
+
+// Meal form reset button function
+$("#reset-meal-form").on("click", function(event){
+    event.preventDefault();
+
+    $("#meal-list").empty();
+    mealObject.mealOne.oneItems = [];
+    mealObject.mealOne.oneWeights= [];
 })
 
 //Meal form submit function to capture values of the form and construct the query string. totalMealCalories fetch function is called and query string is passed through as a parameter.
