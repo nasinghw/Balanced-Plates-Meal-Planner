@@ -254,6 +254,7 @@ nav .nav-link:hover{
 
 #about-form{
   margin: 0 auto;
+  width: 80%;
 }
 
 #about-yourself{
@@ -261,9 +262,10 @@ nav .nav-link:hover{
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height:100vh;
+  min-height:100vh;
   margin: 0 auto;
   background-color: var(--light-accent);
+  padding-bottom: 30px;
 }
 
 #about-you-title{

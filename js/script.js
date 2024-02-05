@@ -5,6 +5,7 @@ var gender;
 var height;
 var weight;
 var activity;
+var diet;
 // var meal1item1= "";
 // var meal2item2= "";
 // var meal3item3= "";
@@ -32,14 +33,17 @@ $("#about-form").on("submit", function(event){
     height = $("#height-input").val();
     weight = $("#weight-input").val();
     activity = $("#activity-input").val();
+    diet = $(".form-check input:radio:checked").val();
+
     aboutFormStorageSet()
     dailyRecommendedCalorieFetch();
 
     $("#dyn-name").text(username);
     location.href = "#meal-form";
-    
 
-})
+
+
+});
 
 // Reset button functionality for About form
 $("#reset-user-form").on("click", function(event){
@@ -141,6 +145,15 @@ function dailyRecommendedCalorieFetch(){
         console.log(response.data.calorie);
         var recommendedCalories = Math.round(response.data.calorie);
         
+        var dietCarbs = response.data[diet].carbs;
+        var dietFat = response.data[diet].fat;
+        var dietProtein = response.data[diet].protein;
+
+        console.log(dietCarbs);
+        console.log(dietFat);
+        console.log(dietProtein);
+
+
         displayCaloriesResult('.daily-recommend-container', 'p', recommendedCalories);
     });
 
