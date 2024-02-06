@@ -18,6 +18,10 @@
   
 }
 
+.hidden{
+  display:none;
+}
+
 /* Scrollbar settings */
 /* width */
 ::-webkit-scrollbar {

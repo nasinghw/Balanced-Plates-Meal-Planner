@@ -209,10 +209,6 @@ $.ajax({
         
         displayCaloriesResult('.total-calorie-container', 'p', TotalCalories);
         
-
-        // Pie chart data
-
-
         var pElCarb = Math.round(parseFloat( $("#rCarb").text()) *10)/10;
         var pElFat = Math.round(parseFloat( $("#rFat").text()) *10)/10;
         var pElProtein = Math.round(parseFloat( $("#rProtein").text()) *10)/10;
@@ -227,83 +223,40 @@ $.ajax({
         var recCarb = (pElCarb/pElTotal) *100;
         var recFat = (pElFat/pElTotal) *100;
         var recProtein = (pElProtein/pElTotal) *100;
-        //   values: [actualfracCarbs, actualfracFat, actualfracProtein],
-        //   labels: ['Carbohydrates', 'Fats', 'Protein'],
-        //   type: 'pie',
-        //   name:'Actual Macronutrients',
-        //   textinfo: "label+percent",
-        //   textposition: "outside",
-        //   xaxis: 'x2',
-        //   yaxis: 'y2',
-        //   }];
 
-        
-        // Load the Visualization API and the corechart package.
-        google.charts.load('current', {'packages':['corechart']});
-        
-        // Set a callback to run when the Google Visualization API is loaded.
-        google.charts.setOnLoadCallback(drawChart);
-        
-        // Callback that creates and populates a data table,
-        // instantiates the pie chart, passes in the data and
-        // draws it.
-        function drawChart() {
-            // Recommended Pie Chart
-            
-            // Set Data
-        var data1 = new google.visualization.DataTable();
-        data1.addColumn('string', 'Macronutrients');
-        data1.addColumn('number', 'amount');
-        data1.addRows([
-          ['Carbohydrates', recCarb],
-          ['Fats', recFat],
-          ['Protein', recProtein]
-        ]);
-        
-        // Set Options
-        const options1 = {
-          'title' : 'Recommended Daily Macronutrients',
-          'width':600,
-          'height':400,
-          'legend': 'none'
-        };
-        // Draw
-        const chart1 = new google.visualization.PieChart(document.getElementById('rec-pie'));
-        chart1.draw(data1, options1);
+        console.log(recCarb);
+        console.log(recFat);
+        console.log(recProtein);
 
-
-        // Actual diet PieChart
-
-        // Set Data
-        var data2 = new google.visualization.DataTable();
-        data2.addColumn('string', 'Macronutrients');
-        data2.addColumn('number', 'amount');
-        data2.addRows([
-          ['Carbohydrates', actualfracCarbs],
-          ['Fats', actualfracFat],
-          ['Protein', actualfracProtein]
-        ]);
-        
-        // Set Options
-        const options2 = {
-          'title' : 'Actual Daily Macronutrients',
-          'width':600,
-          'height':400,
-          'legend': 'none'
-        };
-        
-        // Draw
-        const chart2 = new google.visualization.PieChart(document.getElementById('actual-pie'));
-        chart2.draw(data2, options2);
-
-        
-        
-        }
-
-
+        var data = [{
+            values: [recCarb, recFat, recProtein],
+            labels: ['Carbohydrates', 'Fats', 'Protein'],
+            type: 'pie',
+            name: 'Recommended Macronutrients',
+            textinfo: "label+percent",
+            textposition: "outside",
+        },{ 
+          values: [actualfracCarbs, actualfracFat, actualfracProtein],
+          labels: ['Carbohydrates', 'Fats', 'Protein'],
+          type: 'pie',
+          name:'Actual Macronutrients',
+          textinfo: "label+percent",
+          textposition: "outside",
+          xaxis: 'x2',
+          yaxis: 'y2',
+          }];
           
-    },    
-    
+          var layout = {
+            xaxis: {domain: [0, 0.5]},
+            yaxis2: {anchor: 'x2'},
+            xaxis2: {domain: [0.8, 1]},
+            showlegend: false
+          };
+          
+          Plotly.newPlot('myDiv', data, layout);
+          
+          
+    },
 
     
     error: function ajaxError(jqXHR) {
