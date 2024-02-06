@@ -327,11 +327,11 @@ $.ajax({
         const chart2 = new google.visualization.PieChart(document.getElementById('actual-pie'));
         chart2.draw(data2, options2);          
     }    
-}
+
     },
 error: function ajaxError(jqXHR) {
     console.error('Error: ', jqXHR.responseText);
-    }
+        }
 });
 };
 
