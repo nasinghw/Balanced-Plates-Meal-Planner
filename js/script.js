@@ -7,19 +7,12 @@ var weight;
 var activity;
 var diet;
 var warningDisplayed = false; // Tracking if the warning message has been displayed already
-// var meal1item1= "";
-// var meal2item2= "";
-// var meal3item3= "";
-// var meal1weight1= "";
-// var meal2weight2= "";
-// var meal2weight3= "";
 var mealObject = {
     mealOne: {
         oneItems: [],
         oneWeights: [],
     },
 }
-
 var mealItem  =mealObject.mealOne.oneItems;
 var mealWeight = mealObject.mealOne.oneWeights;
 
@@ -97,14 +90,7 @@ $("#reset-user-form").on("click", function(event){
     $("#modal-calories .text-danger").remove();
 
     // resets local storage
-    localStorage.setItem("nameStorage", "")
-    localStorage.setItem("ageStorage", "")
-    localStorage.setItem("genderStorage","" )
-    localStorage.setItem("heightStorage","" )
-    localStorage.setItem("weightStorage", "")
-    localStorage.setItem("activityStorage", "")
-    localStorage.setItem("dietStorage", "")
-
+    localStorage.clear()
 })
 
 //Button to push meal inputs into object array, and append list item to page.
@@ -114,11 +100,12 @@ $("#meal-add").on("click", function(event){
     var mealWeightVal = $("#meal-weight").val()
 
     if(mealItemVal !== "" && mealWeightVal !== ""){
-    var mealItem  =mealObject.mealOne.oneItems;
-    var mealWeight = mealObject.mealOne.oneWeights;
-    mealItem.push(mealItemVal)
-    mealWeight.push(mealWeightVal)
-            $("#meal-list").append($("<li>").text(`${mealWeight[mealWeight.length-1]}g of ${mealItem[mealItem.length-1]}`))
+        $("#meal-warning").remove();
+        var mealItem  =mealObject.mealOne.oneItems;
+        var mealWeight = mealObject.mealOne.oneWeights;
+        mealItem.push(mealItemVal)
+        mealWeight.push(mealWeightVal)
+        $("#meal-list").append($("<li>").text(`${mealWeight[mealWeight.length-1]}g of ${mealItem[mealItem.length-1]}`))
     }
     console.log(mealObject)
 })
@@ -135,17 +122,22 @@ $("#reset-meal-form").on("click", function(event){
 //Meal form submit function to capture values of the form and construct the query string. totalMealCalories fetch function is called and query string is passed through as a parameter.
 $("#meal-form").on("submit", function(event){
     event.preventDefault();
-    var query = ""
-    for (let i = 0; i < mealObject.mealOne.oneItems.length; i++) {
-        query += `${mealObject.mealOne.oneWeights[i]}g ${mealObject.mealOne.oneItems[i]} `  
-    }
-    console.log(query);
-    totalMealCalories(query);
-
+    if(mealItem.length === 0){
+        $("#meal-warning").remove();
+        $("#meal-form").append($("<p>").attr("id","meal-warning").addClass("text-danger").text("Please enter at least one meal."));
+    }else{
+        $("#meal-warning").remove();
+        var query = ""
+        for (let i = 0; i < mealItem.length; i++) {
+            query += `${mealWeight[i]}g ${mealItem[i]} `  
+        }
+        console.log(query);
+        totalMealCalories(query);
+    
     //If the prepare meals form fields are not empty, the #modal-prepare-meal hides and #modal-total-calories come up
     $('#modal-prepare-meal').modal('hide');
     $('#modal-total-calories').modal('show');
-
+    }
   
 })
 
