@@ -16,7 +16,7 @@ var mealObject = {
 
 var actualCarbs = 0;
 var actualFat = 0;
-var actualProtein = 0
+var actualProtein = 0;
 
 var mealItem  =mealObject.mealOne.oneItems;
 var mealWeight = mealObject.mealOne.oneWeights;
@@ -232,6 +232,10 @@ $.ajax({
     success: function(result) {
 
         var TotalCalories = 0;
+
+        var actualCarbs = 0;
+        var actualFat = 0;
+        var actualProtein = 0;
         for (let i = 0; i < result.items.length; i++) {
             
             TotalCalories += parseFloat(result.items[i].calories);
@@ -293,9 +297,7 @@ $.ajax({
         // Set Options
         const options1 = {
           'title' : 'Recommended Daily Macronutrients',
-          'width':600,
-          'height':400,
-          'legend': 'none'
+                    'legend': 'none'
         };
         // Draw
         const chart1 = new google.visualization.PieChart(document.getElementById('rec-pie'));
@@ -317,8 +319,6 @@ $.ajax({
         // Set Options
         const options2 = {
           'title' : 'Actual Daily Macronutrients',
-          'width':600,
-          'height':400,
           'legend': 'none'
         };
         
