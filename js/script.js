@@ -6,6 +6,7 @@ var height;
 var weight;
 var activity;
 var diet;
+var warningDisplayed = false; // Tracking if the warning message has been displayed already
 // var meal1item1= "";
 // var meal2item2= "";
 // var meal3item3= "";
@@ -26,6 +27,14 @@ var mealWeight = mealObject.mealOne.oneWeights;
 // google.charts.load('current', {'packages':['corechart']});
 // google.charts.setOnLoadCallback(drawChart);
 
+// Function for a warning element
+function createWarningElement(message) {
+    var warningElement = document.createElement('div');
+    warningElement.className = 'text-danger'; 
+    warningElement.textContent = message;
+    return warningElement;
+}
+
 //About form submit function to capture values of the form, and run them through the dailyRecommendedCalorieFetch function
 $("#about-form").on("submit", function(event){
     event.preventDefault();
@@ -37,6 +46,31 @@ $("#about-form").on("submit", function(event){
     weight = $("#weight-input").val();
     activity = $("#activity-input").val();
     diet = $(".form-check input:radio:checked").val();
+
+    if (!username || !age || !gender || !height || !weight || !activity || !diet) {
+        // Displays a warning message, but only if not already displayed (to prevent the message repeating)
+        if (!warningDisplayed) {
+        var warningMessage = "Please reset the form, make sure all fields are completed, and submit again.";
+        var warningElement = createWarningElement(warningMessage);
+
+        // Check if the warning element already exists and remove it
+        var existingWarning = $("#modal-calories .text-danger");
+        if (existingWarning.length) {
+            existingWarning.remove();
+        }
+
+       // Appends the warning element to the modal
+       $("#modal-calories .modal-title").prepend(warningElement);
+
+        // Sets to true to indicate that the warning has been displayed
+        warningDisplayed = true;
+    }
+
+       return; 
+    }
+
+    // Resets the flag when valid input is provided
+    warningDisplayed = false;
 
     aboutFormStorageSet()
     dailyRecommendedCalorieFetch();
@@ -59,6 +93,8 @@ $("#reset-user-form").on("click", function(event){
     $("#weight-input").val("");
     $("#activity-input").val("");
     $(".form-check-input").prop('checked', false); 
+    // Removes any existing warning message, after page reset
+    $("#modal-calories .text-danger").remove();
 
     // resets local storage
     localStorage.setItem("nameStorage", "")
