@@ -257,9 +257,11 @@
                       <p class="meal-form-disclaimer"><span class="bold-text">Disclaimer:</span> Due to API limitations, unit measurements for liquids are currently not supported.</p>
 
                       <button type="button" id="meal-add" class="btn btn-md btn-success add-button page-button form-button">Add</button>
+                      <div class="meal-button-container">
                       <button type="submit"  id="meal-submit" class="btn btn-md btn-success  page-button form-button" >Submit</button><!-- data-bs-toggle="modal" data-bs-target="#modal-total-calories" data-bs-dismiss="modal" aria-label="Close" -->
                       <button type="reset" id="reset-meal-form" class="btn btn-md btn-danger form-button" >Reset</button>
-                      </form>
+                      </div>
+                    </form>
                 </div>
                 <div class="d-flex justify-content-center row m-3">
                   <div class="col-lg list-container">
@@ -284,17 +286,20 @@
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
         <section id="display-result" class="pb-4">
-            <div class="form-container d-flex justify-content-center row py-4">
+            <div class="form-container" id="comparison-disp">
+            <div id="final-text" class="mt-5">   
+              <div class="text-container">
                 <h6 class="text-center">Total Calorie intake is:</h6>
                 <div class="total-calorie-container mb-3">
-
                 </div>
-
-                <h6 class="text-center mb-3">Recommended Calorie intake is:</h6>
-                <div class="daily-recommend-container mb-3">
+                </div>
                 
-               
+                <div class="text-container">
+                  <h6 class="text-center">Recommended Calorie intake is:</h6>
+                  <div class="daily-recommend-container mb-3">
+                  </div>
                 </div>
+                </div> 
                 <div id="chart-data">
                     <p id="rCarb" class="hidden"></p>
                     <p id="rFat" class="hidden"></p>

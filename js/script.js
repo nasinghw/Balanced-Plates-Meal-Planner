@@ -298,6 +298,7 @@ $.ajax({
         const options1 = {
           'title' : 'Recommended Daily Macronutrients',
                     'legend': 'none'
+                    
         };
         // Draw
         const chart1 = new google.visualization.PieChart(document.getElementById('rec-pie'));

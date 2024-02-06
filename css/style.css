@@ -357,12 +357,12 @@ justify-content: center;
 
 #meal-plan{
   display: flex;
-  flex-wrap: wrap;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height:70vh;
+  height:auto;
   background-color: var(--mid-accent);
+  overflow: scroll;
 }
 .form-container{
   width: 80%;
@@ -404,9 +404,13 @@ margin-bottom: 20px;
 .list-container{
   min-width:400px;
   text-align: center;
-  margin:0 auto;
   margin-top: 30px;
   
+}
+
+.meal-button-container{
+display: flex;
+justify-content: space-evenly;
 }
 
 #reset-meal-form{
@@ -443,6 +447,29 @@ margin-bottom: 20px;
   width: 100%; 
   min-height: 450px;
 }
+
+#comparison-disp{
+  display: flex;
+  justify-content: space-around;
+}
+
+.text-container{
+  width:fit-content;
+  text-align: center;
+}
+
+#final-text{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: row;
+}
+
+.googleChartTitle {
+  text-align: center;
+  width:100;
+}
+
 
 /* Footer */
 
