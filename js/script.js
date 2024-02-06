@@ -1,4 +1,4 @@
-//Blank global variables.
+//Blank global variables for user about inputs (for Daily recommended calories query).
 var username;
 var age;
 var gender;
@@ -6,7 +6,11 @@ var height;
 var weight;
 var activity;
 var diet;
-var warningDisplayed = false; // Tracking if the warning message has been displayed already
+
+// Tracking if the warning message has been displayed already
+var warningDisplayed = false; 
+
+//Obect array to store meal inputs (for total calorie intake query)
 var mealObject = {
     mealOne: {
         oneItems: [],
@@ -16,11 +20,7 @@ var mealObject = {
 var mealItem  =mealObject.mealOne.oneItems;
 var mealWeight = mealObject.mealOne.oneWeights;
 
-// Load google charts
-// google.charts.load('current', {'packages':['corechart']});
-// google.charts.setOnLoadCallback(drawChart);
-
-// Function for a warning element
+// Function for a warning element (if any input fields are left blank/invalid data)
 function createWarningElement(message) {
     var warningElement = document.createElement('div');
     warningElement.className = 'text-danger'; 
@@ -32,6 +32,7 @@ function createWarningElement(message) {
 $("#about-form").on("submit", function(event){
     event.preventDefault();
 
+    // Capture user's information values    
     username = $("#name-input").val();
     age = $("#age-input").val();
     gender = $("#gender-input").val();
@@ -55,7 +56,7 @@ $("#about-form").on("submit", function(event){
        // Appends the warning element to the modal
        $("#modal-calories .modal-title").prepend(warningElement);
 
-        // Sets to true to indicate that the warning has been displayed
+        // Sets flag value to true, to indicate that the warning has been displayed
         warningDisplayed = true;
     }
 
@@ -68,6 +69,7 @@ $("#about-form").on("submit", function(event){
     aboutFormStorageSet()
     dailyRecommendedCalorieFetch();
 
+    //Adds personalised message using input name value from user    
     $("#dyn-name").text(username);
     location.href = "#meal-form";
 
@@ -75,10 +77,11 @@ $("#about-form").on("submit", function(event){
 
 });
 
-// Reset button functionality for About form
+// Reset about form
 $("#reset-user-form").on("click", function(event){
     event.preventDefault();
     
+    //Reset each input fields on about form to blank
     $("#name-input").val("");
     $("#age-input").val("");
     $("#gender-input").val("");
@@ -89,7 +92,7 @@ $("#reset-user-form").on("click", function(event){
     // Removes any existing warning message, after page reset
     $("#modal-calories .text-danger").remove();
 
-    // resets local storage
+    // Resets local storage
     localStorage.clear()
 })
 
@@ -110,7 +113,7 @@ $("#meal-add").on("click", function(event){
     console.log(mealObject)
 })
 
-// Meal form reset button function
+// Reset Meal form 
 $("#reset-meal-form").on("click", function(event){
     event.preventDefault();
 
@@ -170,6 +173,7 @@ aboutFormStorageGet();
 
 //Function to fetch API data for daily recommended calories and to then append it to the page.
 function dailyRecommendedCalorieFetch(){
+    
     const settings = {
         async: true,
         crossDomain: true,
@@ -181,9 +185,12 @@ function dailyRecommendedCalorieFetch(){
         }
     };
 
+    //Make Ajax request
     $.ajax(settings).done(function (response) {
-        console.log(response);
-        console.log(response.data.calorie);
+        //console.log(response);
+        //console.log(response.data.calorie);
+
+        //Round float value to a whole number
         var recommendedCalories = Math.round(response.data.calorie);
         
         var dietCarbs = response.data[diet].carbs;
