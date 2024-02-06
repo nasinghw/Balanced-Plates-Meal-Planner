@@ -194,7 +194,7 @@ function dailyRecommendedCalorieFetch(){
 
     //Make Ajax request
     $.ajax(settings).done(function (response) {
-        //console.log(response);
+        console.log(response);
         //console.log(response.data.calorie);
 
         //Round float value to a whole number

@@ -152,9 +152,12 @@
                   <div class="input-group mt-2">
                   <label for="activity-input" class="form-label pt-3" id="activity-label">Daily Activity/Exercise Level: </label>
                   <input type="range" class="form-range" min="1" max="7" id="activity-input" oninput="this.nextElementSibling.value = this.value">
-                  <div class="range-subheadings col d-flex justify-content-between">
-                    <span class="low-activity">Not Active</span>
-                    <span class="very-active">Very Active</span>
+                  <div class="range-subheadings col d-flex justify-content-between flex-wrap">
+                    <span class="activity-span" id="aSpan1">No Activity</span>
+                    <span class="activity-span" id="aSpan2">Slight Exercise </span>
+                    <span class="activity-span" id="aSpan3">Regular Exercise</span>
+                    <span class="activity-span" id="aSpan4">Routine Exercise</span>
+                    <span class="activity-span" id="aSpan5">Extremely Active</span>
                   </div>
                 </div>
    
@@ -288,18 +291,21 @@
         <section id="display-result" class="pb-4">
             <div class="form-container" id="comparison-disp">
             <div id="final-text" class="mt-5">   
+              
+              <div class="text-container">
+                <h6 class="text-center">Recommended Calorie intake is:</h6>
+                <div class="daily-recommend-container mb-3">
+                </div>
+              </div>
+
               <div class="text-container">
                 <h6 class="text-center">Total Calorie intake is:</h6>
                 <div class="total-calorie-container mb-3">
                 </div>
                 </div>
-                
-                <div class="text-container">
-                  <h6 class="text-center">Recommended Calorie intake is:</h6>
-                  <div class="daily-recommend-container mb-3">
-                  </div>
-                </div>
+
                 </div> 
+                
                 <div id="chart-data">
                     <p id="rCarb" class="hidden"></p>
                     <p id="rFat" class="hidden"></p>

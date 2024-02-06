@@ -339,6 +339,9 @@ justify-content: center;
 .input-group{
   padding-block: 5px;
 }
+.activity-span{
+  text-wrap: stable;
+}
 
 /* Meal form */
 
@@ -346,6 +349,7 @@ justify-content: center;
   padding-bottom: 20px;
   font-size: 3rem;
   text-align: center;
+  padding-top: 30px;
 }
 
 #dyn-name{
@@ -526,8 +530,13 @@ justify-content: space-evenly;
     width:100%;
      padding:10px 5px;
     }
+ 
+  #aSpan2,
+  #aSpan3,
+  #aSpan4{
+    display: none;
   }
-  
+   }
   /* Small Devices (tablets) */
   @media only screen and (min-width: 577px) and (max-width: 767px) {
 
@@ -552,22 +561,36 @@ justify-content: space-evenly;
     width:80%;
      padding:10px 5px;
     }
+
+    #aSpan2,
+    #aSpan3,
+    #aSpan4{
+      display: none;
+    }
   }
 
   /* Medium Devices (desktops) */
-@media only screen and (min-width: 768px) and (max-width: 991px) {
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
     #who-we-are {
         width: 100vw;
         height: auto; 
 
     #whowheare-bg-image {
         display: none;
+    };
+
+  }
+    #aSpan2,
+    #aSpan3,
+    #aSpan4{
+      display: none;
     }
   }
+
   
   /* Large Devices (desktops) */
-  @media only screen and (min-width: 992px) and (max-width: 1199px) {
-    
+  @media only screen and (min-width: 1025px) and (max-width: 1199px) {
+ 
   }
   
   /* Extra Large Devices (large desktops) */
@@ -575,4 +598,5 @@ justify-content: space-evenly;
    
   }
 
-}
+
+
