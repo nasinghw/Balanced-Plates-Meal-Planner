@@ -6,12 +6,7 @@ var height;
 var weight;
 var activity;
 var diet;
-// var meal1item1= "";
-// var meal2item2= "";
-// var meal3item3= "";
-// var meal1weight1= "";
-// var meal2weight2= "";
-// var meal2weight3= "";
+var warningDisplayed = false; // Tracking if the warning message has been displayed already
 var mealObject = {
     mealOne: {
         oneItems: [],
@@ -28,6 +23,14 @@ var mealWeight = mealObject.mealOne.oneWeights;
 
 
 
+// Function for a warning element
+function createWarningElement(message) {
+    var warningElement = document.createElement('div');
+    warningElement.className = 'text-danger'; 
+    warningElement.textContent = message;
+    return warningElement;
+}
+
 //About form submit function to capture values of the form, and run them through the dailyRecommendedCalorieFetch function
 $("#about-form").on("submit", function(event){
     event.preventDefault();
@@ -39,6 +42,31 @@ $("#about-form").on("submit", function(event){
     weight = $("#weight-input").val();
     activity = $("#activity-input").val();
     diet = $(".form-check input:radio:checked").val();
+
+    if (!username || !age || !gender || !height || !weight || !activity || !diet) {
+        // Displays a warning message, but only if not already displayed (to prevent the message repeating)
+        if (!warningDisplayed) {
+        var warningMessage = "Please reset the form, make sure all fields are completed, and submit again.";
+        var warningElement = createWarningElement(warningMessage);
+
+        // Check if the warning element already exists and remove it
+        var existingWarning = $("#modal-calories .text-danger");
+        if (existingWarning.length) {
+            existingWarning.remove();
+        }
+
+       // Appends the warning element to the modal
+       $("#modal-calories .modal-title").prepend(warningElement);
+
+        // Sets to true to indicate that the warning has been displayed
+        warningDisplayed = true;
+    }
+
+       return; 
+    }
+
+    // Resets the flag when valid input is provided
+    warningDisplayed = false;
 
     aboutFormStorageSet()
     dailyRecommendedCalorieFetch();
@@ -61,16 +89,11 @@ $("#reset-user-form").on("click", function(event){
     $("#weight-input").val("");
     $("#activity-input").val("");
     $(".form-check-input").prop('checked', false); 
+    // Removes any existing warning message, after page reset
+    $("#modal-calories .text-danger").remove();
 
     // resets local storage
-    localStorage.setItem("nameStorage", "")
-    localStorage.setItem("ageStorage", "")
-    localStorage.setItem("genderStorage","" )
-    localStorage.setItem("heightStorage","" )
-    localStorage.setItem("weightStorage", "")
-    localStorage.setItem("activityStorage", "")
-    localStorage.setItem("dietStorage", "")
-
+    localStorage.clear()
 })
 
 //Button to push meal inputs into object array, and append list item to page.
@@ -80,11 +103,12 @@ $("#meal-add").on("click", function(event){
     var mealWeightVal = $("#meal-weight").val()
 
     if(mealItemVal !== "" && mealWeightVal !== ""){
-    var mealItem  =mealObject.mealOne.oneItems;
-    var mealWeight = mealObject.mealOne.oneWeights;
-    mealItem.push(mealItemVal)
-    mealWeight.push(mealWeightVal)
-            $("#meal-list").append($("<li>").text(`${mealWeight[mealWeight.length-1]}g of ${mealItem[mealItem.length-1]}`))
+        $("#meal-warning").remove();
+        var mealItem  =mealObject.mealOne.oneItems;
+        var mealWeight = mealObject.mealOne.oneWeights;
+        mealItem.push(mealItemVal)
+        mealWeight.push(mealWeightVal)
+        $("#meal-list").append($("<li>").text(`${mealWeight[mealWeight.length-1]}g of ${mealItem[mealItem.length-1]}`))
     }
     console.log(mealObject)
 })
@@ -101,17 +125,22 @@ $("#reset-meal-form").on("click", function(event){
 //Meal form submit function to capture values of the form and construct the query string. totalMealCalories fetch function is called and query string is passed through as a parameter.
 $("#meal-form").on("submit", function(event){
     event.preventDefault();
-    var query = ""
-    for (let i = 0; i < mealObject.mealOne.oneItems.length; i++) {
-        query += `${mealObject.mealOne.oneWeights[i]}g ${mealObject.mealOne.oneItems[i]} `  
-    }
-    console.log(query);
-    totalMealCalories(query);
-
+    if(mealItem.length === 0){
+        $("#meal-warning").remove();
+        $("#meal-form").append($("<p>").attr("id","meal-warning").addClass("text-danger").text("Please enter at least one meal."));
+    }else{
+        $("#meal-warning").remove();
+        var query = ""
+        for (let i = 0; i < mealItem.length; i++) {
+            query += `${mealWeight[i]}g ${mealItem[i]} `  
+        }
+        console.log(query);
+        totalMealCalories(query);
+    
     //If the prepare meals form fields are not empty, the #modal-prepare-meal hides and #modal-total-calories come up
     $('#modal-prepare-meal').modal('hide');
     $('#modal-total-calories').modal('show');
-
+    }
   
 })
 
@@ -159,6 +188,14 @@ function dailyRecommendedCalorieFetch(){
         console.log(response);
         console.log(response.data.calorie);
         var recommendedCalories = Math.round(response.data.calorie);
+        
+        var dietCarbs = response.data[diet].carbs;
+        var dietFat = response.data[diet].fat;
+        var dietProtein = response.data[diet].protein;
+
+        console.log(dietCarbs);
+        console.log(dietFat);
+        console.log(dietProtein);
 
         displayCaloriesResult('.daily-recommend-container', 'p', recommendedCalories);
 
@@ -184,7 +221,7 @@ function dailyRecommendedCalorieFetch(){
 
 
 //Function to fetch API data for meal form input total calories. For loop used to sum the total calories.
-function totalMealCalories(query){
+function totalMealCalories(query) {
 $.ajax({
     method: 'GET',
     url: 'https://api.calorieninjas.com/v1/nutrition?query=' + query,
@@ -205,10 +242,13 @@ $.ajax({
         actualProtein += Math.round(result.items[i].protein_g*10)/10;
 
         }
-        console.log(TotalCalories);
+        if (TotalCalories>5000){
+            $('.total-calorie-container').find('p').remove();
         
+            $('.total-calorie-container').removeAttr('style').append($("<p>").text("Something went wrong, please reset and try again."));
+        }else{
         displayCaloriesResult('.total-calorie-container', 'p', TotalCalories);
-        
+        }
 
         // Pie chart data
 
@@ -227,15 +267,6 @@ $.ajax({
         var recCarb = (pElCarb/pElTotal) *100;
         var recFat = (pElFat/pElTotal) *100;
         var recProtein = (pElProtein/pElTotal) *100;
-        //   values: [actualfracCarbs, actualfracFat, actualfracProtein],
-        //   labels: ['Carbohydrates', 'Fats', 'Protein'],
-        //   type: 'pie',
-        //   name:'Actual Macronutrients',
-        //   textinfo: "label+percent",
-        //   textposition: "outside",
-        //   xaxis: 'x2',
-        //   yaxis: 'y2',
-        //   }];
 
         
         // Load the Visualization API and the corechart package.
@@ -294,24 +325,16 @@ $.ajax({
         
         // Draw
         const chart2 = new google.visualization.PieChart(document.getElementById('actual-pie'));
-        chart2.draw(data2, options2);
-
-        
-        
-        }
-
-
-          
-    },    
-    
-
-    
-    error: function ajaxError(jqXHR) {
-        console.error('Error: ', jqXHR.responseText);
-    }
-})
-
+        chart2.draw(data2, options2);          
+    }    
 }
+    },
+error: function ajaxError(jqXHR) {
+    console.error('Error: ', jqXHR.responseText);
+    }
+});
+};
+
 
 /*
  * function displayCaloriesResult(container, elem, calories);

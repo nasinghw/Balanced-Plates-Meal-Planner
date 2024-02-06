@@ -421,6 +421,12 @@ margin-bottom: 20px;
   font-weight: bold;
 }
 
+#meal-warning {
+  font-family: Be Vietnam Pro, sans-serif;
+  font-size: 0.75rem;
+  text-align: center;
+}
+
 /* Footer */
 
 #footer {
