@@ -68,6 +68,7 @@ $("#about-form").on("submit", function(event){
     // Resets the flag when valid input is provided
     warningDisplayed = false;
 
+
     aboutFormStorageSet()
     dailyRecommendedCalorieFetch();
 
@@ -92,8 +93,10 @@ $("#reset-user-form").on("click", function(event){
     // Removes any existing warning message, after page reset
     $("#modal-calories .text-danger").remove();
 
+
     // resets local storage
     localStorage.clear()
+
 })
 
 //Button to push meal inputs into object array, and append list item to page.
@@ -103,7 +106,6 @@ $("#meal-add").on("click", function(event){
     var mealWeightVal = $("#meal-weight").val()
 
     if(mealItemVal !== "" && mealWeightVal !== ""){
-        $("#meal-warning").remove();
         var mealItem  =mealObject.mealOne.oneItems;
         var mealWeight = mealObject.mealOne.oneWeights;
         mealItem.push(mealItemVal)
@@ -229,8 +231,6 @@ $.ajax({
     contentType: 'application/json',
     success: function(result) {
 
-        console.log(result);
-        // console.log(result.items[0].calories);
         var TotalCalories = 0;
         for (let i = 0; i < result.items.length; i++) {
             
@@ -247,8 +247,7 @@ $.ajax({
         
             $('.total-calorie-container').removeAttr('style').append($("<p>").text("Something went wrong, please reset and try again."));
         }else{
-        displayCaloriesResult('.total-calorie-container', 'p', TotalCalories);
-        }
+        displayCaloriesResult('.total-calorie-container', 'p', TotalCalories);}
 
         // Pie chart data
 
