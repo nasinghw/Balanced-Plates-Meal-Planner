@@ -18,6 +18,27 @@
   
 }
 
+/* Scrollbar settings */
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
 .page-button{
   display: flex;
   width:max-content;
@@ -35,47 +56,22 @@
 /* Global form settings */
 
 .input-field{
+
+  flex-direction: column;
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  align-items:flex-start;
+  justify-content: start;
+  gap: 10px;
+  margin-left: 20px;
 }
 
-.form-control, .form-select{
-  width:90%;
+.form-control,
+.form-select{
+  width:100%;
 }
 
-form {
-  display: table;
-  margin:0 auto;
-}
-
-.form p{
-  display: table-row;
-  align-items: center;
-}
-
-.form p label{
-  display: table-cell;
-  padding: 10px 0;
-  padding-right: 25px;
-  text-align: center;
-
-}
-
-.form p input{
-  display: table-cell;
-  margin: 10px 0;
-  min-width: fit-content;
-  border: 1px solid var(--mid-accent);
-}
-
-.form p span{
-  display: table-cell;
-  left:0;
-  width:10px;
-  text-align: center;
-  margin-right:10px;
-
+.form-label{
+  margin:0;
 }
 
 .form-button{
@@ -85,17 +81,22 @@ form {
   column-count: 2;
   margin-top:20px;
   padding-inline:0px;
-  width: 300px;
+  width: 200px;
 }
 
+.form p input,
+.form-select{
+  margin-bottom: 10px;
+  max-width: 500p;
+  border: 1px solid var(--mid-accent);
+
+}
 .form-inner{
-  
+  display: flex;
+  justify-content: center;
   margin: 0 auto;
-}
+} 
 
-.form-select {
-  border-color: var(--mid-accent);
-}
 .form-control:focus,
 .form-select:focus {
   border-color: var(--main-color);
@@ -274,6 +275,7 @@ nav .nav-link:hover{
 
 #about-form{
   margin: 0 auto;
+  width: 80%;
 }
 
 #about-yourself{
@@ -281,9 +283,10 @@ nav .nav-link:hover{
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height:100vh;
+  min-height:100vh;
   margin: 0 auto;
   background-color: var(--light-accent);
+  padding-bottom: 30px;
 }
 
 #about-you-title{
@@ -293,14 +296,45 @@ nav .nav-link:hover{
 
 #reset-user-form{
   background-color: #510202;
-  margin-left:44%
+  margin: 0 auto;
 }
 
 #about-submit{
-  margin-left:44%
+  margin:0 auto;
+  margin-block: 10px;
 }
 
 
+#diet-type{
+display: flex;
+justify-content: center;
+}
+
+#diet-radio{
+  justify-content: center;
+}
+
+.range-subheadings span{
+  font-family: Be Vietnam Pro, sans-serif;
+  font-size: 0.8rem;
+  color: var(--main-color);
+}
+
+.form-check-label{
+  font-family: Be Vietnam Pro, sans-serif;
+  font-size: 0.9rem;
+  color: var(--main-color);
+}
+
+#activity-label,
+#diet-label{
+  font-family: Be Vietnam Pro, sans-serif;
+  font-size: 1rem;
+}
+
+.input-group{
+  padding-block: 5px;
+}
 
 /* Meal form */
 
@@ -335,17 +369,58 @@ nav .nav-link:hover{
 #meal-form p input{
   border: 1px solid var(--main-color);
   margin-right: 20px;
-
 }
 
+.meal-form-container{
+  width: 50%;
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 #meal-submit{
   padding-inline: 30px;
 }
 
 .add-button {
-  padding: 5px 10px;
-  margin: 5px;
-  font-size: 12px;
+background-color: var(--dark-accent);
+padding-block: 10px;
+width: 150px;
+margin-bottom: 20px;
+}
+
+#meal-list{
+  height: 200px;
+  width:100%;
+  overflow-y: scroll;
+  text-align: center;
+}
+
+.list-container{
+  min-width:400px;
+  text-align: center;
+  margin-top: 30px;
+}
+
+#reset-meal-form{
+  background-color: #510202;
+  margin: 0 auto;
+  margin-top: 20px;
+}
+
+.meal-form-disclaimer{
+  font-family: Be Vietnam Pro, sans-serif;
+  font-size: 0.75rem;
+  text-align: center;
+}
+.bold-text{
+  font-weight: bold;
+}
+
+#meal-warning {
+  font-family: Be Vietnam Pro, sans-serif;
+  font-size: 0.75rem;
+  text-align: center;
 }
 
 /* Footer */

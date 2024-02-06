@@ -5,34 +5,75 @@ var gender;
 var height;
 var weight;
 var activity;
-// var meal1item1= "";
-// var meal2item2= "";
-// var meal3item3= "";
-// var meal1weight1= "";
-// var meal2weight2= "";
-// var meal2weight3= "";
+var diet;
+var warningDisplayed = false; // Tracking if the warning message has been displayed already
 var mealObject = {
     mealOne: {
         oneItems: [],
         oneWeights: [],
     },
 }
+var mealItem  =mealObject.mealOne.oneItems;
+var mealWeight = mealObject.mealOne.oneWeights;
+
+// Load google charts
+// google.charts.load('current', {'packages':['corechart']});
+// google.charts.setOnLoadCallback(drawChart);
+
+// Function for a warning element
+function createWarningElement(message) {
+    var warningElement = document.createElement('div');
+    warningElement.className = 'text-danger'; 
+    warningElement.textContent = message;
+    return warningElement;
+}
 
 //About form submit function to capture values of the form, and run them through the dailyRecommendedCalorieFetch function
 $("#about-form").on("submit", function(event){
     event.preventDefault();
+
     username = $("#name-input").val();
     age = $("#age-input").val();
     gender = $("#gender-input").val();
     height = $("#height-input").val();
     weight = $("#weight-input").val();
     activity = $("#activity-input").val();
+    diet = $(".form-check input:radio:checked").val();
+
+    if (!username || !age || !gender || !height || !weight || !activity || !diet) {
+        // Displays a warning message, but only if not already displayed (to prevent the message repeating)
+        if (!warningDisplayed) {
+        var warningMessage = "Please reset the form, make sure all fields are completed, and submit again.";
+        var warningElement = createWarningElement(warningMessage);
+
+        // Check if the warning element already exists and remove it
+        var existingWarning = $("#modal-calories .text-danger");
+        if (existingWarning.length) {
+            existingWarning.remove();
+        }
+
+       // Appends the warning element to the modal
+       $("#modal-calories .modal-title").prepend(warningElement);
+
+        // Sets to true to indicate that the warning has been displayed
+        warningDisplayed = true;
+    }
+
+       return; 
+    }
+
+    // Resets the flag when valid input is provided
+    warningDisplayed = false;
+
     aboutFormStorageSet()
     dailyRecommendedCalorieFetch();
 
     $("#dyn-name").text(username);
     location.href = "#meal-form";
-})
+
+
+
+});
 
 // Reset button functionality for About form
 $("#reset-user-form").on("click", function(event){
@@ -44,41 +85,59 @@ $("#reset-user-form").on("click", function(event){
     $("#height-input").val("");
     $("#weight-input").val("");
     $("#activity-input").val("");
+    $(".form-check-input").prop('checked', false); 
+    // Removes any existing warning message, after page reset
+    $("#modal-calories .text-danger").remove();
 
+    // resets local storage
+    localStorage.clear()
 })
 
 //Button to push meal inputs into object array, and append list item to page.
 $("#meal-add").on("click", function(event){
     event.preventDefault();
-    var mealItem  =mealObject.mealOne.oneItems
-    var mealWeight = mealObject.mealOne.oneWeights
     var mealItemVal = $("#meal-item").val()
     var mealWeightVal = $("#meal-weight").val()
 
     if(mealItemVal !== "" && mealWeightVal !== ""){
-    mealItem.push(mealItemVal)
-    mealWeight.push(mealWeightVal)
-    $("#meal-list").empty();
-    for (i = 0; i < mealItem.length; i++) {
-            $("#meal-list").prepend($("<li>").text(`${mealWeight[i]}g of ${mealItem[i]}`))
-        }}
+        $("#meal-warning").remove();
+        var mealItem  =mealObject.mealOne.oneItems;
+        var mealWeight = mealObject.mealOne.oneWeights;
+        mealItem.push(mealItemVal)
+        mealWeight.push(mealWeightVal)
+        $("#meal-list").append($("<li>").text(`${mealWeight[mealWeight.length-1]}g of ${mealItem[mealItem.length-1]}`))
+    }
     console.log(mealObject)
+})
+
+// Meal form reset button function
+$("#reset-meal-form").on("click", function(event){
+    event.preventDefault();
+
+    $("#meal-list").empty();
+    mealObject.mealOne.oneItems = [];
+    mealObject.mealOne.oneWeights= [];
 })
 
 //Meal form submit function to capture values of the form and construct the query string. totalMealCalories fetch function is called and query string is passed through as a parameter.
 $("#meal-form").on("submit", function(event){
     event.preventDefault();
-    var query = ""
-    for (let i = 0; i < mealObject.mealOne.oneItems.length; i++) {
-        query += `${mealObject.mealOne.oneWeights[i]}g ${mealObject.mealOne.oneItems[i]} `  
-    }
-    console.log(query);
-    totalMealCalories(query);
-
+    if(mealItem.length === 0){
+        $("#meal-warning").remove();
+        $("#meal-form").append($("<p>").attr("id","meal-warning").addClass("text-danger").text("Please enter at least one meal."));
+    }else{
+        $("#meal-warning").remove();
+        var query = ""
+        for (let i = 0; i < mealItem.length; i++) {
+            query += `${mealWeight[i]}g ${mealItem[i]} `  
+        }
+        console.log(query);
+        totalMealCalories(query);
+    
     //If the prepare meals form fields are not empty, the #modal-prepare-meal hides and #modal-total-calories come up
     $('#modal-prepare-meal').modal('hide');
     $('#modal-total-calories').modal('show');
-
+    }
   
 })
 
@@ -90,6 +149,7 @@ function aboutFormStorageSet() {
     localStorage.setItem("heightStorage", height)
     localStorage.setItem("weightStorage", weight)
     localStorage.setItem("activityStorage", activity)
+    localStorage.setItem("dietStorage", diet)
 }
 
 //Function to set text inputs on the about form to previous inputs saved to localStorage.
@@ -126,8 +186,18 @@ function dailyRecommendedCalorieFetch(){
         console.log(response.data.calorie);
         var recommendedCalories = Math.round(response.data.calorie);
         
+        var dietCarbs = response.data[diet].carbs;
+        var dietFat = response.data[diet].fat;
+        var dietProtein = response.data[diet].protein;
+
+        console.log(dietCarbs);
+        console.log(dietFat);
+        console.log(dietProtein);
+
         displayCaloriesResult('.daily-recommend-container', 'p', recommendedCalories);
     });
+
+
 }
 
 //Function to fetch API data for meal form input total calories. For loop used to sum the total calories.
@@ -138,8 +208,6 @@ $.ajax({
     headers: { 'X-Api-Key': 'bbmC/ZvQmx/lB6Kb22gtQA==osiiqiKhgKtEUAqq'},
     contentType: 'application/json',
     success: function(result) {
-        console.log(result);
-        // console.log(result.items[0].calories);
         var TotalCalories = 0;
         for (let i = 0; i < result.items.length; i++) {
             
@@ -147,15 +215,19 @@ $.ajax({
             TotalCalories = Math.round(TotalCalories);
             
         }
-        console.log(TotalCalories);
+        if (TotalCalories>5000){
+            $('.total-calorie-container').find('p').remove();
         
+            $('.total-calorie-container').removeAttr('style').append($("<p>").text("Something went wrong, please reset and try again."));
+        }else{
         displayCaloriesResult('.total-calorie-container', 'p', TotalCalories);
-        
+        }
     },
     error: function ajaxError(jqXHR) {
         console.error('Error: ', jqXHR.responseText);
     }
 })
+
 }
 
 /*
@@ -169,6 +241,8 @@ $.ajax({
  * 
  * @param {Number} calories API call returned result.
 */
+
+
 function displayCaloriesResult(container, elem, calories) {
     $(container).find(elem).remove();
         
@@ -180,3 +254,29 @@ function displayCaloriesResult(container, elem, calories) {
                       fontWeight: "600" })
             .append(`<`+elem+`>&nbsp; ${calories} calories </`+elem+`>`);
 }
+
+
+
+
+
+
+// JavaScript for disabling form submissions if there are invalid fields
+(function () {
+    'use strict'
+  
+    // Fetch all the forms we want to apply custom Bootstrap validation styles to
+    var forms = document.querySelectorAll('.needs-validation')
+  
+    // Loop over them and prevent submission
+    Array.prototype.slice.call(forms)
+      .forEach(function (form) {
+        form.addEventListener('submit', function (event) {
+          if (!form.checkValidity()) {
+            event.preventDefault()
+            event.stopPropagation()
+          }
+  
+          form.classList.add('was-validated')
+        }, false)
+      })
+  })()
