@@ -97,14 +97,7 @@ $("#reset-user-form").on("click", function(event){
     $("#modal-calories .text-danger").remove();
 
     // resets local storage
-    localStorage.setItem("nameStorage", "")
-    localStorage.setItem("ageStorage", "")
-    localStorage.setItem("genderStorage","" )
-    localStorage.setItem("heightStorage","" )
-    localStorage.setItem("weightStorage", "")
-    localStorage.setItem("activityStorage", "")
-    localStorage.setItem("dietStorage", "")
-
+    localStorage.clear()
 })
 
 //Button to push meal inputs into object array, and append list item to page.
