@@ -42,7 +42,7 @@
     </nav>
 
 
-    <!-- Hero -->
+    <!-- Hero jumbotron-->
 
     <header id="hero">
         <div class="row justify-content-center align-items-center hero-bg-overlay ">
@@ -83,7 +83,7 @@
 
     </section>
 
-    <!-- About Yourself-->
+    <!-- About Yourself form-->
     
     <section id="about-yourself" class="">
         
@@ -121,7 +121,7 @@
                           <option value="male" selected>Male</option>
                           <option value="female">Female</option>
                         </select>
-                        <label for="floatingSelectGrid">Gender</label>
+                        <label for="gender-input">Gender</label>
                     </div>
                     <div class="invalid-feedback">
                         Please select a gender.
@@ -159,8 +159,8 @@
                 </div>
    
                 <div class="mb-3 mt-3 has-validation" id="diet-radio">
-                    <label for="diet-radio" class="form-label pt3" id="diet-label">Desired Diet Type:</label>
-                    <div class="container pt-3 d-flex justify-content-between align-items-center">
+                    <label class="form-label pt3" id="diet-label" for="inlineRadio1">Desired Diet Type:</label>
+                    <div class="container pt-3 d-flex justify-content-between align-items-center" id="radio-container">
                         <div class="form-check form-check-inline">
                             <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="balanced" required>
                             <label class="form-check-label " for="inlineRadio1">Balanced</label>
@@ -174,7 +174,7 @@
                             <label class="form-check-label" for="inlineRadio3">Low Carbs</label>
                         </div>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="lowfat" required>
+                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio4" value="lowfat" required>
                             <label class="form-check-label" for="inlineRadio3">Low Fat</label>
                         </div>
                     </div>
@@ -258,8 +258,8 @@
 
                       <button type="button" id="meal-add" class="btn btn-md btn-success add-button page-button form-button">Add</button>
                       <div class="meal-button-container">
-                      <button type="submit"  id="meal-submit" class="btn btn-md btn-success  page-button form-button" >Submit</button><!-- data-bs-toggle="modal" data-bs-target="#modal-total-calories" data-bs-dismiss="modal" aria-label="Close" -->
-                      <button type="reset" id="reset-meal-form" class="btn btn-md btn-danger form-button" >Reset</button>
+                      <button type="submit"  id="meal-submit" class="btn btn-md btn-success page-button form-button">Submit</button><!-- data-bs-toggle="modal" data-bs-target="#modal-total-calories" data-bs-dismiss="modal" aria-label="Close" -->
+                      <button type="reset" id="reset-meal-form" class="btn btn-md btn-danger form-button">Reset</button>
                       </div>
                     </form>
                 </div>
