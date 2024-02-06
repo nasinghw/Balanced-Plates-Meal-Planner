@@ -166,7 +166,6 @@ function dailyRecommendedCalorieFetch(){
         console.log(dietFat);
         console.log(dietProtein);
 
-
         displayCaloriesResult('.daily-recommend-container', 'p', recommendedCalories);
     });
 
@@ -181,8 +180,6 @@ $.ajax({
     headers: { 'X-Api-Key': 'bbmC/ZvQmx/lB6Kb22gtQA==osiiqiKhgKtEUAqq'},
     contentType: 'application/json',
     success: function(result) {
-        console.log(result);
-        // console.log(result.items[0].calories);
         var TotalCalories = 0;
         for (let i = 0; i < result.items.length; i++) {
             
@@ -190,10 +187,13 @@ $.ajax({
             TotalCalories = Math.round(TotalCalories);
             
         }
-        console.log(TotalCalories);
+        if (TotalCalories>5000){
+            $('.total-calorie-container').find('p').remove();
         
+            $('.total-calorie-container').removeAttr('style').append($("<p>").text("Something went wrong, please reset and try again."));
+        }else{
         displayCaloriesResult('.total-calorie-container', 'p', TotalCalories);
-        
+        }
     },
     error: function ajaxError(jqXHR) {
         console.error('Error: ', jqXHR.responseText);
