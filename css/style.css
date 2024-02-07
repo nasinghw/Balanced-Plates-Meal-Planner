@@ -443,7 +443,7 @@ justify-content: space-evenly;
   font-weight: bold;
 }
 
-#meal-warning {
+.warning {
   font-family: Be Vietnam Pro, sans-serif;
   font-size: 0.75rem;
   text-align: center;
