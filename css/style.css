@@ -344,6 +344,16 @@ justify-content: center;
   text-wrap: stable;
 }
 
+input[type=range]::-webkit-slider-thumb {
+  background: var(--main-color);
+}
+input[type=range]::-moz-range-thumb {
+  background: var(--main-color);
+}
+input[type=range]::-ms-thumb {
+  background: var(--main-color);
+}
+
 /* Meal form */
 
 #meal-section-title{
@@ -575,6 +585,14 @@ justify-content: space-evenly;
   color: var(--main-color);
 }
 
+
+#faq-submitted-text{
+  font-family: "Be Vietnam Pro", sans-serif;
+  font-size: 1rem;
+  text-align: center;
+  color: var(--main-color);
+  padding-bottom:20px;
+}
 
 /* Footer */
 

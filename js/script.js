@@ -266,6 +266,7 @@ $.ajax({
 
         var CaloriesRec = parseFloat($(".daily-recommend-container p").text());
 
+      
         if(Math.abs(TotalCalories-CaloriesRec) < 200){
             $("#totalTextContainer").attr("style", "background-color: var(--green-light);");
         }else if (Math.abs(TotalCalories-CaloriesRec) < 400 && Math.abs(TotalCalories-CaloriesRec) > 200){
@@ -380,6 +381,13 @@ $("#faq-submit").on("click", function(e){
     console.log(`User FAQs: ${JSON.parse(localStorage.getItem("faqArr"))}`);
 
     $("#faq-input").val("")
+
+
+    $("#submit-msg").append($("<p>").attr("id", "faq-submitted-text").text("Submitted!"))
+        
+    setTimeout(function () { 
+         $("#faq-submitted-text").remove();
+    },3000)
 
 });
 
