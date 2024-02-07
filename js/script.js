@@ -28,8 +28,9 @@ var mealWeight = mealObject.mealOne.oneWeights;
 // Function for a warning element (if any input fields are left blank/invalid data)
 function createWarningElement(message) {
     var warningElement = document.createElement('div');
-    warningElement.className = 'text-danger'; 
+    warningElement.className = 'text-danger warning'; 
     warningElement.textContent = message;
+    warningElement.setAttribute("id", "about-warning")
     return warningElement;
 }
 
@@ -51,6 +52,9 @@ $("#about-form").on("submit", function (event) {
     
     if (!username || !age || !gender || !height || !weight || !activity || !diet) {
         // If any field is empty, return without showing the modal
+        var warningMessage = "Looks like something is missing, please fill out the form fully."
+        $("#about-warning").remove()
+        $("#about-form").append(createWarningElement(warningMessage))
         return;
     }
 
@@ -129,8 +133,8 @@ $("#reset-meal-form").on("click", function(event){
     event.preventDefault();
 
     $("#meal-list").empty();
-    mealObject.mealOne.oneItems = [];
-    mealObject.mealOne.oneWeights= [];
+    mealItem.length = 0;
+    mealWeight.length= 0;
 
     TotalCalories = 0;
     console.log(TotalCalories);
@@ -141,7 +145,7 @@ $("#meal-form").on("submit", function(event){
     event.preventDefault();
     if(mealItem.length === 0){
         $("#meal-warning").remove();
-        $("#meal-form").append($("<p>").attr("id","meal-warning").addClass("text-danger").text("Please enter at least one meal."));
+        $("#meal-form").append($("<p>").attr("id","meal-warning").addClass("text-danger warning").text("Please enter at least one meal."));
     }else{
         $("#meal-warning").remove();
         var query = ""
