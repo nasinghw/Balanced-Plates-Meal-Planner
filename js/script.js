@@ -21,17 +21,21 @@ var mealWeight = mealObject.mealOne.oneWeights;
 // google.charts.setOnLoadCallback(drawChart);
 
 // Function for a warning element
-function createWarningElement(message) {
+
+/* function createWarningElement(message) {
     var warningElement = document.createElement('div');
     warningElement.className = 'text-danger'; 
     warningElement.textContent = message;
     return warningElement;
 }
 
-//About form submit function to capture values of the form, and run them through the dailyRecommendedCalorieFetch function
-$("#about-form").on("submit", function(event){
+ */
+
+
+$("#about-form").on("submit", function (event) {
     event.preventDefault();
 
+    // Get input values
     username = $("#name-input").val();
     age = $("#age-input").val();
     gender = $("#gender-input").val();
@@ -41,39 +45,25 @@ $("#about-form").on("submit", function(event){
     diet = $(".form-check input:radio:checked").val();
 
     if (!username || !age || !gender || !height || !weight || !activity || !diet) {
-        // Displays a warning message, but only if not already displayed (to prevent the message repeating)
-        if (!warningDisplayed) {
-        var warningMessage = "Please reset the form, make sure all fields are completed, and submit again.";
-        var warningElement = createWarningElement(warningMessage);
-
-        // Check if the warning element already exists and remove it
-        var existingWarning = $("#modal-calories .text-danger");
-        if (existingWarning.length) {
-            existingWarning.remove();
-        }
-
-       // Appends the warning element to the modal
-       $("#modal-calories .modal-title").prepend(warningElement);
-
-        // Sets to true to indicate that the warning has been displayed
-        warningDisplayed = true;
+        // If any field is empty, return without showing the modal
+        return;
     }
 
-       return; 
-    }
+    // Add the data attributes to #modal-calories and display the modal sequencially in case all fields are filled
+  $("#about-submit").attr({ "data-bs-toggle": "modal", "data-bs-target": "#modal-calories" });
+  $('#modal-calories').modal('show'); 
 
-    // Resets the flag when valid input is provided
-    warningDisplayed = false;
-
-    aboutFormStorageSet()
+    aboutFormStorageSet();
     dailyRecommendedCalorieFetch();
+    
 
     $("#dyn-name").text(username);
     location.href = "#meal-form";
-
-
-
+    
 });
+
+
+$(document).ready(function () {
 
 // Reset button functionality for About form
 $("#reset-user-form").on("click", function(event){
@@ -91,7 +81,14 @@ $("#reset-user-form").on("click", function(event){
 
     // resets local storage
     localStorage.clear()
+
+    // Reload the document to prevent the data cleared from local storage staying in memory cache.
+   document.location.reload()
 })
+
+});
+
+
 
 //Button to push meal inputs into object array, and append list item to page.
 $("#meal-add").on("click", function(event){
@@ -195,6 +192,8 @@ function dailyRecommendedCalorieFetch(){
         console.log(dietProtein);
 
         displayCaloriesResult('.daily-recommend-container', 'p', recommendedCalories);
+               // Add the attributes to the modal only when the form is valid
+    /* $("#about-submit").attr({ "data-bs-toggle": "modal", "data-bs-target": "#modal-calories" }); */
     });
 
 
@@ -254,9 +253,6 @@ function displayCaloriesResult(container, elem, calories) {
                       fontWeight: "600" })
             .append(`<`+elem+`>&nbsp; ${calories} calories </`+elem+`>`);
 }
-
-
-
 
 
 
