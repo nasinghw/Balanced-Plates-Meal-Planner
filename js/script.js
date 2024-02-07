@@ -115,6 +115,9 @@ $("#reset-meal-form").on("click", function(event){
     $("#meal-list").empty();
     mealObject.mealOne.oneItems = [];
     mealObject.mealOne.oneWeights= [];
+
+    TotalCalories = 0;
+    console.log(TotalCalories);
 })
 
 //Meal form submit function to capture values of the form and construct the query string. totalMealCalories fetch function is called and query string is passed through as a parameter.
@@ -349,15 +352,6 @@ error: function ajaxError(jqXHR) {
 };
 
 
-// prevent Meal Form submit on enter press
-$("#meal-form").onkeypress = function(e) {
-    var key = e.charCode || e.keyCode || 0;     
-    if (key == 13) {
-      e.preventDefault();
-    }
-  }
-
-
 //   Saves FAQ entered by user into local storage
 var faq = [];
 
@@ -380,8 +374,6 @@ $("#faq-submit").on("click", function(e){
     },3000)
 
 });
-
-
 
 
 
