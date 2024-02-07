@@ -17,6 +17,11 @@ var mealObject = {
         oneWeights: [],
     },
 }
+
+var actualCarbs = 0;
+var actualFat = 0;
+var actualProtein = 0;
+
 var mealItem  =mealObject.mealOne.oneItems;
 var mealWeight = mealObject.mealOne.oneWeights;
 
@@ -43,6 +48,7 @@ $("#about-form").on("submit", function (event) {
     activity = $("#activity-input").val();
     diet = $(".form-check input:radio:checked").val();
 
+    
     if (!username || !age || !gender || !height || !weight || !activity || !diet) {
         // If any field is empty, return without showing the modal
         return;
@@ -76,8 +82,24 @@ $(document).ready(function () {
         // Removes any existing warning message, after page reset
         $("#modal-calories .text-danger").remove();
 
+    // Empty the variables
+    username = null;
+    age= null;
+    gender= null;
+    height= null;
+    weight= null;
+    activity= null;
+    diet= null;
+
+    // reset modal data-attributes
+    $("#about-submit").attr({ "data-bs-toggle": "", "data-bs-target": "" });
+    $('#modal-calories').modal('hide');
+
+
+
     // resets local storage
     localStorage.clear()
+
 })
 
 });
@@ -93,7 +115,6 @@ $("#meal-add").on("click", function(event){
     var mealWeightVal = $("#meal-weight").val()
 
     if(mealItemVal !== "" && mealWeightVal !== ""){
-        $("#meal-warning").remove();
         var mealItem  =mealObject.mealOne.oneItems;
         var mealWeight = mealObject.mealOne.oneWeights;
         mealItem.push(mealItemVal)
@@ -110,6 +131,9 @@ $("#reset-meal-form").on("click", function(event){
     $("#meal-list").empty();
     mealObject.mealOne.oneItems = [];
     mealObject.mealOne.oneWeights= [];
+
+    TotalCalories = 0;
+    console.log(TotalCalories);
 })
 
 //Meal form submit function to capture values of the form and construct the query string. totalMealCalories fetch function is called and query string is passed through as a parameter.
@@ -177,7 +201,7 @@ function dailyRecommendedCalorieFetch(){
 
     //Make Ajax request
     $.ajax(settings).done(function (response) {
-        //console.log(response);
+        console.log(response);
         //console.log(response.data.calorie);
 
         //Round float value to a whole number
@@ -194,40 +218,180 @@ function dailyRecommendedCalorieFetch(){
         displayCaloriesResult('.daily-recommend-container', 'p', recommendedCalories);
                // Add the attributes to the modal only when the form is valid
     /* $("#about-submit").attr({ "data-bs-toggle": "modal", "data-bs-target": "#modal-calories" }); */
+
+
+    var dietCarbs = response.data[diet].carbs;
+    var dietFat = response.data[diet].fat;
+    var dietProtein = response.data[diet].protein;
+
+    console.log(dietFat);
+    console.log(dietProtein);
+    console.log(dietCarbs);
+
+    $(rCarb).text(dietCarbs);
+    $(rFat).text(dietFat);
+    $(rProtein).text(dietProtein);
+    
     });
 
+};
 
-}
+
+
+
 
 //Function to fetch API data for meal form input total calories. For loop used to sum the total calories.
-function totalMealCalories(query){
+function totalMealCalories(query) {
 $.ajax({
     method: 'GET',
     url: 'https://api.calorieninjas.com/v1/nutrition?query=' + query,
     headers: { 'X-Api-Key': 'bbmC/ZvQmx/lB6Kb22gtQA==osiiqiKhgKtEUAqq'},
     contentType: 'application/json',
     success: function(result) {
+
         var TotalCalories = 0;
+
+        var actualCarbs = 0;
+        var actualFat = 0;
+        var actualProtein = 0;
         for (let i = 0; i < result.items.length; i++) {
             
             TotalCalories += parseFloat(result.items[i].calories);
             TotalCalories = Math.round(TotalCalories);
             
+        actualCarbs += Math.round(result.items[i].carbohydrates_total_g*10)/10;
+        actualFat += Math.round(result.items[i].fat_total_g*10)/10;
+        actualProtein += Math.round(result.items[i].protein_g*10)/10;
+
         }
         if (TotalCalories>5000){
             $('.total-calorie-container').find('p').remove();
         
             $('.total-calorie-container').removeAttr('style').append($("<p>").text("Something went wrong, please reset and try again."));
         }else{
-        displayCaloriesResult('.total-calorie-container', 'p', TotalCalories);
-        }
-    },
-    error: function ajaxError(jqXHR) {
-        console.error('Error: ', jqXHR.responseText);
-    }
-})
+        displayCaloriesResult('.total-calorie-container', 'p', TotalCalories);}
 
-}
+        // Traffic light system for Total Calories
+
+        var CaloriesRec = parseFloat($(".daily-recommend-container p").text());
+
+      
+        if(Math.abs(TotalCalories-CaloriesRec) < 200){
+            $("#totalTextContainer").attr("style", "background-color: var(--green-light);");
+        }else if (Math.abs(TotalCalories-CaloriesRec) < 400 && Math.abs(TotalCalories-CaloriesRec) > 200){
+            $("#totalTextContainer").attr("style", "background-color: var(--amber-light);");
+        }else if(Math.abs(TotalCalories-CaloriesRec) > 400){
+            $("#totalTextContainer").attr("style", "background-color: var(--red-light);");
+        }
+        
+
+        // Pie chart data
+
+
+        var pElCarb = Math.round(parseFloat( $("#rCarb").text()) *10)/10;
+        var pElFat = Math.round(parseFloat( $("#rFat").text()) *10)/10;
+        var pElProtein = Math.round(parseFloat( $("#rProtein").text()) *10)/10;
+
+        var pElTotal = Math.round(parseFloat(pElCarb +pElFat+pElProtein) *10)/10;
+        var actualTotal = Math.round(actualCarbs + actualFat + actualProtein*10)/10;
+
+        var actualfracCarbs =  Math.round(actualCarbs/actualTotal*10)/10;
+        var actualfracFat =  Math.round(actualFat/actualTotal*10)/10;
+        var actualfracProtein =  Math.round(actualProtein/actualTotal*10)/10;
+
+        var recCarb = (pElCarb/pElTotal) *100;
+        var recFat = (pElFat/pElTotal) *100;
+        var recProtein = (pElProtein/pElTotal) *100;
+
+        
+        // Load the Visualization API and the corechart package.
+        google.charts.load('current', {'packages':['corechart']});
+        
+        // Set a callback to run when the Google Visualization API is loaded.
+        google.charts.setOnLoadCallback(drawChart);
+        
+        // Callback that creates and populates a data table,
+        // instantiates the pie chart, passes in the data and
+        // draws it.
+        function drawChart() {
+            // Recommended Pie Chart
+            
+            // Set Data
+        var data1 = new google.visualization.DataTable();
+        data1.addColumn('string', 'Macronutrients');
+        data1.addColumn('number', 'amount');
+        data1.addRows([
+          ['Carbohydrates', recCarb],
+          ['Fats', recFat],
+          ['Protein', recProtein]
+        ]);
+        
+        // Set Options
+        const options1 = {
+          'title' : 'Recommended Daily Macronutrients',
+                    'legend': 'none'
+                    
+        };
+        // Draw
+        const chart1 = new google.visualization.PieChart(document.getElementById('rec-pie'));
+        chart1.draw(data1, options1);
+
+
+        // Actual diet PieChart
+
+        // Set Data
+        var data2 = new google.visualization.DataTable();
+        data2.addColumn('string', 'Macronutrients');
+        data2.addColumn('number', 'amount');
+        data2.addRows([
+          ['Carbohydrates', actualfracCarbs],
+          ['Fats', actualfracFat],
+          ['Protein', actualfracProtein]
+        ]);
+        
+        // Set Options
+        const options2 = {
+          'title' : 'Actual Daily Macronutrients',
+          'legend': 'none'
+        };
+        
+        // Draw
+        const chart2 = new google.visualization.PieChart(document.getElementById('actual-pie'));
+        chart2.draw(data2, options2);          
+    }    
+
+    },
+error: function ajaxError(jqXHR) {
+    console.error('Error: ', jqXHR.responseText);
+        }
+});
+};
+
+
+//   Saves FAQ entered by user into local storage
+var faq = [];
+
+$("#faq-submit").on("click", function(e){
+    e.preventDefault();
+
+    faq.push($("#faq-input").val());
+
+    localStorage.setItem("faqArr", JSON.stringify(faq));
+
+    console.log(`User FAQs: ${JSON.parse(localStorage.getItem("faqArr"))}`);
+
+    $("#faq-input").val("")
+
+
+    $("#submit-msg").append($("<p>").attr("id", "faq-submitted-text").text("Submitted!"))
+        
+    setTimeout(function () { 
+         $("#faq-submitted-text").remove();
+    },3000)
+
+});
+
+
 
 /*
  * function displayCaloriesResult(container, elem, calories);
