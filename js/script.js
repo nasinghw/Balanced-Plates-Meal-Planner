@@ -32,7 +32,6 @@ var mealWeight = mealObject.mealOne.oneWeights;
  */
 
 
-
 $("#about-form").on("submit", function (event) {
     event.preventDefault();
 
@@ -50,9 +49,7 @@ $("#about-form").on("submit", function (event) {
         return;
     }
 
-
     // Add the data attributes to #modal-calories and display the modal sequencially in case all fields are filled
-
   $("#about-submit").attr({ "data-bs-toggle": "modal", "data-bs-target": "#modal-calories" });
   $('#modal-calories').modal('show'); 
 
@@ -64,9 +61,6 @@ $("#about-form").on("submit", function (event) {
     location.href = "#meal-form";
     
 });
-
-
-
 
 
 $(document).ready(function () {
@@ -88,18 +82,11 @@ $("#reset-user-form").on("click", function(event){
     // resets local storage
     localStorage.clear()
 
-
+    // Reload the document to prevent the data cleared from local storage staying in memory cache.
+   document.location.reload()
 })
 
 });
-
-
-
-
-
-
-
-
 
 
 
@@ -266,9 +253,6 @@ function displayCaloriesResult(container, elem, calories) {
                       fontWeight: "600" })
             .append(`<`+elem+`>&nbsp; ${calories} calories </`+elem+`>`);
 }
-
-
-
 
 
 
