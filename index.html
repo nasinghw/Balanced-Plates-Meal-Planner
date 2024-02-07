@@ -39,7 +39,7 @@
                     <a class="nav-link" href="#who-we-are">Who We Are</a>
                     <a class="nav-link" href="#about-yourself">Tell Us About Yourself</a>
                     <!-- <a class="nav-link" href="#meal-plan">Meal Plan</a> -->
-                    <a class="nav-link" href="#contact">Contact</a>
+                    <a class="nav-link" href="#faq">FAQs</a>
                 </div>
             </div>
         </div>
@@ -125,8 +125,6 @@
                           <option value="male" selected>Male</option>
                           <option value="female">Female</option>
                         </select>
-                        <!-- <label for="floatingSelectGrid">Gender</label> -->
-                        <!-- This label for must match the input's (select) id -->
                         <label for="gender-input">Gender</label>
                     </div>
                     <div class="invalid-feedback">
@@ -158,15 +156,18 @@
                   <div class="input-group mt-2">
                   <label for="activity-input" class="form-label pt-3" id="activity-label">Daily Activity/Exercise Level: </label>
                   <input type="range" class="form-range" min="1" max="7" id="activity-input" oninput="this.nextElementSibling.value = this.value">
-                  <div class="range-subheadings col d-flex justify-content-between">
-                    <span class="low-activity">Not Active</span>
-                    <span class="very-active">Very Active</span>
+                  <div class="range-subheadings col d-flex justify-content-between flex-wrap">
+                    <span class="activity-span" id="aSpan1">No Activity</span>
+                    <span class="activity-span" id="aSpan2">Slight Exercise </span>
+                    <span class="activity-span" id="aSpan3">Regular Exercise</span>
+                    <span class="activity-span" id="aSpan4">Routine Exercise</span>
+                    <span class="activity-span" id="aSpan5">Extremely Active</span>
                   </div>
                 </div>
    
                 <div class="mb-3 mt-3 has-validation" id="diet-radio">
-                    <h4 for="diet-radio" class="form-label pt3" id="diet-label">Desired Diet Type:</h4>
-                    <div class="container pt-3 d-flex justify-content-between align-items-center" id=""><!-- create an id to match this label -->
+                    <label class="form-label pt3" id="diet-label" for="inlineRadio1">Desired Diet Type:</label>
+                    <div class="container pt-3 d-flex justify-content-between align-items-center" id="radio-container">
                         <div class="form-check form-check-inline">
                             <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="balanced" required>
                             <label class="form-check-label " for="inlineRadio1">Balanced</label>
@@ -223,7 +224,7 @@
   
 
   <div class="modal fade" id="modal-prepare-meal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modal-prepare-mealLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-xl">
+    <div class="modal-dialog modal-dialog-centered modal-xl col-lg-10">
       <div class="modal-content">
         <div class="modal-header">
             <h1 class="modal-title fs-4 text-centre" id="modal-prepare-mealLabel">Prepare your Meal:</h1>
@@ -263,9 +264,11 @@
                       <p class="meal-form-disclaimer"><span class="bold-text">Disclaimer:</span> Due to API limitations, unit measurements for liquids are currently not supported.</p>
 
                       <button type="button" id="meal-add" class="btn btn-md btn-success add-button page-button form-button">Add</button>
-                      <button type="submit"  id="meal-submit" class="btn btn-md btn-success  page-button form-button" >Submit</button><!-- data-bs-toggle="modal" data-bs-target="#modal-total-calories" data-bs-dismiss="modal" aria-label="Close" -->
-                      <button type="reset" id="reset-meal-form" class="btn btn-md btn-danger form-button" >Reset</button>
-                      </form>
+                      <div class="meal-button-container">
+                      <button type="submit"  id="meal-submit" class="btn btn-md btn-success page-button form-button">Submit</button><!-- data-bs-toggle="modal" data-bs-target="#modal-total-calories" data-bs-dismiss="modal" aria-label="Close" -->
+                      <button type="reset" id="reset-meal-form" class="btn btn-md btn-danger form-button">Reset</button>
+                      </div>
+                    </form>
                 </div>
                 <div class="d-flex justify-content-center row m-3">
                   <div class="col-lg list-container">
@@ -282,28 +285,46 @@
 
 <!-- ----------------------------------Modal Total Calories -------------------------------->
   
-  <div class="modal fade" id="modal-total-calories"  data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modal-total-caloriesLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
+  <div class="modal fade" id="modal-total-calories" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modal-total-caloriesLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-xl">
       <div class="modal-content">
         <div class="modal-header">
             <h1 class="modal-title fs-4 text-center" id="modal-total-caloriesLabel">Compare your Calories:</h1>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
         <section id="display-result" class="pb-4">
-            <div class="form-container d-flex justify-content-center row py-4">
+            <div class="form-container" id="comparison-disp">
+            <div id="final-text" class="mt-5">   
+              
+              <div class="text-container">
+                <h6 class="text-center">Recommended Calorie intake is:</h6>
+                <div class="daily-recommend-container mb-3">
+                </div>
+              </div>
+
+              <div class="text-container" id="totalTextContainer">
                 <h6 class="text-center">Total Calorie intake is:</h6>
                 <div class="total-calorie-container mb-3">
-
+                </div>
                 </div>
 
-                <h6 class="text-center mb-3">Recommended Calorie intake is:</h6>
-                <div class="daily-recommend-container mb-3">
-                
-               
+                </div> 
+
+                <div id="chart-data">
+                    <p id="rCarb" class="hidden"></p>
+                    <p id="rFat" class="hidden"></p>
+                    <p id="rProtein" class="hidden"></p>
+                 <div id="pie-container">
+                  <div id="col-md-6">
+                    <div id="rec-pie" class="chart"></div>
+                  </div>
+                  <div id="col-md-6">
+                    <div id="actual-pie" class="chart"></div>
+                  </div>
+                 </div>
                 </div>
-                 <div id="piechart"></div>
                 <div class="d-flex justify-content-center gap-4">
-                    <button type="button" class="btn btn-success " data-bs-toggle="modal" data-bs-target="#modal-prepare-meal" data-bs-dismiss="modal" aria-label="Close" style="width:40%;">Go Back</button>
+                    <button type="button" class="btn btn-success " id="go-back-meal" data-bs-toggle="modal" data-bs-target="#modal-prepare-meal" data-bs-dismiss="modal" aria-label="Close" style="width:40%;">Go Back</button>
                     <button type="button" class="btn btn-danger "  data-bs-dismiss="modal" aria-label="Close" style="width:40%;">Exit</button>
                 </div>
 
@@ -313,6 +334,113 @@
       </div>
     </div>
   </div>
+
+  <!-------------------------------------- FAQ Section ----------------------------------------------->
+
+  <section id="faq">
+
+    <h1 class="faq-title mb-3" id="frequently-asked">Frequently Asked Questions...</h1>
+
+    <div class="accordion col-8" id="faq-accordion">
+
+      <!-- FAQ 1 -->
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+            How can Balanced Plates help me with my diet and nutrition goals?
+          </button>
+        </h2>
+        <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#faq-accordion">
+          <div class="accordion-body">
+            <strong>Answer: </strong><br>It provides personalised calorie 
+            recommendations based on factors like age, gender, weight, height and activity level, aiding in
+             meal planning and weight management. Also, it provides you with a breakdown of Macronutrients
+              so you can compare what they are now and what they should be!
+        </div>
+      </div>
+      </div>
+
+      <!-- FAQ 2 -->
+
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+            Is Balanced Plates accurate in estimating my calorie needs?
+          </button>
+        </h2>
+        <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#faq-accordion">
+          <div class="accordion-body">
+            <strong>Answer: </strong><br>We offer estimates based on general formulas and averages 
+            provided by two Industry favourite APIs. Individual factors like metabolism may influence 
+            accuracy, so consider results as guidelines rather than strict rules.
+          </div>
+        </div>
+      </div>
+
+      <!-- FAQ 3 -->
+
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+            What is the importance of diet planning in maintaining overall health?
+          </button>
+        </h2>
+        <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#faq-accordion">
+          <div class="accordion-body">
+            <strong>Answer: </strong><br>Diet planning ensures essential nutrient intake, supports bodily functions,
+             strengthens the immune system, manages weight, and reduces the risk of chronic diseases.
+          </div>
+        </div>
+      </div>
+
+      <!-- FAQ 4 -->
+
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+            What are some common misconceptions about nutrition and dieting that I should be aware of?
+          </button>
+        </h2>
+        <div id="collapseFour" class="accordion-collapse collapse" data-bs-parent="#faq-accordion">
+          <div class="accordion-body">
+            <strong>Answer: </strong><br>Misconceptions include equating "healthy" with "low-fat", avoiding food groups, and relying on temporary diets.
+             A balanced diet is diverse, includes all food groups, and avoids extremes.
+          </div>
+        </div>
+      </div>
+
+
+          <!-- FAQ 5 -->
+
+
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+            What role does hydration play in overall nutrition, and how much water should I be drinking daily?
+          </button>
+        </h2>
+        <div id="collapseFive" class="accordion-collapse collapse" data-bs-parent="#faq-accordion">
+          <div class="accordion-body">
+            <strong>Answer: </strong><br>Hydration is essential for bodily functions like digestion and temperature regulation. Recommended daily water intake varies but generally falls between 8-12 cups (2-3 liters) for adults.
+          </div>
+        </div>
+      </div>
+
+
+      <!-- Enter FAQ -->
+
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <div class="input-group" id="faq-input-container">
+            <input type="text" class="form-control " placeholder="Have a Question?" aria-label="Have a Question?" aria-describedby="faq-submit" id="faq-input">
+            <button class="btn btn-outline-secondary faq-button w-10 " type="button" id="faq-submit">Submit FAQ</button>
+          </div>          
+          <div id="submit-msg"></div>
+        </h2>
+      </div>
+
+
+  </section>
 
   <!-- Footer -->
 
@@ -333,8 +461,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
         integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
         crossorigin="anonymous"></script>
-    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    <script src="./js/script.js"></script>
+        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+        <script src="./js/script.js"></script>
 </body>
 
 </html>
