@@ -262,6 +262,19 @@ $.ajax({
         }else{
         displayCaloriesResult('.total-calorie-container', 'p', TotalCalories);}
 
+        // Traffic light system for Total Calories
+
+        var CaloriesRec = parseFloat($(".daily-recommend-container p").text());
+
+        if(Math.abs(TotalCalories-CaloriesRec) < 200){
+            $("#totalTextContainer").attr("style", "background-color: var(--green-light);");
+        }else if (Math.abs(TotalCalories-CaloriesRec) < 400 && Math.abs(TotalCalories-CaloriesRec) > 200){
+            $("#totalTextContainer").attr("style", "background-color: var(--amber-light);");
+        }else if(Math.abs(TotalCalories-CaloriesRec) > 400){
+            $("#totalTextContainer").attr("style", "background-color: var(--red-light);");
+        }
+        
+
         // Pie chart data
 
 
@@ -355,7 +368,6 @@ $("#meal-form").onkeypress = function(e) {
 
 
 //   Saves FAQ entered by user into local storage
-
 var faq = [];
 
 $("#faq-submit").on("click", function(e){
@@ -369,7 +381,10 @@ $("#faq-submit").on("click", function(e){
 
     $("#faq-input").val("")
 
-})
+});
+
+
+
 
 
 /*

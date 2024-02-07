@@ -13,6 +13,9 @@
   --mid-accent: #A8C0A3;
   --dark-accent:rgb(26, 79, 17);
   --light-text: #e0e0e0;
+  --green-light: #008400;
+  --amber-light: #c09214;
+  --red-light:#510202;
   
   background-color: black;
   
@@ -275,8 +278,9 @@ nav .nav-link:hover{
 #about-you-title{
   color:var(--main-color);
   text-align: center;
-  padding-bottom: 20px;
+  padding-bottom: 50px;
   font-size: 4rem;
+  padding-top: 50px;
 }
 
 #about-form{
@@ -457,6 +461,10 @@ justify-content: space-evenly;
 .text-container{
   width:fit-content;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 #final-text{
@@ -471,6 +479,13 @@ justify-content: space-evenly;
   width:100;
 }
 
+
+#totalTextContainer{
+  background-color:#510202;
+  padding-right:15px;
+  padding-top: 20px;
+  color:var(--light-text);
+}
 
 /* FAQ section */
 #faq-section{
@@ -527,18 +542,16 @@ justify-content: space-evenly;
 
 .faq-button{
 
-  width:200px;
-  padding-inline: 50px;
+  min-width:fit-content;
+  padding-inline: 1vw;
   background-color: var(--main-color);
   color: var(--light-text);
-  padding:2px;
   font-family: "Inter",sans-serif;
 }
 
 .faq-button:hover {
 
-  width:200px;
-  padding:0;
+  min-width: fit-content;
   background-color: var(--light-text);
   color:var(--dark-accent);
 }
