@@ -3,31 +3,42 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  
+    <meta http-equiv='cache-control' content='no-cache'> 
+    <meta http-equiv='expires' content='0'> 
+    <meta http-equiv='pragma' content='no-cache'> 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Newsreader:opsz,wght@6..72,200;6..72,300;6..72,400&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/style.css">
-    <title>Document</title>
+    <link rel="icon" type="image/png" href="./img/logo/logo-light.png" media="(prefers-color-scheme: dark)">
+    <link rel="icon" type="image/png" href="./img/logo/favicon-lm.png" media="(prefers-color-scheme: light)">
+    <title>Balanced Plates | Meal Planner</title>
 </head>
 
 <body>
     <!-- Navbar -->
     <nav class="navbar navbar-light navbar-expand-lg p-3 fixed-top" id="theNavbar">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">Diet Planner</a>
+             <!-- Logo -->
+            <a class="navbar-brand" href="#">
+              <img id="nav-logo" src="./img/logo/logo-light.png" alt="Balanced Plates Logo">
+              <img class="logo-text" src="./img/logo/Logo-text-light.svg" alt="Balanced Plates Meal & Calorie Planner">
+            </a>
+
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
                 aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse justify-content-center" id="navbarNavAltMarkup">
-                <div class="navbar-nav">
+                <div class="navbar-nav ms-auto">
                     <a class="nav-link" aria-current="page" href="#">Home</a>
-                    <a class="nav-link" href="#about-yourself">Tell Us About Yourself</a>
-                    <a class="nav-link" href="#meal-plan">Meal Plan</a>
                     <a class="nav-link" href="#who-we-are">Who We Are</a>
+                    <a class="nav-link" href="#about-yourself">Tell Us About Yourself</a>
+                    <!-- <a class="nav-link" href="#meal-plan">Meal Plan</a> -->
                     <a class="nav-link" href="#contact">Contact</a>
                 </div>
             </div>
@@ -40,10 +51,10 @@
     <header id="hero">
         <div class="row justify-content-center align-items-center hero-bg-overlay ">
             <div class="col-md-10 rounded-borders cta gap py-5" id="hero-card" >
-                <h1 class="welcome-title mb-3">Welcome to your Meal Planner</h1>
+                <h1 class="welcome-title mb-3">Welcome to <span>Balanced Plates</span></h1>
                 <p class="mb-3">
-                    Welcome to the only meal planner you will ever need! We will help you discover your daily recommended calorie
-                     amount so you can make the best descisions about your diet and lifestyle. Not sure if your current diet matches
+                    Balanced Plates is the only meal planner you will ever need! At Balanced Plates we help you to discover your daily recommended calorie
+                     amount, so you can make the best decisions about your diet and lifestyle.<br> Not sure if your current diet matches
                       up to what it should be? Simple. Use our meal planner to input what you have/are planning to eat today and it will calculate
                       the total number of calories for you. Join the thousands of people who are eating their way to a better future!  
                 </p>
@@ -53,122 +64,267 @@
 
     </header>
 
+    <!-- Who We Are -->
+
+    <section id="who-we-are" class="container-fluid">
+        <div class="row justify-content-center align-items-center" >
+            <div class="col-md-6 col-12  rounded-borders py-5 d-flex flex-column justify-content-center gap-4 align-items-center" >
+                <h1 class="section-title">We Are...</h1>
+                <p class="section-text-content p-3">
+                    Meet your nutrition allies: We are the experts behind your journey to healthier living. 
+                    With 20 years of expertise, we've simplified meal planning for you. 
+                    Try our user-friendly meal planner today and take the first step towards a nourished lifestyle.
+                </p>
+                <a href="#about-yourself" class="btn btn-success who-we-are-btn page-button form-button" >Improve Your Health</a>
+            </div>
+            <div id="whowheare-bg-image" class="col-md-6 col-12 rounded-borders" >
+                <div class="bg-overlay">
+
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
     <!-- About Yourself-->
-
+    
     <section id="about-yourself" class="">
-
-            <div class="form-container d-flex justify-content-center row" style="border: 1px solid red;">
-              <div class="col-md-6" style="border: 1px solid red;">
-                
-                <form class="form" id="about-form">
         
-                    <div class="mb-3">
-                    <label class="form-label" name="Name">Name: </label>
-                    <input type="text" id="name-input" required>
-                    </div>
+        <h1 class="about-yourself-title mb-3" id="about-you-title">Tell us about yourself...</h1>
         
         
-                    <div class="mb-3">
-                    <label class="form-label" name="Age">Age: </label>
-                    <input type="number" id="age-input" required>
-                    </div>
-        
-                    <div class="mb-3">
-                    <label class="form-label" name="Gender">Gender: </label>
-                    <select class="form-select" id="gender-input" required>
-                    <option value="male">male</option>
-                    <option value="female">female</option>
-                    </select>
-                    </div>
-                    
-                    <div class="mb-3">
-                        <label class="form-label" name="Height">Height: </label>
-                        <input type="number" id="height-input" required>  <span> (cm)</span>
-                    </div>
-
-                    <div class="mb-3">
-                        <label class="form-label" name="Weight">Weight: </label>
-                        <input type="number" id="weight-input" required>  <span> (kg)</span>
-                    </div>
-                    
-                    <div class="mb-3">
-                        <label class="form-label" name="Activity Level">Activity Level: </label>
-                        <select class="form-select" id="activity-input" required>
-                        <option value="1">Basal Metabolic Rate</option>
-                        <option value="2">Sedentary: little or no exercise</option>
-                        <option value="3">Exercise 1-3 times/week</option>
-                        <option value="4">Exercise 4-5 times/week</option>
-                        <option value="5">Daily exercise or intense exercise 3-4 times/week</option>
-                        <option value="6">Intense exercise 6-7 times/week</option>
-                        <option value="7">Very intense exercise daily, or physical job</option>
-                        </select>
-                    </div>
-
-                    <button type="submit" class="btn btn-success">Submit</button>
-
-                </form>
-
-              </div>
-            </div>
-
-    </section>
-
-    <!-- Meals-->
-
-
-    <section id="meal-plan" class="">
-        <div class="form-container d-flex justify-content-center row" style="border: 1px solid red;">
-            <div class="col-md-6" style="border: 1px solid red;">
-              
-        <form class="form" id="meal-form">
-            <div>
-                <label class="meal-form" name="Meal-1">Meal 1 </label>
-                <input type="text" id="meal1item1" required>
-                <label class="meal-form" name="Weight-1">Weight 1 </label> 
-                <input type="text" id="meal1weight1" required> <span> (g)</span>
-            </div>
-            <div>
-                <label class="meal-form" name="Meal-2">Meal 2 </label>
-                <input type="text" id="meal2item2" required>
-                <label class="meal-form" name="Weight-2">Weight 2 </label> 
-                <input type="text" id="meal2weight2" required> <span> (g)</span>
-            </div>
-            <div>
-                <label class="meal-form" name="Meal-3">Meal 3 </label>
-                <input type="text" id="meal3item3" required>
-                <label class="meal-form" name="Weight-3">Weight 3 </label> 
-                <input type="text" id="meal3weight3" required> <span> (g)</span>
-            </div>
-            
-            <button type="submit" class="btn btn-success">Submit</button>
-        </form>
-        </div>
-        </div>
-    </section>
-
-
-    <!-- Display-->
-
-
-    <section id="display-result" class="">
         <div class="form-container d-flex justify-content-center row">
-            <div class="daily-recommend-container mb-3">
-                <h5 id="daily-result">Your daily recommended calorie intake is: </h4>
+            
+            <form class="form-floating needs-validation" id="about-form" novalidate>
+
+                <div class="input-group has-validation">
+                    <div class="form-floating">
+                      <input type="text" class="form-control" id="name-input" placeholder="Name" required>
+                      <label for="name-input">Name</label>
+                    </div>
+                    <div class="invalid-feedback">
+                      Please choose a username.
+                    </div>
+                  </div>
+
+
+                <div class="input-group has-validation">
+                    <div class="form-floating">
+                      <input type="number" class="form-control" id="age-input" placeholder="Age" required>
+                      <label for="age-input">Age</label>
+                    </div>
+                    <div class="invalid-feedback">
+                      Please enter your age.
+                    </div>
+                  </div>
+                  
+                  <div class="input-group has-validation"></div>
+                  <div class="form-floating">
+                      <select class="form-select" id="gender-input"><!-- this input id should be matched by label -->
+                          <option value="male" selected>Male</option>
+                          <option value="female">Female</option>
+                        </select>
+                        <!-- <label for="floatingSelectGrid">Gender</label> -->
+                        <!-- This label for must match the input's (select) id -->
+                        <label for="gender-input">Gender</label>
+                    </div>
+                    <div class="invalid-feedback">
+                        Please select a gender.
+                    </div>
+            
+
+                <div class="input-group has-validation">
+                    <div class="form-floating">
+                      <input type="number" class="form-control" id="height-input" placeholder="Height" required>
+                      <label for="height-input">Height (cm)</label>
+                    </div>
+                    <div class="invalid-feedback">
+                      Please enter your height.
+                    </div>
+                  </div>
+                
+                <div class="input-group has-validation">
+                    <div class="form-floating">
+                      <input type="number" class="form-control" id="weight-input" placeholder="Weight" required>
+                      <label for="weight-input">Weight (Kg)</label>
+                    </div>
+                    <div class="invalid-feedback">
+                      Please enter your weight.
+                    </div>
+                  </div>
+
+                  
+                  <div class="input-group mt-2">
+                  <label for="activity-input" class="form-label pt-3" id="activity-label">Daily Activity/Exercise Level: </label>
+                  <input type="range" class="form-range" min="1" max="7" id="activity-input" oninput="this.nextElementSibling.value = this.value">
+                  <div class="range-subheadings col d-flex justify-content-between">
+                    <span class="low-activity">Not Active</span>
+                    <span class="very-active">Very Active</span>
+                  </div>
+                </div>
+   
+                <div class="mb-3 mt-3 has-validation" id="diet-radio">
+                    <h4 for="diet-radio" class="form-label pt3" id="diet-label">Desired Diet Type:</h4>
+                    <div class="container pt-3 d-flex justify-content-between align-items-center" id=""><!-- create an id to match this label -->
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="balanced" required>
+                            <label class="form-check-label " for="inlineRadio1">Balanced</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="highprotein" required>
+                            <label class="form-check-label" for="inlineRadio2">High Protein</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="lowcarbs" required>
+                            <label class="form-check-label" for="inlineRadio3">Low Carbs</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio4" value="lowfat" required>
+                            <label class="form-check-label" for="inlineRadio3">Low Fat</label>
+                        </div>
+                    </div>
+                </div>
+
+            <button type="submit" id="about-submit" class="btn btn-md btn-success page-button form-button mt-5" >Find My Recommended Calories!</button>
+            <button type="reset" id="reset-user-form" class="btn btn-md btn-danger form-button" >Reset</button>
+                
+                
+            </form>
             </div>
-            <div class="total-calorie-container mb-3">
-                <h5 id="total-result">Your total meal calorie intake is: </h4>
-            </div>
-        </div>
-        
+
     </section>
+
+<!-- ----------------------------------Modal Calories-------------------------------->
+  
+  <!-- Modal -->
+  <div class="modal fade" id="modal-calories"  data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modal-caloriesLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+            <h1 class="modal-title fs-4 text-centre" id="modal-caloriesLabel">Your daily recommended calorie intake is:</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+        <section id="display-result" class="pb-4">
+            <div class="form-container d-flex justify-content-center row">
+                <div class="daily-recommend-container mb-3">
+
+                </div>
+
+                <button type="button" class="btn btn-success " data-bs-toggle="modal" data-bs-target="#modal-prepare-meal" data-bs-dismiss="modal" aria-label="Close">Prepare Your Meal</button>
+            </div>
+
+        </section>
+      </div>
+    </div>
+  </div>
+
+<!-- ----------------------------------Modal Meal ---------------------------------->
+  
+
+  <div class="modal fade" id="modal-prepare-meal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modal-prepare-mealLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-xl">
+      <div class="modal-content">
+        <div class="modal-header">
+            <h1 class="modal-title fs-4 text-centre" id="modal-prepare-mealLabel">Prepare your Meal:</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+          <section id="meal-plan" class="">
+
+            <h1 class="meals-title mb-3" id="meal-section-title">Hi <span id="dyn-name" class="ucwords"></span>! What's on the menu today?</h1>
+        
+            
+            
+            <div class="meal-form-container d-flex justify-content-center row">
+            
+                <form class="form-floating needs-validation" id="meal-form" novalidate>
+    
+                    <div class="input-group has-validation">
+                        <div class="form-floating">
+                          <input type="text" class="form-control" id="meal-item" placeholder="Name" required>
+                          <label class="meal-form form-label" name="Meal-1" for="meal-item">Item:</label>
+                        </div>
+                        <div class="invalid-feedback">
+                          Please enter an item.
+                        </div>
+                      </div>
+    
+    
+                    <div class="input-group has-validation">
+                        <div class="form-floating">
+                          <input type="number" class="form-control" id="meal-weight" placeholder="Age" required>
+                          <label class="meal-form form-label" name="Weight-1" for="meal-weight">Weight: (g)</label>
+                        </div>
+                        <div class="invalid-feedback">
+                          Please enter an item weight.
+                        </div>
+                      </div>
+                      <p class="meal-form-disclaimer"><span class="bold-text">Disclaimer:</span> Due to API limitations, unit measurements for liquids are currently not supported.</p>
+
+                      <button type="button" id="meal-add" class="btn btn-md btn-success add-button page-button form-button">Add</button>
+                      <button type="submit"  id="meal-submit" class="btn btn-md btn-success  page-button form-button" >Submit</button><!-- data-bs-toggle="modal" data-bs-target="#modal-total-calories" data-bs-dismiss="modal" aria-label="Close" -->
+                      <button type="reset" id="reset-meal-form" class="btn btn-md btn-danger form-button" >Reset</button>
+                      </form>
+                </div>
+                <div class="d-flex justify-content-center row m-3">
+                  <div class="col-lg list-container">
+                    <h4>Your meal items:</h4>
+                    <ul id="meal-list"></ul>
+                  </div>
+                </div>
+            </section>
+          </div>
+      </div>
+    </div>
+  </div>
+
+
+<!-- ----------------------------------Modal Total Calories -------------------------------->
+  
+  <div class="modal fade" id="modal-total-calories"  data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modal-total-caloriesLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+            <h1 class="modal-title fs-4 text-center" id="modal-total-caloriesLabel">Compare your Calories:</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+        <section id="display-result" class="pb-4">
+            <div class="form-container d-flex justify-content-center row py-4">
+                <h6 class="text-center">Total Calorie intake is:</h6>
+                <div class="total-calorie-container mb-3">
+
+                </div>
+
+                <h6 class="text-center mb-3">Recommended Calorie intake is:</h6>
+                <div class="daily-recommend-container mb-3">
+                
+               
+                </div>
+                 <div id="piechart"></div>
+                <div class="d-flex justify-content-center gap-4">
+                    <button type="button" class="btn btn-success " data-bs-toggle="modal" data-bs-target="#modal-prepare-meal" data-bs-dismiss="modal" aria-label="Close" style="width:40%;">Go Back</button>
+                    <button type="button" class="btn btn-danger "  data-bs-dismiss="modal" aria-label="Close" style="width:40%;">Exit</button>
+                </div>
+
+            </div>
+
+        </section>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
 
     <footer id="footer" class="text-centre py-4">
-        <p class="mb-0">© 2024 Diet Planner. All rights reserved.</p>
-
+      <div class="footer-container">
+        <img id="logo-footer" src="./img/logo/logo-light.png" alt="Logo">
+        <img id="brand-footer" src="./img/logo/text-light.png" alt="Balanced Plates Brand">
+      </div>
+    <p class="mb-0">© 2024 Balanced Plates | Meal & Calorie Planner. All rights reserved.</p>
     </footer>
 
-
-
+    <!-- Scripts -->
     <script src="https://code.jquery.com/jquery-3.7.1.js"
         integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
@@ -177,6 +333,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
         integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
         crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script src="./js/script.js"></script>
 </body>
 

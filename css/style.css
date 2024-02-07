@@ -1,19 +1,42 @@
 /* Page settings and variables */
 :root{
   scroll-behavior: smooth;
-
-
+  
+  
   font-family: 'Be Vietnam Pro', sans-serif;
   font-family: 'Inter', sans-serif;
   font-family: 'Newsreader', serif;
-
-
-  --main-color: #1F4002;
+  
+  
+  --main-color: #1f4002;
   --light-accent: rgba(192, 207, 182, 0.2);
   --mid-accent: #A8C0A3;
+  --dark-accent:rgb(26, 79, 17);
   --light-text: #e0e0e0;
   
+  background-color: black;
   
+}
+
+/* Scrollbar settings */
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }
 
 .page-button{
@@ -25,6 +48,69 @@
   background-color: var(--main-color);
 }
 
+
+/* To capitalize words */
+.ucwords { text-transform: capitalize; }
+
+
+/* Global form settings */
+
+.input-field{
+
+  flex-direction: column;
+  display: flex;
+  align-items:flex-start;
+  justify-content: start;
+  gap: 10px;
+  margin-left: 20px;
+}
+
+.form-control,
+.form-select{
+  width:100%;
+}
+
+.form-label{
+  margin:0;
+}
+
+.form-button{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  column-count: 2;
+  margin-top:20px;
+  padding-inline:0px;
+  width: 200px;
+}
+
+.form p input,
+.form-select{
+  margin-bottom: 10px;
+  max-width: 500p;
+  border: 1px solid var(--mid-accent);
+
+}
+.form-inner{
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+} 
+
+.form-control:focus,
+.form-select:focus {
+  border-color: var(--main-color);
+  box-shadow: 0 0 0 0.25rem #1f40026b;
+}
+
+select option:checked{
+  background-color: var(--light-accent) !important;
+}
+
+select option:target{
+  background-color: var(--mid-accent) !important;
+}
+
 /* Navbar */
 
 nav {
@@ -32,8 +118,27 @@ nav {
   max-width: 100%;
   margin: 0 auto;
 }
+
+.navbar-brand{
+  display: flex;
+  align-items: center;
+  text-decoration: none !important;
+  margin-left: 0.5%;
+}
+
+#nav-logo{
+  height:60px;
+}
+
+.logo-text{
+  height: 40px;
+  padding-left:5px;
+}
+
+
 .navbar-nav{
-    gap:10px;
+    gap:50px;
+    margin-right: 100px;
 }
 nav .nav-link {
   color: white;
@@ -55,14 +160,12 @@ nav .nav-link:hover{
     border-radius: 10px;
 }
 
-
 .navbar-toggler-icon{
     color:white;
 }
 .navbar-toggler:focus {
     border: 2px solid var(--mid-accent) !important; /* Set your desired outline color */
-  }
-
+}
 
 .navbar-brand{
     color:white;
@@ -72,27 +175,28 @@ nav .nav-link:hover{
     color:white;
 }
 
+
+
 /* Hero */
 
 #hero {
-  
   min-height: 100vh !important;
   color: rgb(25, 25, 25);
 }
 
 .hero-bg-overlay {
   background-image: url("../img/jonathan-kemper-1HHrdIoLFpU-unsplash\ 1.png") !important;
+  background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   margin: 0 auto;
   min-height: 100vh;
-  min-width: fit-content;
 }
 
 #hero-card {
-  margin-top: 10%;
-  background-color: rgba(0, 0, 0, 0.421);
+  margin-top: 70px;
+  background-color: rgba(0, 0, 0, 0.7);
   -webkit-box-shadow: 0px 0px 17px 0px rgba(0, 0, 0, 0.5);
   -moz-box-shadow: 0px 0px 17px 0px rgba(0, 0, 0, 0.2);
   box-shadow: 0px 0px 17px 0px rgba(0, 0, 0, 0.5);
@@ -109,6 +213,10 @@ nav .nav-link:hover{
   
 }
 
+.welcome-title span{
+  color: var(--mid-accent);
+}
+
 #hero-card p {
   margin: 0 25px;
   font-size: 1.5rem;
@@ -119,11 +227,201 @@ nav .nav-link:hover{
   padding-bottom: 75px;
 }
 
+/* Who We Are */
+
+#who-we-are{
+    height: 100vh;
+}
+#who-we-are >div{
+    height: 100%;
+}
+#who-we-are >div > *{
+    height: 100%;
+  
+}
+#whowheare-bg-image{
+    background-image: url('https://images.pexels.com/photos/8108006/pexels-photo-8108006.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%;
+    padding:0 0 0 0 !important;
+}
+.section-title{
+    font-size:4rem;
+    text-align: center;
+}
+
+.section-text-content{
+    font-size:1.8em;
+    font-family: Be Vietnam, sans-serif;
+    text-align: center;
+}
+.bg-overlay{
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.499);
+}
+
+.who-we-are-btn{
+    width:30%; padding:15px;
+}
 
 
+/* About Yourself section */
+
+#about-you-title{
+  color:var(--main-color);
+  text-align: center;
+}
+
+#about-form{
+  margin: 0 auto;
+  width: 80%;
+}
+
+#about-yourself{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height:100vh;
+  margin: 0 auto;
+  background-color: var(--light-accent);
+  padding-bottom: 30px;
+}
+
+#about-you-title{
+  padding-bottom: 20px;
+  font-size: 4rem;
+}
+
+#reset-user-form{
+  background-color: #510202;
+  margin: 0 auto;
+}
+
+#about-submit{
+  margin:0 auto;
+  margin-block: 10px;
+}
 
 
+#diet-type{
+display: flex;
+justify-content: center;
+}
 
+#diet-radio{
+  justify-content: center;
+}
+
+.range-subheadings span{
+  font-family: Be Vietnam Pro, sans-serif;
+  font-size: 0.8rem;
+  color: var(--main-color);
+}
+
+.form-check-label{
+  font-family: Be Vietnam Pro, sans-serif;
+  font-size: 0.9rem;
+  color: var(--main-color);
+}
+
+#activity-label,
+#diet-label{
+  font-family: Be Vietnam Pro, sans-serif;
+  font-size: 1rem;
+}
+
+.input-group{
+  padding-block: 5px;
+}
+
+/* Meal form */
+
+#meal-section-title{
+  padding-bottom: 20px;
+  font-size: 3rem;
+  text-align: center;
+}
+
+#dyn-name{
+  color: var(--dark-accent);
+  font-weight: 400;
+  font-family: Be Vietnam Pro, sans-serif;;
+}
+
+
+#meal-plan{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height:70vh;
+  background-color: var(--mid-accent);
+}
+.form-container{
+  width: 80%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+#meal-form p input{
+  border: 1px solid var(--main-color);
+  margin-right: 20px;
+}
+
+.meal-form-container{
+  width: 50%;
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+#meal-submit{
+  padding-inline: 30px;
+}
+
+.add-button {
+background-color: var(--dark-accent);
+padding-block: 10px;
+width: 150px;
+margin-bottom: 20px;
+}
+
+#meal-list{
+  height: 200px;
+  width:100%;
+  overflow-y: scroll;
+  text-align: center;
+}
+
+.list-container{
+  min-width:400px;
+  text-align: center;
+  margin-top: 30px;
+}
+
+#reset-meal-form{
+  background-color: #510202;
+  margin: 0 auto;
+  margin-top: 20px;
+}
+
+.meal-form-disclaimer{
+  font-family: Be Vietnam Pro, sans-serif;
+  font-size: 0.75rem;
+  text-align: center;
+}
+.bold-text{
+  font-weight: bold;
+}
+
+#meal-warning {
+  font-family: Be Vietnam Pro, sans-serif;
+  font-size: 0.75rem;
+  text-align: center;
+}
 
 /* Footer */
 
@@ -131,5 +429,102 @@ nav .nav-link:hover{
   background-color: var(--main-color);
   color: white;
   text-align: center;
+
 }
 
+.footer-container{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  margin: 0 30%;
+  margin-bottom: 30px;
+}
+
+#logo-footer{
+  height:100px;
+  opacity: 30%;
+}
+
+#brand-footer{
+  height: 75px;
+  opacity: 30%;
+}
+/* Media Queries
+
+/* Extra Small Devices (phones) */
+@media only screen and (max-width: 576px) {
+    #who-we-are {
+        height: auto; 
+    }
+    #who-we-are >div{
+        width: 100%;
+        height: 100%;
+    }
+
+    #whowheare-bg-image {
+        visibility: hidden;
+    }
+
+    .section-title {
+        font-size: 2rem; 
+    }
+
+    .section-text-content {
+        font-size: 1.2rem; 
+    }
+
+    .who-we-are-btn{
+    width:100%;
+     padding:10px 5px;
+    }
+  }
+  
+  /* Small Devices (tablets) */
+  @media only screen and (min-width: 577px) and (max-width: 767px) {
+
+    #who-we-are {
+        width:100vw;
+        height: auto; 
+    }
+
+    #whowheare-bg-image {
+        display: none;
+    }
+
+    .section-title {
+        font-size: 2rem; 
+    }
+
+    .section-text-content {
+        font-size: 1.2rem; 
+    }
+
+    .who-we-are-btn{
+    width:80%;
+     padding:10px 5px;
+    }
+  }
+
+  /* Medium Devices (desktops) */
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+    #who-we-are {
+        width: 100vw;
+        height: auto; 
+
+    #whowheare-bg-image {
+        display: none;
+    }
+  }
+  
+  /* Large Devices (desktops) */
+  @media only screen and (min-width: 992px) and (max-width: 1199px) {
+    
+  }
+  
+  /* Extra Large Devices (large desktops) */
+  @media only screen and (min-width: 1200px) {
+   
+  }
+
+}
