@@ -354,6 +354,24 @@ $("#meal-form").onkeypress = function(e) {
   }
 
 
+//   Saves FAQ entered by user into local storage
+
+var faq = [];
+
+$("#faq-submit").on("click", function(e){
+    e.preventDefault();
+
+    faq.push($("#faq-input").val());
+
+    localStorage.setItem("faqArr", JSON.stringify(faq));
+
+    console.log(`User FAQs: ${JSON.parse(localStorage.getItem("faqArr"))}`);
+
+    $("#faq-input").val("")
+
+})
+
+
 /*
  * function displayCaloriesResult(container, elem, calories);
  *
