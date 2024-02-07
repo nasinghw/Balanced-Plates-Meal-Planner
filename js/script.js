@@ -83,6 +83,7 @@ $(document).ready(function () {
     // Reload the document to prevent the data cleared from local storage staying in memory cache.
     document.location.reload(true)
     window.location.href = "#about-yourself";
+    
     })
 
 });
