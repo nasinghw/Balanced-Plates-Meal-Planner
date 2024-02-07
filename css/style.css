@@ -275,6 +275,8 @@ nav .nav-link:hover{
 #about-you-title{
   color:var(--main-color);
   text-align: center;
+  padding-bottom: 20px;
+  font-size: 4rem;
 }
 
 #about-form{
@@ -291,11 +293,6 @@ nav .nav-link:hover{
   margin: 0 auto;
   background-color: var(--light-accent);
   padding-bottom: 30px;
-}
-
-#about-you-title{
-  padding-bottom: 20px;
-  font-size: 4rem;
 }
 
 #reset-user-form{
@@ -472,6 +469,97 @@ justify-content: space-evenly;
 .googleChartTitle {
   text-align: center;
   width:100;
+}
+
+
+/* FAQ section */
+#faq-section{
+  height:fit-content;
+  margin-block: 200px;
+}
+
+#frequently-asked{
+  color:var(--main-color);
+  text-align: center;
+  padding-block: 70px;
+  padding-top: 100px;
+  font-size: 4rem;
+}
+
+.accordion-header{
+  font-family: Newsreader, serif;
+  font-size: medium;
+}
+
+#faq-accordion{
+  margin:0 auto;
+  margin-bottom: 70px;
+}
+
+.accordion {
+  --bs-accordion-active-bg:var(--main-color);
+  --bs-accordion-bg: var(--light-accent);
+  --bs-accordion-border-color: rgba(31, 64, 2, 0.4);
+  --bs-accordion-btn-color: var(--dark-accent);
+}
+
+.accordion-body{
+  background-color: #b3b35f32;
+  color: var(--main-color);
+  font-family: "Be Vietnam Pro", sans-serif;
+  font-weight: 200;
+}
+
+.accordion-button:not(.collapsed) {
+  color: var(--light-text);
+}
+
+
+.accordion-button{
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+#faq-input{
+  font-family: "Inter", sans-serif;
+}
+
+.faq-button{
+
+  width:200px;
+  padding-inline: 50px;
+  background-color: var(--main-color);
+  color: var(--light-text);
+  padding:2px;
+  font-family: "Inter",sans-serif;
+}
+
+.faq-button:hover {
+
+  width:200px;
+  padding:0;
+  background-color: var(--light-text);
+  color:var(--dark-accent);
+}
+
+.faq-button:focus {
+
+  box-shadow: 0 0 0 0.25rem #1f40026b;
+
+
+}
+
+#faq-input-container{
+  width: 80% !important;
+  padding-block: 20px;
+  margin: 0 auto;
+
+}
+
+#faq-input{
+  background-color: white;
+  color: var(--main-color);
 }
 
 
