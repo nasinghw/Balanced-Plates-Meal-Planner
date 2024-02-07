@@ -36,6 +36,13 @@ Instruct the user on how to use the page...
 
 To view our work on this project, you can review the sections of this repository, and the deployed site which can be found at https://nasinghw.github.io/Project-1/ 
 
+## Website screen shots
+![Screenshot 2024-02-07 at 18 22 54](https://github.com/nasinghw/Project-1/assets/151625048/80905b65-8528-486c-86ba-1d2d5dc43b70)
+![Screenshot 2024-02-07 at 18 23 17](https://github.com/nasinghw/Project-1/assets/151625048/1238d4a9-e63a-458b-a378-1ca57a82718f)
+![Screenshot 2024-02-07 at 18 24 38](https://github.com/nasinghw/Project-1/assets/151625048/57057833-0fe1-45e6-97cd-3de3a03355f6)
+![Screenshot 2024-02-07 at 18 22 29](https://github.com/nasinghw/Project-1/assets/151625048/5b2ba278-0bbf-413d-bb00-d966e7bd812a)
+
+
 ## Credits 
 
 Stack overflow
