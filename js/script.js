@@ -58,36 +58,34 @@ $("#about-form").on("submit", function (event) {
     
 
     $("#dyn-name").text(username);
-    location.href = "#meal-form";
+    //location.href = "#meal-form";
     
 });
-
 
 $(document).ready(function () {
+    // Reset button functionality for About form
+    $("#reset-user-form").on("click", function(event){
+        event.preventDefault();
+        
+        $("#name-input").val("");
+        $("#age-input").val("");
+        $("#gender-input").val("");
+        $("#height-input").val("");
+        $("#weight-input").val("");
+        $("#activity-input").val("");
+        $(".form-check-input").prop('checked', false); 
+        // Removes any existing warning message, after page reset
+        $("#modal-calories .text-danger").remove();
 
-// Reset button functionality for About form
-$("#reset-user-form").on("click", function(event){
-    event.preventDefault();
-    
-    $("#name-input").val("");
-    $("#age-input").val("");
-    $("#gender-input").val("");
-    $("#height-input").val("");
-    $("#weight-input").val("");
-    $("#activity-input").val("");
-    $(".form-check-input").prop('checked', false); 
-    // Removes any existing warning message, after page reset
-    $("#modal-calories .text-danger").remove();
-
-    // resets local storage
-    localStorage.clear()
+        // resets local storage
+        localStorage.clear()
 
     // Reload the document to prevent the data cleared from local storage staying in memory cache.
-   document.location.reload()
-})
+    document.location.reload(true)
+    window.location.href = "#about-yourself";
+    })
 
 });
-
 
 
 //Button to push meal inputs into object array, and append list item to page.
