@@ -48,6 +48,7 @@ $("#about-form").on("submit", function (event) {
     activity = $("#activity-input").val();
     diet = $(".form-check input:radio:checked").val();
 
+    
     if (!username || !age || !gender || !height || !weight || !activity || !diet) {
         // If any field is empty, return without showing the modal
         return;
@@ -80,6 +81,21 @@ $(document).ready(function () {
         $(".form-check-input").prop('checked', false); 
         // Removes any existing warning message, after page reset
         $("#modal-calories .text-danger").remove();
+
+    // Empty the variables
+    username = null;
+    age= null;
+    gender= null;
+    height= null;
+    weight= null;
+    activity= null;
+    diet= null;
+
+    // reset modal data-attributes
+    $("#about-submit").attr({ "data-bs-toggle": "", "data-bs-target": "" });
+    $('#modal-calories').modal('hide');
+
+
 
     // resets local storage
     localStorage.clear()
