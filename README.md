@@ -42,7 +42,7 @@ SO THAT I can plan my meals accordingly
 
 ### Calculate Total Daily Calories Consumed
 
-1. Progress through the "Recommended Calorie" modal and enter the name of a meal item and its' respective weight.
+1. Progress through the "Recommended Calorie" modal and enter the name of a meal item and its' weight.
 2. Click add item to add it to the meal list.
 3. Click reset, if you need to clear the Meal form.
 4. Click submit.
