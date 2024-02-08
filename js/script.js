@@ -280,11 +280,11 @@ $.ajax({
         var CaloriesRec = parseFloat($(".daily-recommend-container p").text());
 
       
-        if(Math.abs(TotalCalories-CaloriesRec) < 200){
+        if(Math.abs(TotalCalories-CaloriesRec) < 400){
             $("#totalTextContainer").attr("style", "background-color: var(--green-light);");
-        }else if (Math.abs(TotalCalories-CaloriesRec) < 400 && Math.abs(TotalCalories-CaloriesRec) > 200){
+        }else if (Math.abs(TotalCalories-CaloriesRec) < 600 && Math.abs(TotalCalories-CaloriesRec) > 400){
             $("#totalTextContainer").attr("style", "background-color: var(--amber-light);");
-        }else if(Math.abs(TotalCalories-CaloriesRec) > 400){
+        }else if(Math.abs(TotalCalories-CaloriesRec) > 800){
             $("#totalTextContainer").attr("style", "background-color: var(--red-light);");
         }
         
